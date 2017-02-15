@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
-import { Nav, Navbar, NavDropdown, MenuItem, NavItem } from 'react-bootstrap/lib/Navbar';
+//import {Nav, Navbar, NavDropdown, MenuItem, NavItem } from 'react-bootstrap/lib/Navbar';
 //import './../public/Logo.jpg';
 
 
-// const navbarInstance = (
+// const navbarInstance=(
 //   <Navbar inverse collapseOnSelect>
 //     <Navbar.Header>
 //       <Navbar.Brand>
@@ -86,126 +86,161 @@ class NavBar extends Component{
   }
 }
 */
+var leftLinks =
+  [
+    {
+      linkTo: "#",
+      text: "Home"
+    },
+    {
+      linkTo: "#",
+      text: "My Profile"
+    }
+  ];
 
+var rightLinks =
+  [
+    {
+      dropdown: true,
+      text: "Exhibit 1",
+      links: [
+        {
+          linkTo: "#",
+          text: "Activity 1"
+        },
+        {
+          linkTo: "#",
+          text: "Activity 2"
+        }
+      ]
+    },
+    {
+      dropdown: true,
+      text: "Exhibit 2",
+      links: [
+        {
+          linkTo: "#",
+          text: "Activity 1"
+        },
+        {
+          linkTo: "#",
+          text: "Activity 2"
+        }
+      ]
+    },
+    {
+      dropdown: true,
+      text: "Exhibit 3",
+      links: [
+        {
+          linkTo: "#",
+          text: "Activity 1"
+        },
+        {
+          linkTo: "#",
+          text: "Activity 2"
+        }
+      ]
+    }
+  ];
 
-class NavBar extends Component{
-  render(){
-    return(
-      <nav className="navbar navbar-inverse">
-        <div className="container-fluid">
-          <div className="navbar-header">
-            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-              <span className="sr-only">Toggle navigation</span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-            </button>
-            <NavBrand linkTo="#" text="Explore It!" />
+class NavBar extends Component {
+
+    render() {
+      return (
+        <nav className="navbar navbar-inverse" >
+          <div className="container-fluid" >
+            <div className="navbar-header" >
+              <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" >
+                <span className="sr-only" > Toggle navigation < /span>
+                <span className="icon-bar" > < /span>
+                <span className="icon-bar" > < /span>
+                <span className="icon-bar" > < /span>
+              </button>
+              <NavBrand linkTo="#" text="Explore It!" / >
+            </div>
+            <div className="collapse navbar-collapse" id="navbar-collapse" >
+              //<NavMenu links={ rightLinks } />
+              <ul className="nav navbar-nav navbar-right" >
+                //<NavMenu links={ leftLinks } />
+              </ul>
+            </div>
           </div>
-          <div className="collapse navbar-collapse" id="navbar-collapse">
-            <NavMenu links={[
-              {dropdown: true, text: "Exhibit 1", links: [
-                {linkTo: "#", text: "Activity 1"},
-                {linkTo: "#", text: "Activity 2"}
-              ]},
-              {dropdown: true, text: "Exhibit 2", links: [
-                {linkTo: "#", text: "Activity 1"},
-                {linkTo: "#", text: "Activity 2"}
-              ]},
-              {dropdown: true, text: "Exhibit 3", links: [
-                {linkTo: "#", text: "Activity 1"},
-                {linkTo: "#", text: "Activity 2"}
-              ]}
-            ]} />
-
-            <ul className="nav navbar-nav navbar-right">
-              <NavMenu links={[
-                {linkTo: "#", text: "My Profile"}
-              ]} />
-            </ul>
-          </div>
-        </div>
-      </nav>
-    );
-  }
+        </nav>
+      );
+    }
 };
 
 class NavBrand extends Component {
-  render(){
+  render() {
     return (
-      <div>
-        <a className="navbar-brand" href={this.props.linkTo}>{this.props.text}</a>
+      <div >
+        <a className="navbar-brand" href={this.props.linkTo} > {this.props.text} < /a>
       </div>
     );
   }
 };
 
 class NavMenu extends Component {
-  render(){
-    var links = this.props.links.map(function(link){
-      if(link.dropdown) {
+  render() {
+    var links=this.props.links.map(function(link) {
+      if (link.dropdown) {
         return (
-          <NavLinkDropdown links={link.links} text={link.text} key={link.text} active={link.active} />
+          <NavLinkDropdown links={link.links} text={link.text} key={link.text} active={link.active}/>
         );
-      }
-      else {
+      } else {
         return (
           <NavLink linkTo={link.linkTo} text={link.text} key={link.text} active={link.active} />
         );
       }
     });
     return (
-      <ul className="nav navbar-nav">
-        {links}
-      </ul>
+      <ul className="nav navbar-nav" > {links} </ul>
     );
   }
 };
 
 class NavLinkDropdown extends Component {
-  render(){
-    var active = false;
-    var links = this.props.links.map(function(link){
-      if(link.active){
-        active = true;
+  render() {
+    var active=false;
+    var links=this.props.links.map(function(link) {
+      if (link.active) {
+        active=true;
       }
       return (
-        <NavLink linkTo={link.linkTo} text={link.text} key={link.text} active={link.active} />
+        <NavLink linkTo={link.linkTo}text={link.text} key={link.text} active={link.active}/>
       );
     });
     return (
-      <li className={"dropdown " + (active ? "active" : "")}>
-        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" key={this.props.text}>
-          {this.props.text}
-          <span className="caret"></span>
-        </a>
-        <ul className="dropdown-menu" key={this.props.text + "-menu"}>
-          {links}
-        </ul>
+      <li className={"dropdown " + (active ? "active" : "")} >
+        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" key={this.props.text} > {this.props.text} <span className="caret" > < /span></a>
+        <ul className="dropdown-menu" key={this.props.text + "-menu"} > {links} </ul>
       </li>
     );
   }
 };
 
 class NavLink extends Component {
-  render(){
-    return(
-      <li className={(this.props.active ? "active" : "")}><a href={this.props.linkTo} key={this.props.text}>{this.props.text}</a></li>
+  render() {
+    return (
+      <li className={(this.props.active ? "active" : "")} >
+        <a href={this.props.linkTo} key={this.props.text} > {this.props.text} < /a>
+      </li >
     );
   }
 };
 
 // // set data
-// var navbar = {};
+// var navbar={};
 // navbar.brand =
 //   {linkTo: "#", text: "React Bootstrap Navbar"};
-// navbar.links = [
+// navbar.links=[
 //   {linkTo: "#", text: "Link 1"},
 //   {linkTo: "#", text: "Link 2"},
-  // {dropdown: true, text: "Dropdown", links: [
-  //   {linkTo: "#", text: "Dropdown Link 1"},
-  //   {linkTo: "#", text: "Dropdown Link 2", active: true}
-  // ]}
+// {dropdown: true, text: "Dropdown", links: [
+//   {linkTo: "#", text: "Dropdown Link 1"},
+//   {linkTo: "#", text: "Dropdown Link 2", active: true}
+// ]}
 // ];
 
 export default NavBar;
