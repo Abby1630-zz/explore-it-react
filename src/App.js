@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import './../public/Hero.jpg';
-import Button from 'react-bootstrap/lib/Button';
 import NavBar from './NavBar';
 import QuizCountdown from './QuizCountdown';
 import Instructions from './Instructions';
@@ -18,7 +17,6 @@ class App extends Component {
           <Instructions/>
           <SelectActivity/>
         </div>
-        <Button bsStyle="success">Test</Button>
       </div>
     );
   }

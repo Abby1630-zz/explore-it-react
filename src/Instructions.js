@@ -13,10 +13,10 @@ class Instructions extends Component {
   render() {
     return(
       <div>
+        <div className="container">
+          <h2 className="pull-right">Instructions</h2>
+        </div>
         <Grid>
-          <Row className="show-grid">
-            <h2 className="pull-left">Instructions</h2>
-          </Row>
           <Row>
             <Alert bsStyle="warning">
               {line1}

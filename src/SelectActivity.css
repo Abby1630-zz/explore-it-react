@@ -1,0 +1,10 @@
+.activity-select-container {
+  display: flex; /* or inline-flex */
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.activity-select-item {
+  align-self: center;
+}
