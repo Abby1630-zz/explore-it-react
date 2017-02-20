@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/lib/Col';
 import Panel from 'react-bootstrap/lib/Panel';
 import Label from 'react-bootstrap/lib/Label';
 import Button from 'react-bootstrap/lib/Button';
-import './SelectActivity.css';
+import './css/SelectActivity.css';
 
 // <svg width="400" height="180">
 //   <rect x="50" y="20" rx="20" ry="20" width="150" height="150"

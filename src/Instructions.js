@@ -14,7 +14,7 @@ class Instructions extends Component {
     return(
       <div>
         <div className="container">
-          <h2 className="pull-right">Instructions</h2>
+          <h2>Instructions</h2>
         </div>
         <Grid>
           <Row>

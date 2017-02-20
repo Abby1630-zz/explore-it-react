@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './css/App.css';
 import './../public/Hero.jpg';
 import NavBar from './NavBar';
 import QuizCountdown from './QuizCountdown';
@@ -12,6 +12,9 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
+        <div className="container">
+          <h1 className="">Welcome</h1>
+        </div>
         <div className="App-Body">
           <QuizCountdown />
           <Instructions/>
