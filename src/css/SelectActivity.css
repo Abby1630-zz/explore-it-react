@@ -5,6 +5,9 @@
   justify-content: space-between;
 }
 
-.activity-select-item {
+
+
+.explore-square-thumbnail {
   align-self: center;
+  max-width: 160px !important;
 }

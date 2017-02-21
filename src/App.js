@@ -5,6 +5,7 @@ import NavBar from './NavBar';
 import QuizCountdown from './QuizCountdown';
 import Instructions from './Instructions';
 import SelectActivity from './SelectActivity';
+import Quiz from './Quiz';
 
 
 class App extends Component {
@@ -13,12 +14,14 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <div className="container">
-          <h1 className="">Welcome</h1>
+          { /* <h1>Welcome</h1> */ }
+          <h1>Quiz</h1>
         </div>
         <div className="App-Body">
           <QuizCountdown />
-          <Instructions/>
-          <SelectActivity/>
+          <Instructions />
+          { /* <SelectActivity/> */ }
+          <Quiz />
         </div>
       </div>
     );

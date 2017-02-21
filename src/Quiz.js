@@ -59,36 +59,39 @@ var activities =
   }
 ];
 
-class SelectActivity extends Component{
+class Quiz extends Component{
   render(){
     return(
       <div>
-        <Exhibit elements={exhibits} />
-        <Activity elements={activities}/>
-        <Enter/>
+        {
+          /*
+            <AnswerFeedback isCorrect="true" />
+            <Question difficulty="easy" />
+            <ProgressBar percentComplete="33" />
+            <SubmitAnswer/>
+          */
+        }
+        <AnswerFeedback isCorrect="true" />
+
       </div>
     );
   }
 }
 
 
-class Exhibit extends Component{
+class AnswerFeedback extends Component {
   render(){
-    return(
-      <div>
-        <h2>
-          <Label bsStyle="success" className="pull-left">1</Label>
-          <h3 >Choose Your Exhibit</h3>
-        </h2>
-
-        <Grid>
-          <Squares elements={exhibits} color="success"/>
-          <hr/>
-        </Grid>
-      </div>
+    if (this.props.isCorrect ==="true") {
+      return (
+        <Alert bsStyle="success"><strong>Well done! </strong>You got the last question correct. Only 3 more to go!</Alert>
+      );
+    }
+    return (
+      <Alert bsStyle="danger"><strong>Oh snap! </strong>That wasn't the correct answer. Try again. You will do great on the 3 questions you have left!</Alert>
     );
   }
 }
+
 
 class Activity extends Component{
   render(){
@@ -147,4 +150,4 @@ class Squares extends Component {
   }
 }
 
-export default SelectActivity;
+export default Quiz;
