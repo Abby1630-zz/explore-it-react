@@ -6,6 +6,8 @@ import QuizCountdown from './QuizCountdown';
 import Instructions from './Instructions';
 import SelectActivity from './SelectActivity';
 import Quiz from './Quiz';
+import PersonalizeRobot from './PersonalizeRobot';
+
 
 
 class App extends Component {
@@ -14,14 +16,15 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <div className="container">
-          { /* <h1>Welcome</h1> */ }
-          <h1>Quiz</h1>
+          { <h1>Welcome</h1> }
+          { /*<h1>Quiz</h1> */ }
         </div>
         <div className="App-Body">
           <QuizCountdown />
           <Instructions />
-          { /* <SelectActivity/> */ }
-          <Quiz />
+          { <SelectActivity/>  }
+          { /* <Quiz /> */ }
+          { /*<PersonalizeRobot /> */ }
         </div>
       </div>
     );
