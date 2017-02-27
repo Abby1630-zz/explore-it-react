@@ -2,81 +2,47 @@ import React, { Component } from 'react';
 import './css/NavBar.css';
 
 var leftLinks =
-  [
-    {
-      linkTo: "#",
-      text: "Home"
-    },
-    {
-      linkTo: "#",
-      text: "My Profile"
-    }
-  ];
-
-var rightLinks =
-  [
-    // {
-    //   dropdown: true,
-    //   text: "Exhibit 1",
-    //   links: [
-    //     {
-    //       linkTo: "#",
-    //       text: "Activity 1"
-    //     },
-    //     {
-    //       linkTo: "#",
-    //       text: "Activity 2"
-    //     }
-    //   ]
-    // },
-    // {
-    //   dropdown: true,
-    //   text: "Exhibit 2",
-    //   links: [
-    //     {
-    //       linkTo: "#",
-    //       text: "Activity 1"
-    //     },
-    //     {
-    //       linkTo: "#",
-    //       text: "Activity 2"
-    //     }
-    //   ]
-    // },
-    // {
-    //   dropdown: true,
-    //   text: "Exhibit 3",
-    //   links: [
-    //     {
-    //       linkTo: "#",
-    //       text: "Activity 1"
-    //     },
-    //     {
-    //       linkTo: "#",
-    //       text: "Activity 2"
-    //     }
-    //   ]
-    // }
-  ];
+[
+  {
+    text: "Home",
+    navigateTo: "SelectActivity"
+  },
+  {
+    text: "My Profile",
+    navigateTo: "MyProfile"
+  }
+];
 
 class NavBar extends Component {
-
-    render() {
-      return (
-        <nav className="navbar explore-navbar" >
-          <div className="container-fluid" >
-            <div className="navbar-header" >
-              <NavBrand linkTo="#" text="ExploreIT" / >
-            </div>
-            <div >
-              <ul className="nav navbar-nav navbar-right explore-navbar-right" >
-                <NavMenu links={ leftLinks } />
-              </ul>
-            </div>
-          </div>
-        </nav>
-      );
+  constructor(props) {
+    super(props);
+    this.state = {
+      exhibit: "not set",
+      activity: "not set"
     }
+    this.nextPage= this.nextPage.bind(this);
+  }
+
+  nextPage (navigateTo) {
+    this.props.changePage(navigateTo);
+  }
+
+  render() {
+    return (
+      <nav className="navbar explore-navbar" >
+        <div className="container-fluid" >
+          <div className="navbar-header" >
+            <NavBrand linkTo="#" text="ExploreIT" / >
+          </div>
+          <div >
+            <ul className="nav navbar-nav navbar-right explore-navbar-right" >
+              <NavMenu links={ leftLinks } changePage={this.nextPage} />
+            </ul>
+          </div>
+        </div>
+      </nav>
+    );
+  }
 };
 
 class NavBrand extends Component {
@@ -91,16 +57,17 @@ class NavBrand extends Component {
 
 class NavMenu extends Component {
   render() {
+    var me = this;
     var links=this.props.links.map(function(link) {
-      if (link.dropdown) {
+      // if (link.dropdown) {
+      //   return (
+      //     <NavLinkDropdown links={link.links} text={link.text} key={link.text} active={link.active} />
+      //   );
+      // } else {
         return (
-          <NavLinkDropdown links={link.links} text={link.text} key={link.text} active={link.active}/>
+          <NavLink text={link.text} key={link.text} changePage={me.props.changePage} linkTo={link.navigateTo}/>
         );
-      } else {
-        return (
-          <NavLink linkTo={link.linkTo} text={link.text} key={link.text} active={link.active} />
-        );
-      }
+      // }
     });
     return (
       <ul className="nav navbar-nav" > {links} </ul>
@@ -108,31 +75,31 @@ class NavMenu extends Component {
   }
 };
 
-class NavLinkDropdown extends Component {
-  render() {
-    var active=false;
-    var links=this.props.links.map(function(link) {
-      if (link.active) {
-        active=true;
-      }
-      return (
-        <NavLink linkTo={link.linkTo}text={link.text} key={link.text} active={link.active}/>
-      );
-    });
-    return (
-      <li className={"dropdown " + (active ? "active" : "")} >
-        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" key={this.props.text} > {this.props.text} <span className="caret" > < /span></a>
-        <ul className="dropdown-menu" key={this.props.text + "-menu"} > {links} </ul>
-      </li>
-    );
-  }
-};
+// class NavLinkDropdown extends Component {
+//   render() {
+//     var active=false;
+//     var links=this.props.links.map(function(link) {
+//       if (link.active) {
+//         active=true;
+//       }
+//       return (
+//         <NavLink linkTo={link.linkTo}text={link.text} key={link.text} active={link.active}/>
+//       );
+//     });
+//     return (
+//       <li className={"dropdown " + (active ? "active" : "")} >
+//         <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" key={this.props.text} > {this.props.text} <span className="caret" > < /span></a>
+//         <ul className="dropdown-menu" key={this.props.text + "-menu"} > {links} </ul>
+//       </li>
+//     );
+//   }
+// };
 
 class NavLink extends Component {
   render() {
     return (
       <li className={(this.props.active ? "active" : "")} >
-        <a href={this.props.linkTo} key={this.props.text} className="navbar-brand explore-navbar-text"> {this.props.text} < /a>
+        <a href="" key={this.props.text} className="navbar-brand explore-navbar-text" onClick={() => this.props.changePage(this.props.linkTo)}> {this.props.text} < /a>
       </li >
     );
   }

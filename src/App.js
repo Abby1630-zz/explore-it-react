@@ -29,7 +29,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar />
+        <NavBar changePage={this.changePage}/>
         <div className="container">
           {getTitle (this.state.renderedPage)}
         </div>

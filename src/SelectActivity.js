@@ -68,7 +68,6 @@ class SelectActivity extends Component{
   }
 
   nextPage () {
-    {console.log("handleChange");}
     if(validateSelection()){
       this.props.changePage('Quiz');
     }
@@ -147,7 +146,6 @@ class Enter extends Component{
 
 class Squares extends Component {
   render() {
-    console.log(this.props);
     var exhibits = this.props.elements.map(function(element) {
       return (
         <Thumbnail className="explore-square-thumbnail" href="#" key={element.name} >
