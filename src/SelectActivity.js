@@ -1,71 +1,85 @@
 import React, { Component } from 'react';
-//import ReactDOM from 'react-dom';
 import Thumbnail from 'react-bootstrap/lib/Thumbnail';
 import Alert from 'react-bootstrap/lib/Alert';
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
-//import Panel from 'react-bootstrap/lib/Panel';
 import Label from 'react-bootstrap/lib/Label';
 import Button from 'react-bootstrap/lib/Button';
 import './css/SelectActivity.css';
 
-// <svg width="400" height="180">
-//   <rect x="50" y="20" rx="20" ry="20" width="150" height="150"
-//   Style="fill:white;stroke-width:5;opacity:0.5" />
-// </svg>
-
 var exhibits =
 [
   {
-    name: "Exhibit 1",
-    description: "cras vestibulum neque dolor pharetra donec amet elit cras nunc libero malesuada in odio"
+    name: "Publix",
   },
   {
-    name: "Exhibit 2",
-    description: "cras vestibulum neque dolor pharetra donec amet elit cras nunc libero malesuada in odio"
+    name: "Medical and Vet",
   },
   {
-    name: "Exhibit 3",
-    description: "cras vestibulum neque dolor pharetra donec amet elit cras nunc libero malesuada in odio"
+    name: "Outback/ Carraba's",
   },
   {
-    name: "Exhibit 4",
-    description: "cras vestibulum neque dolor pharetra donec amet elit cras nunc libero malesuada in odio"
+    name: "Fire Station",
   },
   {
-    name: "Exhibit 5",
-    description: "cras vestibulum neque dolor pharetra donec amet elit cras nunc libero malesuada in odio"
+    name: "Art",
   },
   {
-    name: "Exhibit 6",
-    description: "cras vestibulum neque dolor pharetra donec amet elit cras nunc libero malesuada in odio"
+    name: "Get Moving",
+  },
+  {
+    name: "Invention Zone",
+  },
+  {
+    name: "Water Area",
   }
 ];
 
-var activities =
-[
-  {
-    name: "Activity 1",
-    description: "cras vestibulum neque dolor pharetra donec amet elit cras nunc libero malesuada in odio"
-  },
-  {
-    name: "Activity 2",
-    description: "cras vestibulum neque dolor pharetra donec amet elit cras nunc libero malesuada in odio"
-  },
-  {
-    name: "Activity 3",
-    description: "cras vestibulum neque dolor pharetra donec amet elit cras nunc libero malesuada in odio"
-  }
-];
+var activities ={
+  publix:
+  [
+    {
+      name: "Cultural Foods",
+    },
+    {
+      name: "Nutrition",
+    },
+    {
+      name: "Money",
+    },
+    {
+      name: "Sorting",
+    },
+    {
+      name: "Letters",
+    }
+  ]
+};
 
 class SelectActivity extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      exhibit: "not set",
+      activity: "not set"
+    }
+    this.nextPage= this.nextPage.bind(this);
+  }
+
+  nextPage () {
+    {console.log("handleChange");}
+    if(validateSelection()){
+      this.props.changePage('Quiz');
+    }
+  }
+
   render(){
     return(
       <div>
         <Exhibit elements={exhibits} />
-        <Activity elements={activities}/>
-        <Enter/>
+        <Activity elements={activities.publix}/>
+        <Enter onClick={this.nextPage}/>
       </div>
     );
   }
@@ -82,7 +96,7 @@ class Exhibit extends Component{
         </h2>
 
         <Grid>
-          <Squares elements={exhibits} color="success"/>
+          <Squares elements={this.props.elements} color="success"/>
           <hr/>
         </Grid>
       </div>
@@ -100,7 +114,7 @@ class Activity extends Component{
         </h2>
 
         <Grid>
-          <Squares elements={activities} color="danger"/>
+          <Squares elements={this.props.elements} color="danger"/>
           <hr/>
         </Grid>
       </div>
@@ -120,7 +134,7 @@ class Enter extends Component{
           <Row>
             <Col xs={3}></Col>
             <Col xs={6}>
-              <Button bsStyle="info" bsSize="large" block>Lets Go!</Button>
+              <Button bsStyle="info" bsSize="large" block onClick={this.props.onClick}>Lets Go!</Button>
             </Col>
             <Col xs={3}></Col>
           </Row>
@@ -133,11 +147,12 @@ class Enter extends Component{
 
 class Squares extends Component {
   render() {
+    console.log(this.props);
     var exhibits = this.props.elements.map(function(element) {
       return (
         <Thumbnail className="explore-square-thumbnail" href="#" key={element.name} >
           <h4>{element.name}</h4>
-            <p>{element.description}</p>
+            {/*<p>{element.description}</p> */}
         </Thumbnail>
       );
     });
@@ -145,6 +160,9 @@ class Squares extends Component {
       <Alert bsStyle={this.props.color} className="activity-select-container">{exhibits} </Alert>
     );
   }
+}
+function validateSelection(){
+ return true;
 }
 
 export default SelectActivity;

@@ -3,70 +3,102 @@ import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
 import Alert from 'react-bootstrap/lib/Alert';
 import ProgressBar from 'react-bootstrap/lib/ProgressBar';
-import Label from 'react-bootstrap/lib/Label';
 import Button from 'react-bootstrap/lib/Button';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import ControlLabel from 'react-bootstrap/lib/ControlLabel';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import './css/Quiz.css';
+
 
 var questions =
   {
     easy: {
-      question: "This is the easy question 1?",
-      possibleAnswers: {
-        a: "correct answer a",
-        b: "incorrect b",
-        c: "incorrect c",
-        d: "incorrect d",
-      },
-      correctAnswer : "a"
+      question: "How many ingredients did you need to make the Hispanic meal?",
+      questionType: "multiple choice",
+      possibleAnswers: [
+        "3", "5", "1", "7"
+      ],
+      correctAnswer : "3"
     },
     medium: {
-      question: "This is the medium question 1?",
-      possibleAnswers: {
-        a: "correct answer a",
-        b: "incorrect b",
-        c: "incorrect c",
-        d: "incorrect d",
-      },
-      correctAnswer : "a"
+      question: "Which one of these did we not use in the Hispanic recipe?",
+      questionType: "multiple choice",
+      possibleAnswers: [
+        "Rice", "Soup", "Tomato", "Carrots",
+      ],
+      correctAnswer : "Tomato"
     },
     hard: {
-      question: "This is the hard question 1?",
-      possibleAnswers: {
-        a: "correct answer a",
-        b: "incorrect b",
-        c: "incorrect c",
-        d: "incorrect d",
-      },
-      correctAnswer : "a"
+      question: "Name one of the ingredients from the Hispanic meal in Spanish",
+      questionType: "fill in",
+      correctAnswers: ["arroz", "zanahoria", "sopa"]
     }
   };
 
-var isAnswered = false;
-var isCorrect = false;
-
 class Quiz extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      isCorrect: 'not answered',
+      actualValue: 'not answered',
+      expectedValue: ''
+    };
+    this.nextStep= this.nextStep.bind(this);
+    this.validateAnswer= this.validateAnswer.bind(this);
+    this.setValues= this.setValues.bind(this);
+  }
+
+  setValues(actualVal, expectedVal){
+    this.setState({actualValue: actualVal});
+    this.setState({expectedValue: expectedVal});
+  }
+
+  validateAnswer () {
+    var expectedArray = this.state.expectedValue.split(",");
+    if(expectedArray.indexOf(this.state.actualValue) > -1){
+      this.setState({isCorrect: 'true'});
+    } else {
+      this.setState({isCorrect: 'false'});
+    }
+  }
+
+  nextStep () {
+    this.props.changePage('SelectActivity');
+  }
+
   render(){
     return(
       <div>
-        <AnswerFeedback isCorrect={isCorrect} isAnswered={isAnswered} />
-        <QuestionBlock question={questions.easy}/>
+        <AnswerFeedback isCorrect={this.state.isCorrect}  />
+        <QuestionBlock questionInfo={questions.hard} setValue={this.setValues}/>
         <ProgressBar striped bsStyle="info" now={40} />
-        <Button bsStyle="success" bsSize="large" >Am I Correct?</Button>
+        <SubmitButton validateAnswer={this.validateAnswer} nextStep ={this.nextStep} isCorrect={this.state.isCorrect}/>
       </div>
     );
   }
 }
 
+class SubmitButton extends Component {
+  render() {
+    if (this.props.isCorrect ==='not answered'){
+      return (
+        <Button bsStyle="success" bsSize="large" onClick={this.props.validateAnswer}>Am I Correct?</Button>
+      );
+    } else{
+      return (
+        <Button bsStyle="success" bsSize="large" onClick={this.props.nextStep}>Go to next step</Button>
+      );
+    }
+  }
+}
 
 class AnswerFeedback extends Component {
   render(){
-    console.log("Answered: "+ this.props.isAnswered );
-    console.log("Correct: "+ this.props.isCorrect );
-
-    if (this.props.isCorrect === true && this.props.isAnswered === true ) {
+    if (this.props.isCorrect === 'true' ) {
       return (
         <Alert bsStyle="success"><strong>Well done! </strong>You got the last question correct. Only 3 more to go!</Alert>
       );
-    } else if(this.props.isCorrect === true && this.props.isAnswered === false) {
+    } else if(this.props.isCorrect === 'false') {
       return (
         <Alert bsStyle="danger"><strong>Oh snap! </strong>That wasn't the correct answer. Try again. You will do great on the X questions you have left!</Alert>
       );
@@ -77,32 +109,98 @@ class AnswerFeedback extends Component {
 }
 
 
-function answeredCorrectly() {
-    isAnswered = true;
-    isCorrect = true;
-    console.log("answeredCorrectly");
-}
-
-function answeredIncorrectly() {
-    isAnswered = true;
-    isCorrect = false;
-    console.log("answeredIncorrectly");
-}
-
 class QuestionBlock extends Component{
   render(){
+    if (this.props.questionInfo.questionType === "multiple choice")
+      return(
+        <MultipleChoiceQuestion questionInfo={this.props.questionInfo} setValue={this.props.setValue}/>
+      );
+    else {
+      return(
+        <FillInQuestion questionInfo={this.props.questionInfo} setValue={this.props.setValue}/>
+      );
+    }
+  }
+}
+
+class MultipleChoiceQuestion extends Component{
+  constructor(props) {
+    super(props);
+
+    this.handleChange= this.handleChange.bind(this);
+  }
+
+
+  handleChange(e) {
+    this.props.setValue(e.target.value, this.props.questionInfo.correctAnswer);
+  }
+
+  render(){
+    var me = this;
+
+    var questionJRX = this.props.questionInfo.possibleAnswers.map(function(answer) {
+      return (
+        <ListGroupItem key={answer}>
+        <div className="radio">
+          <label>
+            <input type="radio" name="answers" key={answer} value={answer} onChange={me.handleChange} />
+            {answer}
+          </label>
+        </div>
+      </ListGroupItem>
+
+      );
+    });
+
     return(
       <div>
-        <h3>{this.props.question.question}</h3>
+        <h3>{this.props.questionInfo.question}</h3>
         <ListGroup>
-          <ListGroupItem href="#link1" onClick={answeredCorrectly}>{this.props.question.possibleAnswers.a}</ListGroupItem>
-          <ListGroupItem href="#link1" onClick={answeredIncorrectly}>{this.props.question.possibleAnswers.b}</ListGroupItem>
-          <ListGroupItem href="#link1" onClick={answeredIncorrectly}>{this.props.question.possibleAnswers.c}</ListGroupItem>
-          <ListGroupItem href="#link1" onClick={answeredIncorrectly}>{this.props.question.possibleAnswers.d}</ListGroupItem>
+          {questionJRX}
         </ListGroup>
       </div>
     );
   }
 }
+
+
+class FillInQuestion extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      localValue: ''
+    };
+
+    this.handleChange= this.handleChange.bind(this);
+  }
+
+
+  handleChange(e) {
+    this.setState({ localValue: e.target.value });
+    var expectedValues = this.props.questionInfo.correctAnswers;
+    this.props.setValue(e.target.value,expectedValues.toString());
+  }
+
+  render() {
+    // console.log(this.props.questionInfo.correctAnswers);
+    return (
+      <form>
+        <FormGroup
+          controlId="formBasicText"
+        >
+          <ControlLabel>{this.props.questionInfo.question}</ControlLabel>
+          <FormControl
+            type="text"
+            value={this.state.localValue}
+            placeholder="Enter text"
+            onChange={this.handleChange}
+          />
+          <FormControl.Feedback />
+        </FormGroup>
+      </form>
+    );
+  }
+}
+
 
 export default Quiz;

@@ -13,26 +13,37 @@ import './css/SelectActivity.css';
 var customizations =
 [
   {
-    src: "src",
+    src: "customRobot1",
   },
   {
-    src: "Exhibit 2",
+    src: "customRobot2",
   },
   {
-    src: "Exhibit 3",
+    src: "customRobot3",
   },
   {
-    src: "Exhibit 4",
+    src: "customRobot4",
   }
 ];
 
 
 class PersonalizeRobot extends Component{
+  constructor(props) {
+    super(props);
+    this.nextPage= this.nextPage.bind(this);
+  }
+
+  nextPage () {
+    {console.log("handleChange");}
+    this.props.changePage('SelectActivity');
+
+  }
+
   render(){
     return(
       <div>
         <Customize availableCustomization={customizations} />
-        <Enter/>
+        <Enter onClick={this.nextPage}/>
       </div>
     );
   }
@@ -69,7 +80,7 @@ class Enter extends Component{
           <Row>
             <Col xs={3}></Col>
             <Col xs={6}>
-              <Button bsStyle="info" bsSize="large" block>Select This Item!</Button>
+              <Button bsStyle="info" bsSize="large" block onClick={this.props.onClick}>Select This Item!</Button>
             </Col>
             <Col xs={3}></Col>
           </Row>
@@ -84,13 +95,13 @@ class Squares extends Component {
   render() {
     var exhibits = this.props.elements.map(function(element) {
       return (
-        <Thumbnail className="explore-square-thumbnail" href="#" key={element.name} >
+        <Thumbnail className="explore-square-thumbnail" href="#" key={element.src} >
           <Glyphicon glyph="star" />
         </Thumbnail>
       );
     });
     return (
-      <Alert bsStyle={this.props.color} className="activity-select-container">{exhibits} </Alert>
+      <Alert bsStyle={this.props.color} className="activity-select-container" key="activity-select-container">{exhibits} </Alert>
     );
   }
 }
