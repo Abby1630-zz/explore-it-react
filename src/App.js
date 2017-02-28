@@ -7,6 +7,7 @@ import Instructions from './Instructions';
 import SelectActivity from './SelectActivity';
 import Quiz from './Quiz';
 import PersonalizeRobot from './PersonalizeRobot';
+import Activity from './Activity';
 import Button from 'react-bootstrap/lib/Button';
 
 
@@ -61,17 +62,21 @@ function getPage (renderPage, countUntilNextQuiz, changePageFunction) {
     return (
       <SelectActivity changePage={changePageFunction}/>
     );
-  } else if ((renderPage === 'SelectActivity')) {
+  } else if (renderPage === 'SelectActivity') {
     return (
       <SelectActivity changePage={changePageFunction}/>
     );
-  } else if ((renderPage === 'Quiz')) {
+  } else if (renderPage === 'Quiz') {
     return (
       <Quiz changePage={changePageFunction}/>
     );
-  } else if ((renderPage === 'PersonalizeRobot')) {
+  } else if (renderPage === 'PersonalizeRobot') {
     return (
       <PersonalizeRobot changePage={changePageFunction}/>
+    );
+  } else if (renderPage === 'Activity') {
+    return (
+      <Activity changePage={changePageFunction}/>
     );
   }
   return null;

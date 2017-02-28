@@ -86,7 +86,7 @@ class SubmitButton extends Component {
       );
     } else{
       return (
-        <Button bsStyle="success" bsSize="large" onClick={this.props.nextStep}>Go to next step</Button>
+        <Button bsStyle="info" bsSize="large" onClick={this.props.nextStep}>Go to next step</Button>
       );
     }
   }

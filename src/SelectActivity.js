@@ -69,7 +69,7 @@ class SelectActivity extends Component{
 
   nextPage () {
     if(validateSelection()){
-      this.props.changePage('Quiz');
+      this.props.changePage('Activity');
     }
   }
 
