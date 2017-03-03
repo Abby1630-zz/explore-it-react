@@ -13,7 +13,7 @@
 	margin: 1%;
   max-width: 160px !important;
   min-height: 80px !important;
-
+  -webkit-flex: 1 1 15em; 
 }
 
 * {
