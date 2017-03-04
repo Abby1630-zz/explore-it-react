@@ -60,6 +60,7 @@ class Activity extends Component{
           <ExploringLanguage heading="Exploring Language" bsStyle="info" open={false} languageContent={activity.exploringLanguage}/>
           <hr/>
         </Grid>
+        <Button bsStyle="success" bsSize="large" onClick={this.nextPage}>What's Next?</Button>
       </div>
     );
   }
