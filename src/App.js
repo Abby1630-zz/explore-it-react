@@ -8,14 +8,12 @@ import SelectActivity from './SelectActivity';
 import Quiz from './Quiz';
 import PersonalizeRobot from './PersonalizeRobot';
 import Activity from './Activity';
-import Button from 'react-bootstrap/lib/Button';
-
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      renderedPage: 'SelectActivity',
+      renderedPage: 'Activity',
       countUntilNextQuiz: 4
     };
     this.changePage = this.changePage.bind(this)
@@ -24,7 +22,6 @@ class App extends Component {
   changePage(pageName){
     //console.log(pageName);
     this.setState({renderedPage: pageName});
-
   }
 
   render() {
@@ -38,7 +35,6 @@ class App extends Component {
           <QuizCountdown count={this.state.countUntilNextQuiz}/>
           <Instructions page={this.state.renderedPage}/>
           {getPage (this.state.renderedPage, this.state.countUntilNextQuiz, this.changePage)}
-
         </div>
       </div>
     );

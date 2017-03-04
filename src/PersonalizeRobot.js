@@ -34,7 +34,7 @@ class PersonalizeRobot extends Component{
   }
 
   nextPage () {
-    {console.log("handleChange");}
+    console.log("handleChange");
     this.props.changePage('SelectActivity');
 
   }

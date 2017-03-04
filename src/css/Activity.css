@@ -1,0 +1,24 @@
+.lang-container {
+  display: flex; /* or inline-flex */
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.lang-list {
+  align-self: center;
+  padding: 5px;
+  max-width: 169px !important;
+  -webkit-flex: 1 1 15em;
+  box-shadow: none !important;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.explore-no-margin {
+  margin:0 !important;
+}

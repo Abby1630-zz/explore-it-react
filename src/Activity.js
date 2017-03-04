@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Grid from 'react-bootstrap/lib/Grid';
-import Col from 'react-bootstrap/lib/Col';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
 import Button from 'react-bootstrap/lib/Button';
 import Alert from 'react-bootstrap/lib/Alert';
+import Collapse from 'react-bootstrap/lib/Collapse';
+import Glyphicon from 'react-bootstrap/lib/Glyphicon';
+import './css/Activity.css';
 
 
 var activity = {
@@ -35,7 +37,6 @@ class Activity extends Component{
   constructor(props) {
     super(props);
     this.state = {
-
     }
     this.nextPage= this.nextPage.bind(this);
   }
@@ -50,23 +51,57 @@ class Activity extends Component{
         <Grid>
           <SectionTitle text={activity.activityName}/>
           <hr/>
-          <Alert bsStyle="success" >
-            <SectionContent heading="The Activity" text={activity.theActivity}/>
-          </Alert>
-
+          <Collapsible header="The Activity" bsStyle="success" open={true} body={activity.theActivity}/>
           <hr/>
-          <Alert bsStyle="info">
-            <SectionContent heading="Extending The Activity" text={activity.extendingTheActivity}/>
-          </Alert>
+          <Collapsible header="What Children Learn" bsStyle="danger" open={true} body={activity.whatChildrenLearn}/>
           <hr/>
-          <Alert bsStyle="warning">
-            <SectionContent heading="What Children Learn" text={activity.whatChildrenLearn}/>
-          </Alert>
+          <Collapsible header="Extending The Activity" bsStyle="warning" open={false} body={activity.extendingTheActivity}/>
           <hr/>
-          <ExploringLanguage heading="Exploring Language" languageContent={activity.exploringLanguage}/>
+          <ExploringLanguage heading="Exploring Language" bsStyle="info" open={false} languageContent={activity.exploringLanguage}/>
           <hr/>
-          <Button bsStyle="success" bsSize="large" onClick={this.nextPage}>What's Next?</Button>
         </Grid>
+      </div>
+    );
+  }
+}
+
+class Collapsible extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false
+    }
+
+    this.getIcon= this.getIcon.bind(this);
+  }
+
+  componentDidMount(){
+    if(this.props.open){
+      this.setState({open:true})
+    }
+  }
+
+  getIcon (){
+    if (this.state.open) {
+      return (<Glyphicon className="pull-right" glyph="chevron-up" />);
+    }
+    return (<Glyphicon className="pull-right" glyph="chevron-down" />);
+  }
+
+  render() {
+    return (
+      <div>
+        <Button bsStyle={this.props.bsStyle} block onClick={ ()=> this.setState({ open: !this.state.open })}>
+          {this.props.header}
+          {this.getIcon()}
+        </Button>
+        <Collapse in={this.state.open}>
+          <div>
+            <Alert bsStyle={this.props.bsStyle} className="lang-container">
+              {this.props.body}
+            </Alert>
+          </div>
+        </Collapse>
       </div>
     );
   }
@@ -74,43 +109,24 @@ class Activity extends Component{
 
 class SectionTitle extends Component {
   render () {
-    return <h2>{this.props.text}</h2>;
-  }
-}
-
-class SectionContent extends Component {
-  render () {
-    return (
-      <div>
-        <h3>{this.props.heading}</h3>
-        <p>{this.props.text}</p>
-      </div>
-    );
+    return <h2 className="explore-no-margin">{this.props.text}</h2>;
   }
 }
 
 class ExploringLanguage extends Component {
   render () {
-    console.log(this.props.languageContent);
     var langList = this.props.languageContent.map(function(word) {
-      console.log(word);
       return (
-        <Col xs={4}>
-          <ListGroup>
-            <ListGroupItem><strong>English:</strong> {word.english}</ListGroupItem>
-            <ListGroupItem><strong>Spanish:</strong> {word.spanish}</ListGroupItem>
-            <ListGroupItem><strong>French:</strong> {word.french}</ListGroupItem>
-          </ListGroup>
-        </Col>
+        <ListGroup className="lang-list" key={word.english}>
+          <ListGroupItem><strong>English:</strong> {word.english}</ListGroupItem>
+          <ListGroupItem><strong>Spanish:</strong> {word.spanish}</ListGroupItem>
+          <ListGroupItem><strong>French:</strong> {word.french}</ListGroupItem>
+        </ListGroup>
       );
     });
+
     return (
-      <div>
-        <h3>{this.props.heading}</h3>
-        <Grid>
-          {langList}
-        </Grid>
-      </div>
+      <Collapsible header={this.props.heading} bsStyle={this.props.bsStyle} open={this.props.open} body={langList}/>
     );
   }
 }

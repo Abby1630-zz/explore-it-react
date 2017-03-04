@@ -72,7 +72,7 @@ class Quiz extends Component{
         <AnswerFeedback isCorrect={this.state.isCorrect}  />
         <QuestionBlock questionInfo={questions.hard} setValue={this.setValues}/>
         <ProgressBar striped bsStyle="info" now={40} />
-        <SubmitButton validateAnswer={this.validateAnswer} nextStep ={this.nextStep} isCorrect={this.state.isCorrect}/>
+        <SubmitButton validateAnswer={this.validateAnswer} nextStep={this.nextStep} isCorrect={this.state.isCorrect}/>
       </div>
     );
   }
