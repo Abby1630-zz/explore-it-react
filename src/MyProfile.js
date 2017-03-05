@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Checkbox from 'react-bootstrap/lib/Checkbox';
 import Button from 'react-bootstrap/lib/Button';
 import Alert from 'react-bootstrap/lib/Alert';
+import Well from 'react-bootstrap/lib/Well';
 import Collapse from 'react-bootstrap/lib/Collapse';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
@@ -116,20 +117,6 @@ class MyProfile extends Component{
   }
 }
 
-class termsAndConditions extends Component {
-  render() {
-    if (this.props.isCorrect ==='not answered'){
-      return (
-        <Button bsStyle="success" bsSize="large" onClick={this.props.validateAnswer}>Am I Correct?</Button>
-      );
-    } else{
-      return (
-        <Button bsStyle="info" bsSize="large" onClick={this.props.nextStep}>Go to next step</Button>
-      );
-    }
-  }
-}
-
 function FieldGroup({ id, label, ...props }) {
   return (
     <FormGroup controlId={id}>
@@ -171,9 +158,9 @@ class Collapsible extends Component {
         </Button>
         <Collapse in={this.state.open}>
           <div>
-            <Alert bsStyle={this.props.bsStyle} className="lang-container">
+            <Well bsStyle={this.props.bsStyle} className="lang-container">
               {this.props.body}
-            </Alert>
+            </Well>
           </div>
         </Collapse>
       </div>
