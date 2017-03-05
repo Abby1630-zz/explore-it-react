@@ -36,7 +36,7 @@ class NavBar extends Component {
           </div>
           <div >
             <ul className="nav navbar-nav navbar-right explore-navbar-right" >
-              <NavMenu links={ leftLinks } changePage={this.nextPage} />
+              <NavMenu links={ leftLinks } changePage={this.nextPage} currentPage={this.props.currentPage}/>
             </ul>
           </div>
         </div>
@@ -57,21 +57,19 @@ class NavBrand extends Component {
 
 class NavMenu extends Component {
   render() {
-    var me = this;
-    var links=this.props.links.map(function(link) {
-      // if (link.dropdown) {
-      //   return (
-      //     <NavLinkDropdown links={link.links} text={link.text} key={link.text} active={link.active} />
-      //   );
-      // } else {
+    if (this.props.currentPage !== "Intro"){
+      var me = this;
+      var links=this.props.links.map(function(link) {
         return (
           <NavLink text={link.text} key={link.text} changePage={me.props.changePage} linkTo={link.navigateTo}/>
         );
-      // }
-    });
-    return (
-      <ul className="nav navbar-nav" > {links} </ul>
-    );
+      });
+      return (
+        <ul className="nav navbar-nav" > {links} </ul>
+      );
+    } else {
+      return null;
+    }
   }
 };
 
@@ -99,7 +97,7 @@ class NavLink extends Component {
   render() {
     return (
       <li className={(this.props.active ? "active" : "")} >
-        <a href="" key={this.props.text} className="navbar-brand explore-navbar-text" onClick={() => this.props.changePage(this.props.linkTo)}> {this.props.text} < /a>
+        <a key={this.props.text} className="navbar-brand explore-navbar-text" onClick={() => this.props.changePage(this.props.linkTo)}> {this.props.text} < /a>
       </li >
     );
   }
