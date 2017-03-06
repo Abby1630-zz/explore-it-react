@@ -15,15 +15,24 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      renderedPage: 'Intro',
-      countUntilNextQuiz: 4
+      renderedPage: 'Activity',
+      countUntilNextQuiz: 4,
+      selectedExhibit: "none",
+      selectedActivity: "none"
     };
     this.changePage = this.changePage.bind(this)
+    this.changeActivity = this.changeActivity.bind(this)
   }
 
   changePage(pageName){
     //console.log(pageName);
     this.setState({renderedPage: pageName});
+  }
+  changeActivity(exhibit, activity){
+    this.setState({
+      selectedExhibit: exhibit,
+      selectedActivity: activity
+    });
   }
 
   render() {
@@ -34,14 +43,14 @@ class App extends Component {
           {getTitle (this.state.renderedPage)}
         </div>
         <div className="App-Body">
-          {getPage (this.state.renderedPage, this.state.countUntilNextQuiz, this.changePage)}
+          {getPage (this.state.renderedPage, this.state.countUntilNextQuiz, this.state.selectedExhibit, this.state.selectedActivity, this.changePage, this.changeActivity)}
+          <hr/>
         </div>
+
       </div>
     );
   }
 }
-
-
 
 function getTitle (currentPage) {
   if (currentPage === 'SelectActivity') {
@@ -57,26 +66,26 @@ function getTitle (currentPage) {
   }
 }
 
-function getPage (renderPage, countUntilNextQuiz, changePageFunction) {
+function getPage (renderPage, countUntilNextQuiz, selectedExhibit, selectedActivity, changePageFunction, changeActivityFunction) {
   if (renderPage === 'SelectActivity') {
     return (
       <div>
-        <QuizCountdown count={countUntilNextQuiz}/>
+        {/* <QuizCountdown count={countUntilNextQuiz}/> */}
         <Instructions page={renderPage}/>
-        <SelectActivity changePage={changePageFunction}/>
+        <SelectActivity changePage={changePageFunction} changeActivity={changeActivityFunction}/>
       </div>
     );
   } else if (renderPage === 'Quiz') {
     return (
       <div>
         <Instructions page={renderPage}/>
-        <Quiz changePage={changePageFunction}/>
+        <Quiz changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity}/>
       </div>
     );
   } else if (renderPage === 'PersonalizeRobot') {
     return (
       <div>
-        <QuizCountdown count={countUntilNextQuiz}/>
+        {/* <QuizCountdown count={countUntilNextQuiz}/> */}
         <Instructions page={renderPage}/>
         <PersonalizeRobot changePage={changePageFunction}/>
       </div>
@@ -84,9 +93,9 @@ function getPage (renderPage, countUntilNextQuiz, changePageFunction) {
   } else if (renderPage === 'Activity') {
     return (
       <div>
-        <QuizCountdown count={countUntilNextQuiz}/>
+        {/* <QuizCountdown count={countUntilNextQuiz}/> */}
         <Instructions page={renderPage}/>
-        <Activity changePage={changePageFunction}/>
+        <Activity changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity}/>
       </div>
     );
   } else if (renderPage === 'MyProfile' ) {

@@ -41,7 +41,8 @@ class Quiz extends Component{
     this.state = {
       isCorrect: 'not answered',
       actualValue: 'not answered',
-      expectedValue: ''
+      expectedValue: '',
+      percentComplete: 0
     };
     this.nextStep= this.nextStep.bind(this);
     this.validateAnswer= this.validateAnswer.bind(this);
@@ -56,9 +57,15 @@ class Quiz extends Component{
   validateAnswer () {
     var expectedArray = this.state.expectedValue.split(",");
     if(expectedArray.indexOf(this.state.actualValue) > -1){
-      this.setState({isCorrect: 'true'});
+      this.setState({
+        isCorrect: 'true',
+        percentComplete: 100
+      });
     } else {
-      this.setState({isCorrect: 'false'});
+      this.setState({
+        isCorrect: 'false',
+        percentComplete: 100
+      });
     }
   }
 
@@ -71,7 +78,7 @@ class Quiz extends Component{
       <div>
         <AnswerFeedback isCorrect={this.state.isCorrect}  />
         <QuestionBlock questionInfo={questions.hard} setValue={this.setValues}/>
-        <ProgressBar striped bsStyle="info" now={40} />
+        <ProgressBar striped bsStyle="info" now={this.state.percentComplete} />
         <SubmitButton validateAnswer={this.validateAnswer} nextStep={this.nextStep} isCorrect={this.state.isCorrect}/>
       </div>
     );
@@ -96,11 +103,11 @@ class AnswerFeedback extends Component {
   render(){
     if (this.props.isCorrect === 'true' ) {
       return (
-        <Alert bsStyle="success"><strong>Well done! </strong>You got the last question correct. Only 3 more to go!</Alert>
+        <Alert bsStyle="success"><strong>Well done! </strong>You got the last question correct!</Alert>
       );
     } else if(this.props.isCorrect === 'false') {
       return (
-        <Alert bsStyle="danger"><strong>Oh snap! </strong>That wasn't the correct answer. Try again. You will do great on the X questions you have left!</Alert>
+        <Alert bsStyle="danger"><strong>Oh snap! </strong>That wasn't the correct answer. You will do great on the next one!</Alert>
       );
     };
     return <div/>;
