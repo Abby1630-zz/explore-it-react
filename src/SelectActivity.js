@@ -24,24 +24,14 @@ var exhibits =
     name: "Medical and Vet",
     activities:   [
       {name: "Bones"},
-      {name: "Eating the Rainbow"},
-      {name: "Going to the Doctor"}
+      {name: "Eating the Rainbow"}
     ]
   },
   {
     name: "Outback/ Carraba's",
     activities:   [
-      {name: "Make Me a Pizza"},
-      {name: "Advanced Pizza Making (8-11 year olds)"},
       {name: "Order up!"},
       {name: "I’m Here to Help"},
-      {name: "Planning a Party"}
-    ]
-  },
-  {
-    name: "Fire Station",
-    activities:   [
-      {name: "Fire Fighter!"}
     ]
   },
   {
@@ -57,7 +47,6 @@ var exhibits =
   {
     name: "Get Moving",
     activities:   [
-      {name: "Surely You’re Joking"},
       {name: "Who is faster?"},
       {name: "At the Races"},
       {name: "How High?"},
@@ -89,14 +78,9 @@ var exhibits =
 function getActivities (exhibitName) {
   var exhibit = exhibits.filter(
       function(exhibits){
-        console.log(exhibits.name);
-        console.log(exhibitName);
-        console.log(exhibits.name === exhibitName);
         return exhibits.name === exhibitName;
       }
   );
-  console.log(exhibit[0].activities);
-
   return exhibit[0].activities;
 }
 
@@ -114,6 +98,7 @@ class SelectActivity extends Component{
 
   nextPage () {
     if(validateSelection()){
+      this.props.changeActivity(this.state.exhibit, this.state.activity);
       this.props.changePage('Activity');
     }
   }
@@ -122,6 +107,7 @@ class SelectActivity extends Component{
     e.currentTarget.style.backgroundColor = '#eef7ea'; /* 10% lighten of the top of the alert */
     e.currentTarget.style.border = '#a9a9a9 3px solid'
     this.setState({exhibit:e.currentTarget.name})
+
   }
 
   setActivityState (e) {

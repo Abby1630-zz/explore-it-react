@@ -9,9 +9,12 @@ import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import './css/Quiz.css';
 
+var rand = Math.random();
 
-var questions =
+var questions =[
   {
+    exhibitName: 'Publix',
+    activityName: 'Cultural Foods',
     easy: {
       question: "How many ingredients did you need to make the Hispanic meal?",
       questionType: "multiple choice",
@@ -33,7 +36,42 @@ var questions =
       questionType: "fill in",
       correctAnswers: ["arroz", "zanahoria", "sopa"]
     }
-  };
+  },
+  {
+    exhibitName: 'Publix',
+    activityName: 'Nutrition',
+    easy: {
+      question: "Which of these is not one of the five main food groups?",
+      questionType: "multiple choice",
+      possibleAnswers: [
+        "Vegetables", "Fruits", "Candy", "Dairy"
+      ],
+      correctAnswer : "Candy"
+    },
+    medium: {
+      question: "Which of these food types should you eat most of during a typical day?",
+      questionType: "multiple choice",
+      possibleAnswers: [
+        "Dairy", "Vegetables", "Protein", "Fruits",
+      ],
+      correctAnswer : "Vegetables"
+    },
+    hard: {
+      question: "Name one of the five main food group.",
+      questionType: "fill in",
+      correctAnswers: ["Fruits", "Vegetables", "Protein", "Dairy"]
+    }
+  }
+];
+
+function getQuestions (activityName) {
+  var questionsForActivity = questions.filter(
+      function(questions){
+        return questions.activityName === activityName;
+      }
+  );
+  return questionsForActivity[0];
+}
 
 class Quiz extends Component{
   constructor(props) {
@@ -47,11 +85,12 @@ class Quiz extends Component{
     this.nextStep= this.nextStep.bind(this);
     this.validateAnswer= this.validateAnswer.bind(this);
     this.setValues= this.setValues.bind(this);
+    this.randomizeQuestion= this.randomizeQuestion.bind(this);
   }
 
   setValues(actualVal, expectedVal){
-    this.setState({actualValue: actualVal});
-    this.setState({expectedValue: expectedVal});
+    this.setState({actualValue: actualVal.toLowerCase()});
+    this.setState({expectedValue: expectedVal.toLowerCase()});
   }
 
   validateAnswer () {
@@ -73,11 +112,27 @@ class Quiz extends Component{
     this.props.changePage('SelectActivity');
   }
 
+  randomizeQuestion() {
+    if (rand < .33) {
+      return (
+        <QuestionBlock questionInfo={getQuestions(this.props.activity).easy} setValue={this.setValues}/>
+      );
+    } else if (rand > .66) {
+      return (
+        <QuestionBlock questionInfo={getQuestions(this.props.activity).medium} setValue={this.setValues}/>
+      );
+    } else {
+      return (
+        <QuestionBlock questionInfo={getQuestions(this.props.activity).hard} setValue={this.setValues}/>
+      );
+    }
+  }
+
   render(){
     return(
       <div>
         <AnswerFeedback isCorrect={this.state.isCorrect}  />
-        <QuestionBlock questionInfo={questions.hard} setValue={this.setValues}/>
+        {this.randomizeQuestion()}
         <ProgressBar striped bsStyle="info" now={this.state.percentComplete} />
         <SubmitButton validateAnswer={this.validateAnswer} nextStep={this.nextStep} isCorrect={this.state.isCorrect}/>
       </div>

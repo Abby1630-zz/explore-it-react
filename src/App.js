@@ -15,7 +15,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      renderedPage: 'Activity',
+      renderedPage: 'Intro',
       countUntilNextQuiz: 4,
       selectedExhibit: "none",
       selectedActivity: "none"
@@ -54,7 +54,7 @@ class App extends Component {
 
 function getTitle (currentPage) {
   if (currentPage === 'SelectActivity') {
-    return (<h1>Welcome</h1>);
+    return (<h1>Select an Activity</h1>);
   } else if (currentPage === 'Quiz'){
     return (<h1>Quiz</h1>);
   } else if (currentPage === 'PersonalizeRobot'){
