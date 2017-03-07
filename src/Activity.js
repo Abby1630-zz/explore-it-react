@@ -423,120 +423,312 @@ var activities = [
   {
     exhibitName: 'Get Moving',
     activityName: 'Who is faster?',
-    theActivity: '',
-    extendingTheActivity: '',
-    whatChildrenLearn: '',
+    theActivity: 'Malcolm the Robot asks you this question, “Whoa! You just ran against all of the animals in the “Animal Race.” I think that the turtle was the slowest and the parrot was the fastest, but that the rabbit was not as fast as the parrot. Is the rabbit faster or slower than the turtle?”',
+    extendingTheActivity: 'It would make sense to ask similar questions for other animals. For example, you can insert another animal into the scenario, like a cheetah is faster than the rabbit, so is the cheetah faster than the turtle? You may want to use the “Animal Race” activity as a visual representation of the problem. This can help children visualize the scenario.',
+    whatChildrenLearn: 'This is a practice of children’s logic skills. They should be developing the ability to use reason to make sense of a situation, such that with the given information, they can figure out which animal is faster or slower.',
     exploringLanguage:[
       {
-        english: '',
-        spanish: '',
-        french: ''
+        english: 'Turtle',
+        spanish: 'Tortuga',
+        french: 'Turtue'
       },
       {
-        english:'',
-        spanish:'',
-        french: ''
+        english:'Parrot',
+        spanish:'Cotorra',
+        french: 'Perroquet'
       },
       {
-        english:'',
-        spanish:'',
-        french: ''
+        english:'Rabbit',
+        spanish:'Conejo',
+        french: 'Lapin'
       }
     ]
   },
   {
-    exhibitName: 'Art',
-    activityName: '',
-    theActivity: '',
-    extendingTheActivity: '',
-    whatChildrenLearn: '',
+    exhibitName: 'Get Moving',
+    activityName: 'At the Races',
+    theActivity: 'Malcom the Robot says excitedly, “I can run as fast as the dog, but I want to know who else I can beat in a race. Which animal do you think I can beat in a race? Which animals do you think you can beat in a race?”',
+    extendingTheActivity: 'Help your child make a prediction about how fast the various animals are. See if they can compare the speed of a pair of animals. You can ask them why they think some animals are faster than others.',
+    whatChildrenLearn: 'Making predictions helps your child\'s innate understanding of science and nature. As they learn to make comparisons across different aspects (such as speed), children develop "mental models" to anticipate different outcomes in the world around them. This fosters further understanding of science and builds to more complex concepts.',
     exploringLanguage:[
       {
-        english: '',
-        spanish: '',
-        french: ''
+        english: 'Run',
+        spanish: 'Correr',
+        french: 'Courir'
       },
       {
-        english:'',
-        spanish:'',
-        french: ''
+        english:'Fast',
+        spanish:'Rápido',
+        french: 'Rapide'
       },
       {
-        english:'',
-        spanish:'',
-        french: ''
+        english:'Race',
+        spanish:'Carrera',
+        french: 'Course'
       }
     ]
   },
   {
-    exhibitName: 'Art',
-    activityName: '',
-    theActivity: '',
-    extendingTheActivity: '',
-    whatChildrenLearn: '',
+    exhibitName: 'Get Moving',
+    activityName: 'How High?',
+    theActivity: 'Malcolm the Robot notes, “I know that 1 foot is equal to 12 inches. I measured my height, and found that I am 1 foot and 2 inches high. How many inches is that? The average robot is about 11 inches high. Am I taller or shorter than the average robot? By how much? I want to know how tall you are. The average height for a child 4- to 6-years-old is 37 to 42 inches. Are you taller or shorter than the average child around your age?”',
+    extendingTheActivity: 'Using hand gestures, show your child about how long a foot is compared to an inch. Ask them to tell you which one is bigger. Explain that 12 inches make one foot, then ask them to count up to 12 to show how many more inches are needed to make one foot.',
+    whatChildrenLearn: 'Measurement is a skill set that takes time to develop in children. However, it is important to introduce them to the concepts of bigger and smaller as well as some of the names of the units. As they start to learn comparisons of length, they will eventually develop better concepts of what measuring entails.',
     exploringLanguage:[
       {
-        english: '',
-        spanish: '',
-        french: ''
+        english: 'Height',
+        spanish: 'Estatura',
+        french: 'Taille'
       },
       {
-        english:'',
-        spanish:'',
-        french: ''
+        english:'Inches',
+        spanish:'Pulgadas',
+        french: 'Pounces'
       },
       {
-        english:'',
-        spanish:'',
-        french: ''
+        english:'Child',
+        spanish:'Niño',
+        french: 'Enfant'
       }
     ]
   },
   {
-    exhibitName: 'Art',
-    activityName: '',
-    theActivity: '',
-    extendingTheActivity: '',
-    whatChildrenLearn: '',
+    exhibitName: 'Get Moving',
+    activityName: 'How Strong?',
+    theActivity: 'Malcolm the Robot exclaims, “Because I have arms of steel, I am fascinated by how strong people\'s hands are. I noticed the funny contraption that has a handle and chain, and that it makes a lever.  I tried to grab the handle and pull, but I can\'t quite manage. Can you show me how strong you are and grab the handle and pull it? What do you notice as you move the handle back and forth?”',
+    extendingTheActivity: 'The position of the handle within the bar creates a lever. The farther the handle is moved, the longer the lever and the easier to pull up the weight. Ask your child to pull using a shorter lever and then with a longer lever. Ask them which one was easier to pull. Ask them if they\'ve ever played on a see-saw, a type of lever. It\'s easier to go up and down when you are farther down the see-saw than closer.',
+    whatChildrenLearn: 'Piaget demonstrated that young children begin to think about scientific principles based on their real world experiences. When children interact with even simple science demonstrations, they build their knowledge base and begin to form concepts of how the world works. They may not know the formal names of things like "levers" but playing with such items allows them to start constructing scientific knowledge that they will use throughout development.',
     exploringLanguage:[
       {
-        english: '',
-        spanish: '',
-        french: ''
+        english: 'Arms',
+        spanish: 'Brazos',
+        french: 'Bras'
       },
       {
-        english:'',
-        spanish:'',
-        french: ''
+        english:'Handle',
+        spanish:'Mango',
+        french: 'Manche'
       },
       {
-        english:'',
-        spanish:'',
-        french: ''
+        english:'Chain',
+        spanish:'Cadena',
+        french: 'Chaîne'
       }
     ]
   },
   {
-    exhibitName: 'Art',
-    activityName: '',
-    theActivity: '',
-    extendingTheActivity: '',
-    whatChildrenLearn: '',
+    exhibitName: 'Get Moving',
+    activityName: 'Stop that Ball!',
+    theActivity: 'Malcolm the Robot excitedly exclaims, “My robot friends and I love sports. We often throw balls of steel into goals in a game a lot like soccer. I love to defend the goal from the steel-balls. See if you can be like me and stop the soccer balls from getting into the net. Don\'t let the soccer balls hit you!”',
+    extendingTheActivity: 'Ask your child to guess how many soccer balls they\'ll stop. Ask them which is their left and right hands before they start. You can help them by telling them to move left or right to stop the oncoming soccer balls. See if they change what they are doing as more and more balls come at them on the screen.',
+    whatChildrenLearn: 'Gross motor movements like running and jumping are children\'s natural way of exploring the world. As they become more coordinated, they will begin to learn to time their movements so they can stop a soccer ball or hit the baseball. Activities that keep children moving are also a great way to stimulate their brain activity and help them practice balance and speed.',
     exploringLanguage:[
       {
-        english: '',
-        spanish: '',
-        french: ''
+        english: 'Friends',
+        spanish: 'Amigos',
+        french: 'Copains'
       },
       {
-        english:'',
-        spanish:'',
-        french: ''
+        english:'Ball',
+        spanish:'Balón',
+        french: 'Ballon'
       },
       {
-        english:'',
-        spanish:'',
-        french: ''
+        english:'Soccer',
+        spanish:'Fútbol',
+        french: 'Football'
+      }
+    ]
+  },
+  {
+    exhibitName: 'Invention Zone',
+    activityName: 'Lego Activity-egocentrism and motor skills',
+    theActivity: 'Malcolm the Robot excitedly exclaims, “I love to play with Legos. I need your help building three towers of Legos. Now you should stand at one side and I should be on the opposite side of you. What do you think I see?”',
+    extendingTheActivity: 'You can ask the child to make more towers and add them to the ones already made. This way you make it more difficult for them to determine what their friend is seeing.',
+    whatChildrenLearn: 'Children here are being tested on egocentrism. Here, it can be seen if they have the ability to take another’s perspective. Motor skills are also assessed.',
+    exploringLanguage:[
+      {
+        english: 'Love',
+        spanish: 'Amor',
+        french: 'Amour'
+      },
+      {
+        english:'Building',
+        spanish:'Construir',
+        french: 'Bâtiment'
+      },
+      {
+        english:'Towers',
+        spanish:'Torres',
+        french: 'Tour'
+      }
+    ]
+  },
+  {
+    exhibitName: 'Invention Zone',
+    activityName: 'Where will it go?',
+    theActivity: 'Malcolm the Robot notes that inside the construction area are the air vacuum and balls. Malcolm begins to put the ball into the side vacuum. Malcolm the Robot asks, “Where will the ball land? What happens next? Draw a diagram to show me what happens.”',
+    extendingTheActivity: 'Children can draw other paths that objects may take to extend the activity. For example, you may ask the children to draw the path of the paper airplane inside that exhibit.',
+    whatChildrenLearn: 'Children practice their drawing skills, which are important to their development. This can also help with mapping skills, because children are practicing their abilities to transfer the real life scenario onto paper (or the app).',
+    exploringLanguage:[
+      {
+        english: 'Inside',
+        spanish: 'Adentro',
+        french: 'Intérieur'
+      },
+      {
+        english:'Air',
+        spanish:'Aire',
+        french: 'Air'
+      },
+      {
+        english:'Diagram',
+        spanish:'Diagrama',
+        french: 'Diagramme'
+      }
+    ]
+  },
+  {
+    exhibitName: 'Invention Zone',
+    activityName: 'Twinkle Star Theater',
+    theActivity: 'Malcolm the Robot asks, “I want to know who your favorite movie or TV show character is, or what you want to be when you grow up. Dress yourself like it and then show me by acting in a play.”',
+    extendingTheActivity: 'You can create a second scene that connects with the first one that the child created and join them.',
+    whatChildrenLearn: 'By doing this activity, children are practicing sociodramatic play. Children are able to explore the roles people have in the real world. It also shows the symbolic skills they are developing.',
+    exploringLanguage:[
+      {
+        english: 'Movie',
+        spanish: 'Película',
+        french: 'Film'
+      },
+      {
+        english:'Character',
+        spanish:'Personaje',
+        french: 'Personnage'
+      },
+      {
+        english:'Acting',
+        spanish:'Actuar',
+        french: 'Jeu'
+      }
+    ]
+  },
+  {
+    exhibitName: 'Water Area',
+    activityName: 'Piloting a Boat',
+    theActivity: 'Malcolm the Robot states, “I’ve always wanted to drive a boat. Luckily, there is a boat that you can drive on the computer. Once you’ve completed the course, tell me about how you did and how you can improve.”',
+    extendingTheActivity: 'This activity can be carried into many activities in everyday life. When a child performs a task in a new and different way, you may ask them why they did that or how they came up with a new procedure.',
+    whatChildrenLearn: 'Metacognition is thinking about thinking. This skill is greatly developing in children at this age and this activity enables children to hone in on this developing skill.',
+    exploringLanguage:[
+      {
+        english: 'Boat',
+        spanish: 'Bote',
+        french: 'Bateau'
+      },
+      {
+        english:'Drive',
+        spanish:'Conducir',
+        french: 'Conduire'
+      },
+      {
+        english:'Computer',
+        spanish:'Computadora',
+        french: 'Ordinateur'
+      }
+    ]
+  },
+  {
+    exhibitName: 'Water Area',
+    activityName: 'Hidden Treasure',
+    theActivity: 'Malcolm the Robot excitedly exclaims, “I love to explore and discover. Let’s see if we can find the hidden treasure on the beach. Help me find pieces of gold and an antique pirate jar to bring to the history museum. The island is named after the legendary Spanish pirate Jose Gaspar "the last of the Buccaneers.',
+    extendingTheActivity: 'Here the child is pretending to uncover hidden treasure. Help your child identify all the items they find and use efficient searching strategies to uncover the two needed items. After the two needed items are uncovered, play with your child to see what else they can uncover and then cover the items again for future explorers to find.',
+    whatChildrenLearn: 'This activity works with the child\'s development of both goal-oriented and imaginative play. Around this age, attention and memory abilities are starting to become more refined. The searching behavior may require the use of efficient planning, searching strategies, and attention control to find the items needed.',
+    exploringLanguage:[
+      {
+        english: 'Explore',
+        spanish: 'Explorar',
+        french: 'Explorer'
+      },
+      {
+        english:'Beach',
+        spanish:'Playa',
+        french: 'Plage'
+      },
+      {
+        english:'Spanish',
+        spanish:'Español',
+        french: 'Espagnol'
+      }
+    ]
+  },
+  {
+    exhibitName: 'Water Area',
+    activityName: 'Sailing, Sailing',
+    theActivity: 'Malcolm the Robot says, “I am curious how to get to Cozumel, which is I the Caribbean Sea. Go to the "helm" (the ship\'s steering mechanism) and use the ship\'s wheel and radar, which really stands for "Radio Detecting And Ranging," to show me the 585 mile trip to travel from Tampa, Florida, to Cozumel, Mexico.',
+    extendingTheActivity: 'Using the black touchpad, help your child select Cozumel as the destination for the cruise. Work with your child to guide the boat from it\'s starting location in Tampa to the Cozumel. Have your child work out the best route to get to the end point in the most direct manner. Notice you can also take the ship to New Orleans and Cayman Islands, you can use this to ask your child to predict what location is closest to Tampa and what is farthest.',
+    whatChildrenLearn: 'Early in development, young children\'s spatial abilities sharpen. They begin to understand directions (left, right, up, down) as well as understand how maps can be representations of real places. Eventually they will do more complex representation skills such as creating detailed directions and drawing maps of places they have been.',
+    exploringLanguage:[
+      {
+        english: 'Sea',
+        spanish: 'Mar',
+        french: 'Mer'
+      },
+      {
+        english:'Ship',
+        spanish:'Barco',
+        french: 'Bateau'
+      },
+      {
+        english:'Trip',
+        spanish:'Viaje',
+        french: 'Voyage'
+      }
+    ]
+  },
+  {
+    exhibitName: 'Water Area',
+    activityName: 'Ahoy, There!',
+    theActivity: 'Malcolm the Robot notes that, “I have noticed a telescope on the edge of the ship. I love exploring and am fascinated with how a telescope can see things so far away. Using the eyepiece to look through the optical tube of the telescope, can you find the image of the parrot on the far wall of museum?”',
+    extendingTheActivity: 'The telescope allows the child to explore the environment around the museum. Point out the eyepiece, optical tube, and other parts of the telescope. Help your child locate and identify the picture of a parrot we have placed in the letter O of the word "Kidsport" on the far wall of the museum. You can help your child focus the telescope with the two focusers, the one closest to the eyepiece is for quick focus while the second one is for making finer adjustments to the image. Ask them to look far without the telescope and describe the difference.',
+    whatChildrenLearn: 'Looking through two lenses allows us to see things get big then small. Even though children see the images change from their normal size to either really large or really small, they understand that the object\'s size hasn\'t really changed. This idea, known as size constancy, is important for our brain to understand distance and depth perception.',
+    exploringLanguage:[
+      {
+        english: 'Telescope',
+        spanish: 'Telescopio',
+        french: 'Télescope'
+      },
+      {
+        english:'Image',
+        spanish:'Imagen',
+        french: 'Image'
+      },
+      {
+        english:'Museum',
+        spanish:'Museo',
+        french: 'Musée'
+      }
+    ]
+  },
+  {
+    exhibitName: 'Water Area',
+    activityName: "What's Down There?",
+    theActivity: 'Malcolm the Robot says, “Because I’m made out of steel, I cannot go into the ocean and do not know a lot about life under water. I really want to learn about different objects and sea life. Using the ultrasound and underwater cameras, help me discover three living things under the sea.”',
+    extendingTheActivity: 'There is a loop in the underwater videos, every few minutes the video of underwater life changes. Please have your child view the underwater video, resume play in another area of the ship, then return to view a new image. The underwater ultrasound allows the child to see habitats and animals undersea. Ask your child to identify different underwater animals. Do they think these animals could live on land? Why or why not? Ask your child to think about whether they could live in the sea. What would they need?',
+    whatChildrenLearn: 'Exploring other ecosystems and their living creatures is familiar to children. Naming animals is a common early knowledge category they develop. They refine these categories as they learn more attributes of each animal and where they live. Such early identification and classification will develop into more complex understanding of scientific categories.',
+    exploringLanguage:[
+      {
+        english: 'Ocean',
+        spanish: 'Oceano',
+        french: 'Océan'
+      },
+      {
+        english:'Water',
+        spanish:'Agua',
+        french: 'Eau'
+      },
+      {
+        english:'Life',
+        spanish:'Vida',
+        french: 'Vie'
       }
     ]
   }
