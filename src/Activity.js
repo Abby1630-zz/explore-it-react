@@ -762,6 +762,7 @@ class Activity extends Component{
   }
 
   setRating (e) {
+    //e.currentTarget.style.border = '#a9a9a9 3px solid'
     this.setState({rating:e.currentTarget.value});
   }
 

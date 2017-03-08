@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Scroll from 'react-scroll';
+
 import './css/App.css';
 import './../public/Hero.jpg';
 import NavBar from './NavBar';
@@ -10,6 +12,7 @@ import PersonalizeRobot from './PersonalizeRobot';
 import Activity from './Activity';
 import MyProfile from './MyProfile';
 
+var scroll = Scroll.animateScroll;
 
 class App extends Component {
   constructor(props) {
@@ -26,6 +29,7 @@ class App extends Component {
 
   changePage(pageName){
     //console.log(pageName);
+    scroll.scrollToTop();
     this.setState({renderedPage: pageName});
   }
   changeActivity(exhibit, activity){

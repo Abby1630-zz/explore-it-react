@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Scroll from 'react-scroll';
 import Thumbnail from 'react-bootstrap/lib/Thumbnail';
 import Alert from 'react-bootstrap/lib/Alert';
 import Grid from 'react-bootstrap/lib/Grid';
@@ -6,7 +7,11 @@ import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import Label from 'react-bootstrap/lib/Label';
 import Button from 'react-bootstrap/lib/Button';
+
 import './css/SelectActivity.css';
+
+var Element = Scroll.Element;
+var scroller = Scroll.scroller;
 
 var exhibits =
 [
@@ -37,11 +42,8 @@ var exhibits =
   {
     name: "Art",
     activities:   [
-      {name: "Shall We Dance?"},
       {name: "Kaleidoscope"},
-      {name: "The Case of the Missing Letter"},
-      {name: "How the Mind Wanders"},
-      {name: "Time to Draw!"}
+      {name: "The Case of the Missing Letter"}
     ]
   },
   {
@@ -57,15 +59,12 @@ var exhibits =
   {
     name: "Invention Zone",
     activities:   [
-      {name: "Lego Activity-egocentrism and motor skills"},
-      {name: "Where will it go?"},
-      {name: "Twinkle Star Theater"}
+      {name: "Lego Activity-egocentrism and motor skills"}
     ]
   },
   {
     name: "Water Area",
     activities:   [
-      {name: "Piloting a Boat"},
       {name: "Hidden Treasure"},
       {name: "Sailing, Sailing"},
       {name: "Ahoy, There!"},
@@ -91,6 +90,8 @@ class SelectActivity extends Component{
       exhibit: "not set",
       activity: "not set"
     }
+    var scroll = Scroll.animateScroll;
+    scroll.scrollToTop();
     this.nextPage= this.nextPage.bind(this);
     this.setExhibitState= this.setExhibitState.bind(this);
     this.setActivityState= this.setActivityState.bind(this);
@@ -106,25 +107,35 @@ class SelectActivity extends Component{
   setExhibitState (e) {
     e.currentTarget.style.backgroundColor = '#eef7ea'; /* 10% lighten of the top of the alert */
     e.currentTarget.style.border = '#a9a9a9 3px solid'
+    scroller.scrollTo('step2', {
+      duration: 1000,
+      delay: 0,
+      smooth: true,
+    })
     this.setState({exhibit:e.currentTarget.name})
-
   }
 
   setActivityState (e) {
     e.currentTarget.style.backgroundColor = '#f8eeee';/* 5% lighten of the alert color */
     e.currentTarget.style.border = '#a9a9a9 3px solid'
+    scroller.scrollTo('step3', {
+      duration: 1000,
+      delay: 0,
+      smooth: true,
+    })
     this.setState({activity:e.currentTarget.name})
   }
 
   render(){
-
     return(
       <div>
         <Exhibit elements={exhibits} onSelection={this.setExhibitState}/>
         { this.state.exhibit !== "not set" ? <Activity elements={getActivities(this.state.exhibit)} onSelection={this.setActivityState}/> : null }
-        {/* <Activity elements={activities.publix}/> */}
+        <Element name="step2"></Element>
+
         { this.state.activity !== "not set" ? <Enter onClick={this.nextPage}/> : null}
-        {/* <Enter onClick={this.nextPage}/> */}
+        <Element name="step3"></Element>
+
       </div>
     );
   }
@@ -136,7 +147,7 @@ class Exhibit extends Component{
     return(
       <div>
         <h2>
-          <Label bsStyle="success" className="pull-left">1</Label>
+          <Label bsStyle="success" id="step1" className="pull-left">1</Label>
           <h3 >Choose Your Exhibit</h3>
         </h2>
 
@@ -154,7 +165,7 @@ class Activity extends Component{
     return(
       <div>
         <h2>
-          <Label bsStyle="danger" className="pull-left">2</Label>
+          <Label bsStyle="danger" id="step2" className="pull-left">2</Label>
           <h3 >Choose Your Activity</h3>
         </h2>
 
@@ -172,7 +183,7 @@ class Enter extends Component{
     return(
       <div>
         <h2>
-          <Label bsStyle="info" className="pull-left">3</Label>
+          <Label bsStyle="info" id="step3" className="pull-left">3</Label>
           <h3 >Ready?</h3>
         </h2>
         <Grid>
