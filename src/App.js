@@ -11,6 +11,7 @@ import Quiz from './Quiz';
 import PersonalizeRobot from './PersonalizeRobot';
 import Activity from './Activity';
 import MyProfile from './MyProfile';
+import Grid from 'react-bootstrap/lib/Grid';
 
 var scroll = Scroll.animateScroll;
 
@@ -31,6 +32,7 @@ class App extends Component {
     //console.log(pageName);
     scroll.scrollToTop();
     this.setState({renderedPage: pageName});
+
   }
   changeActivity(exhibit, activity){
     this.setState({
@@ -50,7 +52,6 @@ class App extends Component {
           {getPage (this.state.renderedPage, this.state.countUntilNextQuiz, this.state.selectedExhibit, this.state.selectedActivity, this.changePage, this.changeActivity)}
           <hr/>
         </div>
-
       </div>
     );
   }

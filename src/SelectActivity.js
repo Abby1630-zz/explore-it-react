@@ -105,8 +105,8 @@ class SelectActivity extends Component{
   }
 
   setExhibitState (e) {
-    e.currentTarget.style.backgroundColor = '#eef7ea'; /* 10% lighten of the top of the alert */
-    e.currentTarget.style.border = '#a9a9a9 3px solid'
+    // e.currentTarget.style.backgroundColor = '#eef7ea'; /* 10% lighten of the top of the alert */
+    // e.currentTarget.style.border = '#a9a9a9 3px solid';
     scroller.scrollTo('step2', {
       duration: 1000,
       delay: 0,
@@ -116,8 +116,8 @@ class SelectActivity extends Component{
   }
 
   setActivityState (e) {
-    e.currentTarget.style.backgroundColor = '#f8eeee';/* 5% lighten of the alert color */
-    e.currentTarget.style.border = '#a9a9a9 3px solid'
+    // e.currentTarget.style.backgroundColor = '#f8eeee';/* 5% lighten of the alert color */
+    // e.currentTarget.style.border = '#a9a9a9 3px solid';
     scroller.scrollTo('step3', {
       duration: 1000,
       delay: 0,
@@ -129,8 +129,8 @@ class SelectActivity extends Component{
   render(){
     return(
       <div>
-        <Exhibit elements={exhibits} onSelection={this.setExhibitState}/>
-        { this.state.exhibit !== "not set" ? <Activity elements={getActivities(this.state.exhibit)} onSelection={this.setActivityState}/> : null }
+        <Exhibit elements={exhibits} onSelection={this.setExhibitState} currentlySelected={this.state.exhibit}/>
+        { this.state.exhibit !== "not set" ? <Activity elements={getActivities(this.state.exhibit)} onSelection={this.setActivityState} currentlySelected={this.state.activity}/> : null }
         <Element name="step2"></Element>
 
         { this.state.activity !== "not set" ? <Enter onClick={this.nextPage}/> : null}
@@ -152,7 +152,7 @@ class Exhibit extends Component{
         </h2>
 
         <Grid>
-          <Squares elements={this.props.elements} onSelection={this.props.onSelection} color="success"/>
+          <Squares exhibitOrActivity="exhibit" currentlySelected={this.props.currentlySelected} elements={this.props.elements} onSelection={this.props.onSelection} color="success"/>
           <hr/>
         </Grid>
       </div>
@@ -170,7 +170,7 @@ class Activity extends Component{
         </h2>
 
         <Grid>
-          <Squares elements={this.props.elements} onSelection={this.props.onSelection} color="danger"/>
+          <Squares exhibitOrActivity="activity" currentlySelected={this.props.currentlySelected} elements={this.props.elements} onSelection={this.props.onSelection} color="danger"/>
           <hr/>
         </Grid>
       </div>
@@ -214,8 +214,15 @@ class Squares extends Component {
   render() {
     var me = this;
     var exhibits = this.props.elements.map(function(element) {
+      var classes = "explore-square-thumbnail ";
+      if (me.props.exhibitOrActivity === 'exhibit' && element.name === me.props.currentlySelected) {
+        classes += 'selected-exhibit';
+      } else if (me.props.exhibitOrActivity === 'activity' && element.name === me.props.currentlySelected) {
+        classes += 'selected-activity';
+      }
+
       return (
-        <Thumbnail className="explore-square-thumbnail" href="#" onClick={me.passSelection}key={element.name} name={element.name} >
+        <Thumbnail className={classes} href="#" onClick={me.passSelection}key={element.name} name={element.name} >
           <h4>{element.name}</h4>
             {/*<p>{element.description}</p> */}
         </Thumbnail>

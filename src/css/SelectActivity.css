@@ -13,11 +13,21 @@
 	margin: 1%;
   max-width: 160px !important;
   min-height: 80px !important;
-  -webkit-flex: 1 1 15em; 
+  -webkit-flex: 1 1 15em;
 }
 
 * {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+}
+
+.selected-exhibit {
+  background-color: #eef7ea !important; /* 10% lighten of the top of the alert */
+  border: #a9a9a9 3px solid !important;
+}
+
+.selected-activity {
+  background-color: #f8eeee !important;/* 5% lighten of the alert color */
+  border: #a9a9a9 3px solid !important;
 }
