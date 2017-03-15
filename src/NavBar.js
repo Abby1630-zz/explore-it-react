@@ -57,7 +57,7 @@ class NavBrand extends Component {
 
 class NavMenu extends Component {
   render() {
-    if (this.props.currentPage !== "Intro"){
+    if (this.props.currentPage !== "Intro" && this.props.currentPage !== "Welcome"){
       var me = this;
       var links=this.props.links.map(function(link) {
         return (

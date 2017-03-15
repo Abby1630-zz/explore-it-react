@@ -814,7 +814,7 @@ var questions =[
   },
   {
     exhibitName: 'Water Area',
-    activityName: 'What’s Down There?',
+    activityName: "What's Down There?",
     easy: {
       question: "What object might be best to take pictures underwater?",
       questionType: "multiple choice",
@@ -842,9 +842,13 @@ var questions =[
 function getQuestions (activityName) {
   var questionsForActivity = questions.filter(
       function(questions){
+        console.log(questions.activityName);
+        console.log(activityName);
         return questions.activityName === activityName;
       }
   );
+
+  console.log(questionsForActivity);
   return questionsForActivity[0];
 }
 

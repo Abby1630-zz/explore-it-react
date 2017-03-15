@@ -9,7 +9,7 @@
   align-self: center;
   padding: 5px;
   max-width: 169px !important;
-  -webkit-flex: 1 1 15em;
+  width: 169px !important;
   box-shadow: none !important;
 }
 

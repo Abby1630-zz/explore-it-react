@@ -4,17 +4,6 @@ import Alert from 'react-bootstrap/lib/Alert';
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
 
-/*
-var inst = [
-  {
-    line1: "Choosing your activity is easy and takes 3 simple steps.",
-    line2: "First choose your exhibit, next choose the activity you would like to complete, and finally, click the ",
-    line2Bold: "Let's Go",
-    afterLine2Bold: " button!"
-  }
-]
-*/
-
 const selectActivityInstructions = (
   <Alert bsStyle="warning">
     Choosing your activity is easy and takes 3 simple steps.

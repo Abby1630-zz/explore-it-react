@@ -11,6 +11,7 @@ import Quiz from './Quiz';
 import PersonalizeRobot from './PersonalizeRobot';
 import Activity from './Activity';
 import MyProfile from './MyProfile';
+import Welcome from './Welcome';
 import Grid from 'react-bootstrap/lib/Grid';
 
 var scroll = Scroll.animateScroll;
@@ -19,7 +20,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      renderedPage: 'Intro',
+      renderedPage: 'Welcome',
       countUntilNextQuiz: 4,
       selectedExhibit: "none",
       selectedActivity: "none"
@@ -68,6 +69,8 @@ function getTitle (currentPage) {
     return (<h1>Welcome</h1>);
   } else if (currentPage === 'MyProfile') {
     return (<h1>My Profile</h1>);
+  } else if (currentPage === 'Welcome') {
+    return (<h1>Welcome</h1>);
   }
 }
 
@@ -104,10 +107,15 @@ function getPage (renderPage, countUntilNextQuiz, selectedExhibit, selectedActiv
       </div>
     );
   } else if (renderPage === 'MyProfile' ) {
-
     return (
       <div>
         <MyProfile changePage={changePageFunction} page={renderPage}/>
+      </div>
+    );
+  } else if (renderPage === 'Welcome' ) {
+    return (
+      <div>
+        <Welcome changePage={changePageFunction} page={renderPage}/>
       </div>
     );
   }

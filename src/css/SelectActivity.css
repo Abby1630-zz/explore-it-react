@@ -8,12 +8,12 @@
 .explore-square-thumbnail {
   align-self: center;
   padding: 10px;
-	width: 50%;
+	width: 160px !important;
+  flex: none;
   height: 100%;
 	margin: 1%;
   max-width: 160px !important;
   min-height: 80px !important;
-  -webkit-flex: 1 1 15em;
 }
 
 * {
