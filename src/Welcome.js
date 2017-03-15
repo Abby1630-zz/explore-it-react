@@ -18,7 +18,7 @@ class Welcome extends Component {
     return (
       <div>
         <p>
-          Welcome to the Glazer Childs Museum interactive web page.
+          Welcome to the Glazer Children's Museum interactive web page.
         </p>
         <p>
           The purpose of this tool is to aid you an your child in learning and encouraging more engagement with the exhibits during you time here.
