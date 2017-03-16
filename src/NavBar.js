@@ -32,7 +32,7 @@ class NavBar extends Component {
       <nav className="navbar explore-navbar" >
         <div className="container-fluid" >
           <div className="navbar-header" >
-            <NavBrand linkTo="#" text="ExploreIT" / >
+            <NavBrand text="ExploreIT" / >
           </div>
           <div >
             <ul className="nav navbar-nav navbar-right explore-navbar-right" >

@@ -18,7 +18,7 @@ class MyProfile extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      iAgree: true
+      iAgree: false
     }
     this.nextPage= this.nextPage.bind(this);
     this.enableSubmit= this.enableSubmit.bind(this);

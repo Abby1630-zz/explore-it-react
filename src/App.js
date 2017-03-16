@@ -24,6 +24,8 @@ class App extends Component {
       countUntilNextQuiz: 4,
       selectedExhibit: "none",
       selectedActivity: "none"
+      /* On load load in all the questions, activities, and exhibits so you
+        don't have to rerender since you have to use setState */
     };
     this.changePage = this.changePage.bind(this)
     this.changeActivity = this.changeActivity.bind(this)
