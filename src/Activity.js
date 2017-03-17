@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
 import Button from 'react-bootstrap/lib/Button';
@@ -9,6 +10,8 @@ import Collapse from 'react-bootstrap/lib/Collapse';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 import FontAwesome from 'react-fontawesome';
 import './css/Activity.css';
+import Instructions from './Instructions';
+
 
 
 var activities = [
@@ -770,25 +773,31 @@ class Activity extends Component{
     return(
       <div>
         <Grid>
-          <SectionTitle text={getActivity(this.props.activity).activityName}/>
-          <hr/>
-          <Collapsible header="The Activity" bsStyle="success" open={true} body={getActivity(this.props.activity).theActivity}/>
-          <hr/>
-          <Collapsible header="What Children Learn" bsStyle="danger" open={true} body={getActivity(this.props.activity).whatChildrenLearn}/>
-          <hr/>
-          <Collapsible header="Extending The Activity" bsStyle="warning" open={false} body={getActivity(this.props.activity).extendingTheActivity}/>
-          <hr/>
-          <ExploringLanguage heading="Exploring Language" bsStyle="info" open={false} languageContent={getActivity(this.props.activity).exploringLanguage}/>
-          <hr/>
-          <h3>How did you feel about this activity?</h3>
-          <ButtonGroup>
-            <Button className="activity-rating-button" value="like" onClick={this.setRating}><FontAwesome className="activity-rating" name='smile-o' /><br/>I Liked it</Button>
-            <Button className="activity-rating-button" value="ok" onClick={this.setRating}><FontAwesome className="activity-rating" name='meh-o' /><br/>It was OK</Button>
-            <Button className="activity-rating-button" value="dislike" onClick={this.setRating}><FontAwesome className="activity-rating" name='frown-o' /><br/>I Disliked it</Button>
-          </ButtonGroup>
-          <hr/>
+          <Row>
+            <SectionTitle text={getActivity(this.props.activity).activityName}/>
+          </Row>
         </Grid>
-        <Button bsStyle="success" bsSize="large" onClick={this.nextPage}>What's Next?</Button>
+        <Instructions page="Activity"/>
+        <Grid>
+          <Row>
+            <Collapsible header="The Activity" bsStyle="success" buttonClass="explore-blue-collapse-button" alertClass="explore-blue-collapse-body" open={true} body={getActivity(this.props.activity).theActivity}/>
+            <hr/>
+            <Collapsible header="What Children Learn" bsStyle="success" buttonClass="explore-purple-collapse-button" alertClass="explore-purple-collapse-body" open={true} body={getActivity(this.props.activity).whatChildrenLearn}/>
+            <hr/>
+            <Collapsible header="Extending The Activity" bsStyle="success" buttonClass="explore-orange-collapse-button" alertClass="explore-orange-collapse-body" open={false} body={getActivity(this.props.activity).extendingTheActivity}/>
+            <hr/>
+            <ExploringLanguage heading="Exploring Language" bsStyle="success" buttonClass="explore-green-collapse-button" alertClass="explore-green-collapse-body" open={false} languageContent={getActivity(this.props.activity).exploringLanguage}/>
+            <hr/>
+            <h3>How did you feel about this activity?</h3>
+            <ButtonGroup>
+              <Button className="activity-rating-button" value="like" onClick={this.setRating}><FontAwesome className="activity-rating" name='smile-o' /><br/>I Liked it</Button>
+              <Button className="activity-rating-button" value="ok" onClick={this.setRating}><FontAwesome className="activity-rating" name='meh-o' /><br/>It was OK</Button>
+              <Button className="activity-rating-button" value="dislike" onClick={this.setRating}><FontAwesome className="activity-rating" name='frown-o' /><br/>I Disliked it</Button>
+            </ButtonGroup>
+            <hr/>
+          </Row>
+        </Grid>
+        <Button bsStyle="success" className="explore-light-blue-button" bsSize="large" onClick={this.nextPage}>What's Next?</Button>
       </div>
     );
   }
@@ -818,15 +827,16 @@ class Collapsible extends Component {
   }
 
   render() {
+    var alertClasses = this.props.alertClass + " lang-container";
     return (
       <div>
-        <Button bsStyle={this.props.bsStyle} block onClick={ ()=> this.setState({ open: !this.state.open })}>
+        <Button bsStyle={this.props.bsStyle} className={this.props.buttonClass} block onClick={ ()=> this.setState({ open: !this.state.open })}>
           {this.props.header}
           {this.getIcon()}
         </Button>
         <Collapse in={this.state.open}>
           <div>
-            <Alert bsStyle={this.props.bsStyle} className="lang-container">
+            <Alert bsStyle={this.props.bsStyle} className={alertClasses}>
               {this.props.body}
             </Alert>
           </div>
@@ -855,7 +865,7 @@ class ExploringLanguage extends Component {
     });
 
     return (
-      <Collapsible header={this.props.heading} bsStyle={this.props.bsStyle} open={this.props.open} body={langList}/>
+      <Collapsible header={this.props.heading} bsStyle={this.props.bsStyle} buttonClass={this.props.buttonClass} alertClass={this.props.alertClass} open={this.props.open} body={langList}/>
     );
   }
 }

@@ -9,10 +9,11 @@ import FormGroup from 'react-bootstrap/lib/FormGroup';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import Grid from 'react-bootstrap/lib/Grid';
+import HelpBlock from 'react-bootstrap/lib/HelpBlock';
 
 // import './css/Activity.css';
 
-var disclaimer = "I understand information entered is owned by the Glazer Children's Museum and will be stored."
+var disclaimer = "By using ExploreIT I understand that any data I enter or generate will be stored and used by The Glazer Children’s Museum (GCM) and its related partners. You will likely to be contacted in two weeks to inquire about your experience and what your child remembers. Any external use of these data including activity ratings and quiz responses will be reported in aggregate and not tied to any individual’s data."
 
 class MyProfile extends Component{
   constructor(props) {
@@ -27,7 +28,7 @@ class MyProfile extends Component{
   }
 
   nextPage () {
-    if (this.state.iAgree === true){
+    if (this.props.page === "MyProfile" || this.state.iAgree === true){
       this.props.changePage('SelectActivity');
     } else {
       alert("Please agree to the terms and conditions");
@@ -58,28 +59,12 @@ class MyProfile extends Component{
       <div>
         <Grid>
           <form >
-            <Alert bsStyle="info">
-              <h4>Parent's Information</h4>
-              <FieldGroup
-                id="parentName"
-                type="text"
-                label="Parent's Name"
-                placeholder="Enter name"
-                />
-              <FieldGroup
-                id="email"
-                type="email"
-                label="Parent's Email address"
-                placeholder="Enter email"
-                />
-            </Alert>
-            <hr/>
             <Alert bsStyle="success">
               <h4>Child's Information</h4>
               <FieldGroup
                 id="childName"
                 type="text"
-                label="Child's Name"
+                label="Child's First Name"
                 placeholder="Enter name"
                 />
               <FieldGroup
@@ -108,8 +93,25 @@ class MyProfile extends Component{
               </FormGroup>
             </Alert>
             <hr/>
+            <Alert bsStyle="info">
+              <h4>Parent's Information</h4>
+              <FieldGroup
+                id="parentName"
+                type="text"
+                label="Parent's Name"
+                placeholder="Enter name"
+                />
+              <FieldGroup
+                id="email"
+                type="email"
+                label="Parent's Email address"
+                placeholder="Enter email"
+                />
+              <HelpBlock>Entering an email is optional. We may contact you at a future time to inquire about your experience with ExploreIT</HelpBlock>
+            </Alert>
+            <hr/>
             {this.returnTermsAndConditions (this.props.page, this.enableSubmit)}
-            <Button  id="intro-submit" bsStyle="info" bsSize="large" onClick={this.nextPage}>Get Started!</Button>
+            <Button  id="intro-submit" bsStyle="info" bsSize="large" onClick={this.nextPage}>Done!</Button>
           </form>
         </Grid>
       </div>

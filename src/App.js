@@ -104,7 +104,6 @@ function getPage (renderPage, countUntilNextQuiz, selectedExhibit, selectedActiv
     return (
       <div>
         {/* <QuizCountdown count={countUntilNextQuiz}/> */}
-        <Instructions page={renderPage}/>
         <Activity changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity}/>
       </div>
     );

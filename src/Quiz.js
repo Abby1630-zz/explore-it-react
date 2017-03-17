@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
 import Alert from 'react-bootstrap/lib/Alert';
+import Grid from 'react-bootstrap/lib/Grid';
 import ProgressBar from 'react-bootstrap/lib/ProgressBar';
 import Button from 'react-bootstrap/lib/Button';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
@@ -910,10 +911,12 @@ class Quiz extends Component{
   render(){
     return(
       <div>
-        <AnswerFeedback isCorrect={this.state.isCorrect}  />
-        {this.randomizeQuestion()}
-        <ProgressBar striped bsStyle="info" now={this.state.percentComplete} />
-        <SubmitButton validateAnswer={this.validateAnswer} nextStep={this.nextStep} isCorrect={this.state.isCorrect}/>
+        <Grid>
+          <AnswerFeedback isCorrect={this.state.isCorrect}  />
+          {this.randomizeQuestion()}
+          <ProgressBar striped bsStyle="info" now={this.state.percentComplete} />
+          <SubmitButton validateAnswer={this.validateAnswer} nextStep={this.nextStep} isCorrect={this.state.isCorrect}/>
+        </Grid>
       </div>
     );
   }

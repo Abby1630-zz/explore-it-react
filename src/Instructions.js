@@ -3,11 +3,11 @@ import React, {Component} from 'react';
 import Alert from 'react-bootstrap/lib/Alert';
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
+import './css/Instructions.css';
+
 
 const selectActivityInstructions = (
-  <Alert bsStyle="warning">
-    Choosing your activity is easy and takes 3 simple steps.
-    <br/>
+  <Alert className="explore-instructions">
     First choose your exhibit, next choose the activity you would like to complete, and finally, click the
     <strong> Let's Go </strong>
      button!
@@ -15,18 +15,14 @@ const selectActivityInstructions = (
 );
 
 const quizInstructions = (
-  <Alert bsStyle="warning">
-    Walk through the activity below to enhance your exhibit experience.
+  <Alert className="explore-instructions">
+    Answer the following question based on what you have just done.
   </Alert>
 );
 
 const activityInstructions = (
-  <Alert bsStyle="warning">
-    Let's see what you remember!
-    <br/>
-    Before clicking the
-    <strong> What's Next? </strong>
-     button, you must rate the activity.
+  <Alert className="explore-instructions">
+    Read the text in the blue section to your child to start the activity.
   </Alert>
 );
 
@@ -56,9 +52,6 @@ class Instructions extends Component {
 
     return(
       <div>
-        <div className="container">
-          <h2>Instructions</h2>
-        </div>
         <Grid>
           <Row>
             {this.instructionsToDisplay(this.props.page)}
