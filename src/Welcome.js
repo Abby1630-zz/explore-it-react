@@ -17,13 +17,16 @@ class Welcome extends Component {
   render() {
     return (
       <div>
-        <p>
-          Welcome to the Glazer Children's Museum's interactive web page.
-        </p>
-        <p>
-          The purpose of this tool is to aid you and your child in learning and encouraging more engagement with the exhibits during you time here.
-        </p>
-        <Button bsStyle="info" bsSize="large" onClick={this.nextPage}>Get Started!</Button>
+        <Grid>
+          <p>
+            Use this ExploreIT website as you tour the museum. At most of the exhibit areas, you will find activity suggestions for you and your child to do.
+          </p>
+          <p>
+            Simply tap the button below to begin ExploreIT! The next screen asks for some additional information to get started, and then you indicate where in the museum you would like to start!
+          </p>
+
+          <Button bsStyle="info" bsSize="large" onClick={this.nextPage}>Get Started!</Button>
+        </Grid>
       </div>
     );
   }
