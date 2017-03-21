@@ -10,6 +10,7 @@ import Collapse from 'react-bootstrap/lib/Collapse';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 import FontAwesome from 'react-fontawesome';
 import './css/Activity.css';
+import './css/common.css';
 import Instructions from './Instructions';
 
 

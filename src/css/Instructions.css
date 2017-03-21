@@ -2,7 +2,7 @@
   background-image: linear-gradient(to bottom, white 0%, white 100%) !important;
   background-color: white !important;
   color: #464646 !important;
-  border: 3px dashed #FCCF0A !important;
+  border: 1px solid #FCCF0A !important;
   border-left-width: 0 !important;
   border-right-width: 0 !important;
 }

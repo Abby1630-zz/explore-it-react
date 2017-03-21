@@ -7,8 +7,8 @@ import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import Label from 'react-bootstrap/lib/Label';
 import Button from 'react-bootstrap/lib/Button';
-
 import './css/SelectActivity.css';
+import './css/common.css';
 
 var Element = Scroll.Element;
 var scroller = Scroll.scroller;
@@ -147,7 +147,7 @@ class Exhibit extends Component{
     return(
       <div>
         <h2>
-          <Label bsStyle="success" id="step1" className="pull-left">1</Label>
+          <Label id="step1" className="pull-left explore-green-label">1</Label>
           <h3 >Choose Your Exhibit</h3>
         </h2>
 
@@ -165,7 +165,7 @@ class Activity extends Component{
     return(
       <div>
         <h2>
-          <Label bsStyle="danger" id="step2" className="pull-left">2</Label>
+          <Label id="step2" className="pull-left explore-red-label">2</Label>
           <h3 >Choose Your Activity</h3>
         </h2>
 
@@ -183,14 +183,14 @@ class Enter extends Component{
     return(
       <div>
         <h2>
-          <Label bsStyle="info" id="step3" className="pull-left">3</Label>
+          <Label bsStyle="info" id="step3" className="pull-left explore-light-blue-label">3</Label>
           <h3 >Ready?</h3>
         </h2>
         <Grid>
           <Row>
             <Col xs={3}></Col>
             <Col xs={6}>
-              <Button bsStyle="info" bsSize="large" block onClick={this.props.onClick}>Lets Go!</Button>
+              <Button bsStyle="info" className="explore-light-blue-button" bsSize="large" block onClick={this.props.onClick}>Lets Go!</Button>
             </Col>
             <Col xs={3}></Col>
           </Row>
@@ -213,6 +213,12 @@ class Squares extends Component {
 
   render() {
     var me = this;
+    var alertClasses = "activity-select-container "
+    if(this.props.exhibitOrActivity === 'exhibit'){
+      alertClasses += "exhibit-container";
+    }else{
+      alertClasses += "activity-container";
+    }
     var exhibits = this.props.elements.map(function(element) {
       var classes = "explore-square-thumbnail ";
       if (me.props.exhibitOrActivity === 'exhibit' && element.name === me.props.currentlySelected) {
@@ -229,7 +235,7 @@ class Squares extends Component {
       );
     });
     return (
-      <Alert bsStyle={this.props.color} className="activity-select-container">{exhibits} </Alert>
+      <Alert bsStyle={this.props.color} className={alertClasses}>{exhibits} </Alert>
     );
   }
 }

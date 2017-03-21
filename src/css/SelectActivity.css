@@ -1,33 +1,44 @@
 .activity-select-container {
-  display: flex; /* or inline-flex */
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: flex !important; /* or inline-flex */
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between !important;
+  background-image: linear-gradient(to bottom, white 0%, white 100%) !important;
+  border-width: 3px !important;
+}
+
+.exhibit-container {
+  border-color: #3AB54A !important;
+}
+
+.activity-container {
+  border-color: #EA2728 !important;
 }
 
 .explore-square-thumbnail {
-  align-self: center;
-  padding: 10px;
+  align-self: center !important;
+  padding: 10px !important;
 	width: 160px !important;
-  flex: none;
-  height: 100%;
-	margin: 1%;
+  flex: none !important;
+  height: 100% !important;
+	margin: 1% !important;
   max-width: 160px !important;
-  min-height: 80px !important;
+  min-height: 90px !important;
+  border-width: 3px !important;
 }
 
 * {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box !important;
+	-moz-box-sizing: border-box !important;
+	box-sizing: border-box !important;
 }
 
 .selected-exhibit {
-  background-color: #eef7ea !important; /* 10% lighten of the top of the alert */
-  border: #a9a9a9 3px solid !important;
+  border: #3AB54A 3px solid !important;
+  background-color: white !important;
 }
 
 .selected-activity {
-  background-color: #f8eeee !important;/* 5% lighten of the alert color */
-  border: #a9a9a9 3px solid !important;
+  border: #EA2728 3px solid !important;
+  background-color: white !important;/* 5% lighten of the alert color */
 }

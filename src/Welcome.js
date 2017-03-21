@@ -3,7 +3,7 @@ import Alert from 'react-bootstrap/lib/Alert';
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
 import Button from 'react-bootstrap/lib/Button';
-
+import './css/common.css';
 
 class Welcome extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class Welcome extends Component {
             Simply tap the button below to begin ExploreIT! The next screen asks for some additional information to get started, and then you indicate where in the museum you would like to start!
           </p>
 
-          <Button bsStyle="info" bsSize="large" onClick={this.nextPage}>Get Started!</Button>
+          <Button className="explore-light-blue-button" bsStyle="info" bsSize="large" onClick={this.nextPage}>Get Started!</Button>
         </Grid>
       </div>
     );

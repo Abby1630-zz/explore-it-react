@@ -10,6 +10,9 @@ import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import Grid from 'react-bootstrap/lib/Grid';
 import HelpBlock from 'react-bootstrap/lib/HelpBlock';
+import Panel from 'react-bootstrap/lib/Panel';
+import './css/common.css';
+
 
 // import './css/Activity.css';
 
@@ -43,7 +46,7 @@ class MyProfile extends Component{
     if(currentPage === "Intro"){
       return (
         <div>
-          <Collapsible header="Terms & Conditions" open={false} body={disclaimer}/>
+          <Disclaimer header="Terms & Conditions" open={false} body={disclaimer}/>
           <Checkbox onChange={e => this.enableSubmit(e)} ref="check_me" id="iAgree">
             By selecting, you agree to the terms and conditions.
           </Checkbox>
@@ -59,59 +62,12 @@ class MyProfile extends Component{
       <div>
         <Grid>
           <form >
-            <Alert bsStyle="success">
-              <h4>Child's Information</h4>
-              <FieldGroup
-                id="childName"
-                type="text"
-                label="Child's First Name"
-                placeholder="Enter name"
-                />
-              <FieldGroup
-                id="childAge"
-                type="number"
-                label="Child's Age:"
-                placeholder="Enter age"
-                />
-              <FieldGroup
-                id="favFood"
-                type="text"
-                label="Favorite Food:"
-                placeholder="Enter food"
-                />
-              <FormGroup controlId="formControlsSelect">
-                <ControlLabel>Favorite Color</ControlLabel>
-                <FormControl componentClass="select" placeholder="select">
-                  <option value="selectOne">Please select a color</option>
-                  <option value="blue">Blue</option>
-                  <option value="green">Green</option>
-                  <option value="red">Red</option>
-                  <option value="purple">Purple</option>
-                  <option value="pink">Pink</option>
-                  <option value="yellow">Yellow</option>
-                </FormControl>
-              </FormGroup>
-            </Alert>
+            <ChildInfo bsStyle="success" className="explore-purple-panel" />
             <hr/>
-            <Alert bsStyle="info">
-              <h4>Parent's Information</h4>
-              <FieldGroup
-                id="parentName"
-                type="text"
-                label="Parent's Name"
-                placeholder="Enter name"
-                />
-              <FieldGroup
-                id="email"
-                type="email"
-                label="Parent's Email address"
-                placeholder="Enter email"
-                />
-              <HelpBlock>Entering an email is optional. We may contact you at a future time to inquire about your experience with ExploreIT</HelpBlock>
-            </Alert>
+            <ParentInfo bsStyle="success" className="explore-blue-panel" />
             <hr/>
             {this.returnTermsAndConditions (this.props.page, this.enableSubmit)}
-            <Button  id="intro-submit" bsStyle="info" bsSize="large" onClick={this.nextPage}>Done!</Button>
+            <Button className="explore-light-blue-button" bsStyle="info" bsSize="large" onClick={this.nextPage}>Done!</Button>
           </form>
         </Grid>
       </div>
@@ -128,7 +84,7 @@ function FieldGroup({ id, label, ...props }) {
   );
 }
 
-class Collapsible extends Component {
+class Disclaimer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -171,5 +127,69 @@ class Collapsible extends Component {
 }
 
 
+class ChildInfo extends Component {
+  render() {
+    return (
+      <div>
+        <Panel header="Child's Information" className={this.props.className}>
+          <FieldGroup
+            id="childName"
+            type="text"
+            label="Child's First Name"
+            placeholder="Enter name"
+            />
+          <FieldGroup
+            id="childAge"
+            type="number"
+            label="Child's Age:"
+            placeholder="Enter age"
+            />
+          <FieldGroup
+            id="favFood"
+            type="text"
+            label="Favorite Food:"
+            placeholder="Enter food"
+            />
+          <FormGroup controlId="formControlsSelect">
+            <ControlLabel>Favorite Color</ControlLabel>
+            <FormControl componentClass="select" placeholder="select">
+              <option value="selectOne">Please select a color</option>
+              <option value="blue">Blue</option>
+              <option value="green">Green</option>
+              <option value="red">Red</option>
+              <option value="purple">Purple</option>
+              <option value="pink">Pink</option>
+              <option value="yellow">Yellow</option>
+            </FormControl>
+          </FormGroup>
+        </Panel>
+      </div>
+    );
+  }
+}
+
+class ParentInfo extends Component {
+  render() {
+    return (
+      <div>
+        <Panel header="Parent's Information" className={this.props.className}>
+          <FieldGroup
+            id="parentName"
+            type="text"
+            label="Parent's Name"
+            placeholder="Enter name"
+            />
+          <FieldGroup
+            id="email"
+            type="email"
+            label="Parent's Email address"
+            placeholder="Enter email"
+            />
+          <HelpBlock>Entering an email is optional. We may contact you at a future time to inquire about your experience with ExploreIT</HelpBlock>
+        </Panel>
+      </div>
+    );
+  }
+}
 
 export default MyProfile;
