@@ -108,7 +108,6 @@
   text-shadow: 1px 1px 1px rgba(0, 0, 0, .4)  !important;
   border-color: #6BCFF6 !important;
   background-color:#6BCFF6 !important;
-
 }
 .explore-light-blue-button:active,
 .explore-light-blue-button:hover,
@@ -142,4 +141,16 @@
 .explore-red-panel{
   background-color: white !important;
   border-color: #f8b2b3 !important;
+}
+
+.explore-red-text {
+  color:  #EA2728 !important;
+}
+
+.explore-green-text {
+  color:  #3AB54A !important;
+}
+
+.background-image-white {
+  background-image: linear-gradient(to bottom, white 0%, white 100%) !important;
 }

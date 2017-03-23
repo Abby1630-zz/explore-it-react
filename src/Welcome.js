@@ -3,6 +3,8 @@ import Alert from 'react-bootstrap/lib/Alert';
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
 import Button from 'react-bootstrap/lib/Button';
+import Image from 'react-bootstrap/lib/Image';
+import logo from 'GlazerLogo.png';
 import './css/common.css';
 
 class Welcome extends Component {
@@ -15,9 +17,11 @@ class Welcome extends Component {
     this.props.changePage('Intro');
   }
   render() {
+    console.log(logo);
     return (
       <div>
         <Grid>
+          <Image responsive src={logo}/>
           <p>
             Use this ExploreIT website as you tour the museum. At most of the exhibit areas, you will find activity suggestions for you and your child to do.
           </p>

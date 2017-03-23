@@ -926,11 +926,11 @@ class SubmitButton extends Component {
   render() {
     if (this.props.isCorrect ==='not answered'){
       return (
-        <Button bsStyle="success" bsSize="large" onClick={this.props.validateAnswer}>Am I Correct?</Button>
+        <Button bsStyle="success" className="explore-light-blue-button" bsSize="large" onClick={this.props.validateAnswer}>Am I Correct?</Button>
       );
     } else{
       return (
-        <Button bsStyle="info" bsSize="large" onClick={this.props.nextStep}>Go to next step</Button>
+        <Button bsStyle="info" className="explore-purple-collapse-button"bsSize="large" onClick={this.props.nextStep}>Go to next step</Button>
       );
     }
   }
@@ -940,11 +940,11 @@ class AnswerFeedback extends Component {
   render(){
     if (this.props.isCorrect === 'true' ) {
       return (
-        <Alert bsStyle="success"><strong>Well done! </strong>You got the last question correct!</Alert>
+        <Alert bsStyle="success" className="explore-green-text explore-green-panel background-image-white"><strong>Well done! </strong>You got the last question correct!</Alert>
       );
     } else if(this.props.isCorrect === 'false') {
       return (
-        <Alert bsStyle="danger"><strong>Oh snap! </strong>That wasn't the correct answer. You will do great on the next one!</Alert>
+        <Alert bsStyle="danger" className="explore-red-text explore-red-panel background-image-white"><strong>Oh snap! </strong>That wasn't the correct answer. You will do great on the next one!</Alert>
       );
     };
     return <div/>;

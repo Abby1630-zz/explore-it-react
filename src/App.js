@@ -3,7 +3,6 @@ import Scroll from 'react-scroll';
 
 import './css/App.css';
 import './css/common.css';
-import './../public/Hero.jpg';
 import NavBar from './NavBar';
 import QuizCountdown from './QuizCountdown';
 import Instructions from './Instructions';
