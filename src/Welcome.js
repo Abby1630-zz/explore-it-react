@@ -23,13 +23,13 @@ class Welcome extends Component {
     return (
       <div>
         <Grid>
-          <Row className="welcome-heading">
-            <div className="explore-image-container pull-left">
+          <Row>
+            <div className="explore-image-container">
               <Image responsive src={process.env.PUBLIC_URL + '/images/GlazerLogo.png'}/>
             </div>
-            <h1  className="explore-welcome-title">Welcome!</h1>
           </Row>
           <hr className="explore-small-hr"/>
+          <h1  className="explore-heading-no-top-margin">Welcome!</h1>
           <p>
             Use this ExploreIT website as you tour the museum. At most of the exhibit areas, you will find activity suggestions for you and your child to do.
           </p>

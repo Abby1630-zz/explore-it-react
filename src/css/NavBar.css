@@ -26,7 +26,7 @@
 
     .navbar {
         border-radius: 4px;
-        min-width: 400px;
+        min-width: 320px;
     }
 
     .nav-tabs-justified > li > a {
@@ -74,7 +74,7 @@
         left: 0;
     }
     .container {
-        min-width: 400px;
+        min-width: 320px;
     }
 
     .navbar-collapse {
