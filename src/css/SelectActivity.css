@@ -5,24 +5,32 @@
   justify-content: space-between !important;
   background-image: linear-gradient(to bottom, white 0%, white 100%) !important;
   border-width: 3px !important;
+  margin-bottom: 10px !important;
 }
 
 .exhibit-container {
   border-color: #3AB54A !important;
+  padding:5px !important;
+}
+
+.container{
+  padding: 10px !important;
 }
 
 .activity-container {
   border-color: #EA2728 !important;
+  padding:5px !important;
 }
 
 .explore-square-thumbnail {
   align-self: center !important;
-  padding: 10px !important;
-	width: 160px !important;
+  padding: 0px !important;
+	/*width: 133px !important;*/
+  width: 48%;
   flex: none !important;
   height: 100% !important;
 	margin: 1% !important;
-  max-width: 160px !important;
+  /*max-width: 133px !important;*/
   min-height: 90px !important;
   border-width: 3px !important;
 }

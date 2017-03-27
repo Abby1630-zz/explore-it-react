@@ -132,10 +132,8 @@ class SelectActivity extends Component{
         <Exhibit elements={exhibits} onSelection={this.setExhibitState} currentlySelected={this.state.exhibit}/>
         { this.state.exhibit !== "not set" ? <Activity elements={getActivities(this.state.exhibit)} onSelection={this.setActivityState} currentlySelected={this.state.activity}/> : null }
         <Element name="step2"></Element>
-
         { this.state.activity !== "not set" ? <Enter onClick={this.nextPage}/> : null}
         <Element name="step3"></Element>
-
       </div>
     );
   }
@@ -146,14 +144,14 @@ class Exhibit extends Component{
   render(){
     return(
       <div>
-        <h2>
+        <h2 className="explore-heading-no-top-margin">
           <Label id="step1" className="pull-left explore-green-label">1</Label>
-          <h3 >Choose Your Exhibit</h3>
+          <h3 className="explore-heading-no-top-margin">Choose Your Exhibit</h3>
         </h2>
 
         <Grid>
           <Squares exhibitOrActivity="exhibit" currentlySelected={this.props.currentlySelected} elements={this.props.elements} onSelection={this.props.onSelection} color="success"/>
-          <hr/>
+          <hr className="explore-small-hr"/>
         </Grid>
       </div>
     );
@@ -164,14 +162,14 @@ class Activity extends Component{
   render(){
     return(
       <div>
-        <h2>
+        <h2 className="explore-heading-no-top-margin">
           <Label id="step2" className="pull-left explore-red-label">2</Label>
-          <h3 >Choose Your Activity</h3>
+          <h3 className="explore-heading-no-top-margin">Choose Your Activity</h3>
         </h2>
 
         <Grid>
           <Squares exhibitOrActivity="activity" currentlySelected={this.props.currentlySelected} elements={this.props.elements} onSelection={this.props.onSelection} color="danger"/>
-          <hr/>
+          <hr className="explore-small-hr"/>
         </Grid>
       </div>
     );
@@ -182,9 +180,9 @@ class Enter extends Component{
   render(){
     return(
       <div>
-        <h2>
+        <h2 className="explore-heading-no-top-margin">
           <Label bsStyle="info" id="step3" className="pull-left explore-light-blue-label">3</Label>
-          <h3 >Ready?</h3>
+          <h3 className="explore-heading-no-top-margin">Ready?</h3>
         </h2>
         <Grid>
           <Row>
@@ -194,7 +192,7 @@ class Enter extends Component{
             </Col>
             <Col xs={3}></Col>
           </Row>
-          <hr/>
+          <hr className="explore-small-hr"/>
         </Grid>
       </div>
     );

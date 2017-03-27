@@ -843,8 +843,8 @@ var questions =[
 function getQuestions (activityName) {
   var questionsForActivity = questions.filter(
       function(questions){
-        console.log(questions.activityName);
-        console.log(activityName);
+        //console.log(questions.activityName);
+        //console.log(activityName);
         return questions.activityName === activityName;
       }
   );
@@ -998,7 +998,7 @@ class MultipleChoiceQuestion extends Component{
 
     return(
       <div>
-        <h3>{this.props.questionInfo.question}</h3>
+        <h3 className="explore-heading-no-top-margin">{this.props.questionInfo.question}</h3>
         <ListGroup>
           {questionJRX}
         </ListGroup>

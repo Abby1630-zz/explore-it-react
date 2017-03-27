@@ -52,12 +52,8 @@ class Instructions extends Component {
 
     return(
       <div>
-        <Grid>
-          <Row>
-            {this.instructionsToDisplay(this.props.page)}
-            <hr/>
-          </Row>
-        </Grid>
+        {this.instructionsToDisplay(this.props.page)}
+        <hr className="explore-small-hr"/>
       </div>
     );
   }

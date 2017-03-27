@@ -63,9 +63,9 @@ class MyProfile extends Component{
         <Grid>
           <form >
             <ChildInfo bsStyle="success" className="explore-purple-panel" />
-            <hr/>
+            <hr className="explore-small-hr"/>
             <ParentInfo bsStyle="success" className="explore-blue-panel" />
-            <hr/>
+            <hr className="explore-small-hr"/>
             {this.returnTermsAndConditions (this.props.page, this.enableSubmit)}
             <Button className="explore-light-blue-button" bsStyle="info" bsSize="large" onClick={this.nextPage}>Done!</Button>
           </form>
@@ -185,7 +185,7 @@ class ParentInfo extends Component {
             label="Parent's Email address"
             placeholder="Enter email"
             />
-          <HelpBlock>Entering an email is optional. We may contact you at a future time to inquire about your experience with ExploreIT</HelpBlock>
+          <HelpBlock>We may contact you at a future time to inquire about your experience with ExploreIT</HelpBlock>
         </Panel>
       </div>
     );

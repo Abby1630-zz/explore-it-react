@@ -1,6 +1,24 @@
 *{
   font-size: 15px;
 }
+
+.navbar {
+  min-width:320px !important;
+}
+
+.container{
+  min-width:320px !important;
+}
+
+.explore-small-hr{
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
+.explore-heading-no-top-margin{
+  margin-top: 0px !important;
+}
+
 .explore-purple-collapse-button,
 .explore-orange-collapse-button,
 .explore-blue-collapse-button,
@@ -153,4 +171,9 @@
 
 .background-image-white {
   background-image: linear-gradient(to bottom, white 0%, white 100%) !important;
+}
+
+.explore-image-container {
+  display: flex;
+  justify-content: center;
 }

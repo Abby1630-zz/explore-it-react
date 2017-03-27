@@ -782,20 +782,18 @@ class Activity extends Component{
         <Grid>
           <Row>
             <Collapsible header="The Activity" bsStyle="success" buttonClass="explore-blue-collapse-button" alertClass="explore-blue-collapse-body" open={true} body={getActivity(this.props.activity).theActivity}/>
-            <hr/>
+            <hr className="explore-small-hr"/>
             <Collapsible header="What Children Learn" bsStyle="success" buttonClass="explore-purple-collapse-button" alertClass="explore-purple-collapse-body" open={true} body={getActivity(this.props.activity).whatChildrenLearn}/>
-            <hr/>
+            <hr className="explore-small-hr"/>
             <Collapsible header="Extending The Activity" bsStyle="success" buttonClass="explore-orange-collapse-button" alertClass="explore-orange-collapse-body" open={false} body={getActivity(this.props.activity).extendingTheActivity}/>
-            <hr/>
+            <hr className="explore-small-hr"/>
             <ExploringLanguage heading="Exploring Language" bsStyle="success" buttonClass="explore-green-collapse-button" alertClass="explore-green-collapse-body" open={false} languageContent={getActivity(this.props.activity).exploringLanguage}/>
-            <hr/>
             <h3>How did you feel about this activity?</h3>
             <ButtonGroup>
               <Button className="activity-rating-button" value="like" onClick={this.setRating}><FontAwesome className="activity-rating" name='smile-o' /><br/>I Liked it</Button>
               <Button className="activity-rating-button" value="ok" onClick={this.setRating}><FontAwesome className="activity-rating" name='meh-o' /><br/>It was OK</Button>
               <Button className="activity-rating-button" value="dislike" onClick={this.setRating}><FontAwesome className="activity-rating" name='frown-o' /><br/>I Disliked it</Button>
             </ButtonGroup>
-            <hr/>
           </Row>
         </Grid>
         <Button bsStyle="success" className="explore-light-blue-button" bsSize="large" onClick={this.nextPage}>What's Next?</Button>

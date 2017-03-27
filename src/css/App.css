@@ -18,6 +18,11 @@
   font-size: large;
 }
 
+#explore-page-title{
+  margin-top: 5px !important;
+  margin-bottom: 0px !important;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

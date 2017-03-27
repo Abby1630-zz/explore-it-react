@@ -48,12 +48,10 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar changePage={this.changePage} currentPage={this.state.renderedPage}/>
-        <div className="container">
-          {getTitle (this.state.renderedPage)}
-        </div>
+        {getTitle (this.state.renderedPage)}
         <div className="App-Body">
           {getPage (this.state.renderedPage, this.state.countUntilNextQuiz, this.state.selectedExhibit, this.state.selectedActivity, this.changePage, this.changeActivity)}
-          <hr/>
+          <hr className="explore-small-hr"/>
         </div>
       </div>
     );
@@ -62,17 +60,17 @@ class App extends Component {
 
 function getTitle (currentPage) {
   if (currentPage === 'SelectActivity') {
-    return (<h1>Select an Activity</h1>);
+    return (<h1 id="explore-page-title">Select an Activity</h1>);
   } else if (currentPage === 'Quiz'){
-    return (<h1>Quiz</h1>);
+    return (<h1 id="explore-page-title">Quiz</h1>);
   } else if (currentPage === 'PersonalizeRobot'){
-    return (<h1>Change Your Robot</h1>);
+    return (<h1 id="explore-page-title">Change Your Robot</h1>);
   } else if (currentPage === 'Intro') {
-    return (<h1>Welcome</h1>);
+    return (<h1 id="explore-page-title">Welcome</h1>);
   } else if (currentPage === 'MyProfile') {
-    return (<h1>My Profile</h1>);
+    return (<h1 id="explore-page-title">My Profile</h1>);
   } else if (currentPage === 'Welcome') {
-    return (<h1>Welcome</h1>);
+    return null;
   }
 }
 
