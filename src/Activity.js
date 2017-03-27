@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
+import Radio from 'react-bootstrap/lib/Radio';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
 import Button from 'react-bootstrap/lib/Button';
@@ -331,6 +334,7 @@ var activities = [
   {
     exhibitName: 'Art',
     activityName: 'Kaleidoscope',
+    activityImage: '',
     theActivity: 'Malcolm the Robot gazes up at the exhibit and says, “Look into one of the kaleidoscopes at the base of the structure. Turn the wheel, what changes about what you see? Next, stand under the large kaleidoscope. Go stand under another kaleidoscope, is this one the same as the other or do they look different? Explain what you see and what you think I see.”',
     extendingTheActivity: 'This is a good time to articulate the different perspectives that people take and the categorical knowledge of children at this age. You may try to emphasize how the pictures look different in the big kaleidoscope and that the child’s manipulation of the image makes that change in the small kaleidoscope.',
     whatChildrenLearn: 'Children at this age are beginning to understand that others may see differently than them, because they have developed Theory of Mind. This activity reinforces the different perspectives others have and that we don’t all see and think the same things.',
@@ -766,7 +770,6 @@ class Activity extends Component{
   }
 
   setRating (e) {
-    //e.currentTarget.style.border = '#a9a9a9 3px solid'
     this.setState({rating:e.currentTarget.value});
   }
 
@@ -788,12 +791,54 @@ class Activity extends Component{
             <Collapsible header="Extending The Activity" bsStyle="success" buttonClass="explore-orange-collapse-button" alertClass="explore-orange-collapse-body" open={false} body={getActivity(this.props.activity).extendingTheActivity}/>
             <hr className="explore-small-hr"/>
             <ExploringLanguage heading="Exploring Language" bsStyle="success" buttonClass="explore-green-collapse-button" alertClass="explore-green-collapse-body" open={false} languageContent={getActivity(this.props.activity).exploringLanguage}/>
-            <h3>How did you feel about this activity?</h3>
-            <ButtonGroup>
-              <Button className="activity-rating-button" value="like" onClick={this.setRating}><FontAwesome className="activity-rating" name='smile-o' /><br/>I Liked it</Button>
-              <Button className="activity-rating-button" value="ok" onClick={this.setRating}><FontAwesome className="activity-rating" name='meh-o' /><br/>It was OK</Button>
-              <Button className="activity-rating-button" value="dislike" onClick={this.setRating}><FontAwesome className="activity-rating" name='frown-o' /><br/>I Disliked it</Button>
-            </ButtonGroup>
+            <hr className="explore-small-hr"/>
+            <h3>How would you rate this activity?</h3>
+            <Col>
+
+            </Col>
+            <Col>
+              <FormGroup>
+                <Radio name="rating" className="explore-activity-rating" value="1" onChange={this.setRating}>
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star-o' />
+                  <FontAwesome className="activity-rating" name='star-o' />
+                  <FontAwesome className="activity-rating" name='star-o' />
+                  <FontAwesome className="activity-rating" name='star-o' />
+                </Radio>
+                <Radio name="rating" className="explore-activity-rating" value="2" onChange={this.setRating}>
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star-o' />
+                  <FontAwesome className="activity-rating" name='star-o' />
+                  <FontAwesome className="activity-rating" name='star-o' />
+                </Radio>
+                <Radio name="rating" className="explore-activity-rating" value="3" onChange={this.setRating}>
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star-o' />
+                  <FontAwesome className="activity-rating" name='star-o' />
+                </Radio>
+                <Radio name="rating" className="explore-activity-rating" value="4" onChange={this.setRating}>
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star-o' />
+                </Radio>
+                <Radio name="rating" className="explore-activity-rating" value="5" onChange={this.setRating}>
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star' />
+                </Radio>
+              </FormGroup>
+            </Col>
+            <Col>
+
+            </Col>
+            <hr className="explore-small-hr"/>
           </Row>
         </Grid>
         <Button bsStyle="success" className="explore-light-blue-button" bsSize="large" onClick={this.nextPage}>What's Next?</Button>
