@@ -211,22 +211,22 @@ class Squares extends Component {
 
   render() {
     var me = this;
-    var alertClasses = "activity-select-container "
+    var alertClasses = "explore-flexbox-container "
     if(this.props.exhibitOrActivity === 'exhibit'){
-      alertClasses += "exhibit-container";
+      alertClasses += "exhibit-step1-container";
     }else{
-      alertClasses += "activity-container";
+      alertClasses += "exhibit-step2-container";
     }
     var exhibits = this.props.elements.map(function(element) {
       var classes = "explore-square-thumbnail ";
       if (me.props.exhibitOrActivity === 'exhibit' && element.name === me.props.currentlySelected) {
-        classes += 'selected-exhibit';
+        classes += 'explore-selected-step1';
       } else if (me.props.exhibitOrActivity === 'activity' && element.name === me.props.currentlySelected) {
-        classes += 'selected-activity';
+        classes += 'explore-selected-step2';
       }
 
       return (
-        <Thumbnail className={classes} href="#" onClick={me.passSelection}key={element.name} name={element.name} >
+        <Thumbnail className={classes} href="#" onClick={me.passSelection} key={element.name} name={element.name} >
           <h4>{element.name}</h4>
             {/*<p>{element.description}</p> */}
         </Thumbnail>

@@ -180,3 +180,46 @@ input, textarea, select {
   display: flex;
   justify-content: center;
 }
+
+.explore-flexbox-container {
+  display: flex !important; /* or inline-flex */
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between !important;
+  background-image: linear-gradient(to bottom, white 0%, white 100%) !important;
+  border-width: 3px !important;
+  margin-bottom: 10px !important;
+}
+
+.exhibit-step1-container {
+  border-color: #3AB54A !important;
+  padding:5px !important;
+}
+
+.exhibit-step2-container {
+  border-color: #EA2728 !important;
+  padding:5px !important;
+}
+
+.explore-selected-step1 {
+  border: #3AB54A 3px solid !important;
+  background-color: white !important;
+}
+
+.explore-selected-step2 {
+  border: #EA2728 3px solid !important;
+  background-color: white !important;/* 5% lighten of the alert color */
+}
+
+.explore-square-thumbnail {
+  align-self: center !important;
+  padding: 0px !important;
+	/*width: 133px !important;*/
+  width: 48%;
+  flex: none !important;
+  height: 100% !important;
+	margin: 1% !important;
+  /*max-width: 133px !important;*/
+  min-height: 90px !important;
+  border-width: 3px !important;
+}

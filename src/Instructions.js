@@ -26,6 +26,12 @@ const activityInstructions = (
   </Alert>
 );
 
+const customizeRobotInstructions = (
+  <Alert className="explore-instructions">
+    <strong>Way to go! </strong> You earned new robot accessories. Select what you would like your robot to wear.
+  </Alert>
+);
+
 class Instructions extends Component {
   constructor(props) {
     super(props);
@@ -43,6 +49,8 @@ class Instructions extends Component {
       return activityInstructions;
     } else if (page ==="Quiz") {
       return quizInstructions;
+    } else if (page ==="CustomizeRobot") {
+      return customizeRobotInstructions;
     } else {
       return null;
     }

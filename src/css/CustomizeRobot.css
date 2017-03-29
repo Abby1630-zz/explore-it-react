@@ -7,3 +7,7 @@
 	-moz-box-sizing: border-box !important;
 	box-sizing: border-box !important;
 }
+
+.custom-robot-part{
+ max-width: 133px !important;
+}

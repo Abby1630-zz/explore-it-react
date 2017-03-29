@@ -889,7 +889,7 @@ class Quiz extends Component{
   }
 
   nextStep () {
-    this.props.changePage('SelectActivity');
+    this.props.changePage('CustomizeRobot');
   }
 
   randomizeQuestion() {
