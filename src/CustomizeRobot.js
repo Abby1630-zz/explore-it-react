@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
+import Scroll from 'react-scroll';
 import Thumbnail from 'react-bootstrap/lib/Thumbnail';
 import Alert from 'react-bootstrap/lib/Alert';
 import Grid from 'react-bootstrap/lib/Grid';
@@ -15,48 +16,60 @@ var head =
 [
   {
     fileName: "head1.jpg",
+    value: "1"
   },
   {
     fileName: "head2.jpg",
+    value: "2"
   },
   {
     fileName: "head3.jpg",
+     value: "3"
   }
 ];
 var body =
 [
   {
     fileName: "body1.jpg",
+    value: "1"
   },
   {
     fileName: "body2.jpg",
+    value: "2"
   },
   {
     fileName: "body3.jpg",
+    value: "3"
   }
 ];
 var arms =
 [
   {
     fileName: "arms0.jpg",
+    value: "0"
   },
   {
     fileName: "arms1.jpg",
+    value: "1"
   },
   {
     fileName: "arms2.jpg",
+    value: "2"
   },
   {
     fileName: "arms3.jpg",
+    value: "3"
   }
 ];
 var legs =
 [
   {
     fileName: "legs0.jpg",
+    value: "0"
   },
   {
     fileName: "legs1.jpg",
+    value: "1"
   },
 ];
 
@@ -73,20 +86,37 @@ class CustomizeRobot extends Component{
       /* On load load in all the questions, activities, and exhibits so you
         don't have to rerender since you have to use setState */
     };
+    var scroll = Scroll.animateScroll;
+    scroll.scrollToTop();
     this.nextPage= this.nextPage.bind(this);
     this.getWhatBodyPart= this.getWhatBodyPart.bind(this);
     this.getBodyPartCustomizations= this.getBodyPartCustomizations.bind(this);
+    this.setSelected= this.setSelected.bind(this);
   }
 
   nextPage () {
-    console.log("handleChange");
+    var part = this.getWhatBodyPart(this.props);
+    var value = "";
+    switch(part) {
+      case "head":
+        value = this.state.robotHead;
+        break;
+      case "body":
+        value = this.state.robotBody;
+        break;
+      case "arms":
+        value = this.state.robotArms;
+        break;
+      case "legs":
+        value = this.state.robotLegs;
+        break;
+    }
+    this.props.changeRobot(part, value);
     this.props.changePage('SelectActivity');
-
   }
 
   setSelected (e) {
     var part = this.getWhatBodyPart(this.props);
-
     switch(part) {
       case "head":
         this.setState({robotHead:e.currentTarget.name});
@@ -121,16 +151,16 @@ class CustomizeRobot extends Component{
 
     switch(part) {
       case "head":
-        return <Customize availableCustomization={head} bodyPart="head" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
+        return <Customize availableCustomization={head} onSelection={this.setSelected} currentlySelected={this.state.robotHead} bodyPart="head" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
         break;
       case "body":
-        return <Customize availableCustomization={body} bodyPart="body" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
+        return <Customize availableCustomization={body} onSelection={this.setSelected} currentlySelected={this.state.robotBody} bodyPart="body" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
         break;
       case "arms":
-        return <Customize availableCustomization={arms} bodyPart="arms" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
+        return <Customize availableCustomization={arms} onSelection={this.setSelected} currentlySelected={this.state.robotArms} bodyPart="arms" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
         break;
       case "legs":
-        return <Customize availableCustomization={legs} bodyPart="legs" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
+        return <Customize availableCustomization={legs} onSelection={this.setSelected} currentlySelected={this.state.robotLegs} bodyPart="legs" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
         break;
       default:
         return null;
@@ -156,7 +186,7 @@ class Customize extends Component{
         </h2>
 
         <Grid>
-          <Squares color="danger" elements={this.props.availableCustomization} bodyPart={this.props.bodyPart} onSelection={this.props.onSelection} />
+          <Squares color="danger" elements={this.props.availableCustomization} bodyPart={this.props.bodyPart} currentlySelected={this.props.currentlySelected} onSelection={this.props.onSelection} />
           <Row>
             <Col xs={3}></Col>
             <Col xs={6}>
@@ -171,17 +201,29 @@ class Customize extends Component{
 }
 
 class Squares extends Component {
+  constructor(props) {
+    super(props);
+    this.passSelection= this.passSelection.bind(this);
+  }
+
+  passSelection (e) {
+    this.props.onSelection(e);
+  }
+
   render() {
     var me = this;
-    var exhibits = this.props.elements.map(function(element) {
+    var elements = this.props.elements.map(function(element) {
+      var classes = "explore-square-thumbnail custom-robot-part ";
+      if (element.value === me.props.currentlySelected) {
+        classes += 'explore-selected-step1';
+      }
       var filepath = process.env.PUBLIC_URL + '/images/robot/' + me.props.bodyPart + '/'+ element.fileName;
-      console.log(filepath);
       return (
-        <Thumbnail className="explore-square-thumbnail custom-robot-part " href="#" src={filepath} key={filepath} />
+        <Thumbnail className={classes} onClick={me.passSelection} href="#" src={filepath} key={element.value} name={element.value} />
       );
     });
     return (
-      <Alert bsStyle={this.props.color} className="explore-flexbox-container exhibit-step1-container" key="explore-flexbox-container">{exhibits} </Alert>
+      <Alert bsStyle={this.props.color} className="explore-flexbox-container exhibit-step1-container" key="explore-flexbox-container">{elements} </Alert>
     );
   }
 }

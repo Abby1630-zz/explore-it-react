@@ -849,7 +849,6 @@ function getQuestions (activityName) {
       }
   );
 
-  console.log(questionsForActivity);
   return questionsForActivity[0];
 }
 

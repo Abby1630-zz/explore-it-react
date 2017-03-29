@@ -49,18 +49,25 @@ class App extends Component {
     });
   }
 
-  changeRobot(selectedHead, selectedBody, selectedArms, selectedLegs){
-    this.setState({
-      robotHead: selectedHead,
-      robotBody: selectedBody,
-      robotArms: selectedArms,
-      robotLegs: selectedLegs
-    });
+  changeRobot(bodyPart, selected){
+    switch(bodyPart) {
+      case "head":
+        this.setState({robotHead:selected});
+        break;
+      case "body":
+        this.setState({robotBody:selected});
+        break;
+      case "arms":
+        this.setState({robotArms:selected});
+        break;
+      case "legs":
+        this.setState({robotLegs:selected});
+        break;
+    }
   }
 
   render() {
     var robotArray = [this.state.robotHead, this.state.robotBody, this.state.robotArms, this.state.robotLegs];
-    console.log(robotArray);
     return (
       <div className="App">
         <NavBar changePage={this.changePage} currentPage={this.state.renderedPage}/>
