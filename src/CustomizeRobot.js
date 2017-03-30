@@ -112,7 +112,7 @@ class CustomizeRobot extends Component{
         break;
     }
     this.props.changeRobot(part, value);
-    this.props.changePage('SelectActivity');
+    this.props.changePage('ViewRobot');
   }
 
   setSelected (e) {

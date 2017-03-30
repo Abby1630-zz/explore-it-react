@@ -12,6 +12,7 @@ import CustomizeRobot from './CustomizeRobot';
 import Activity from './Activity';
 import MyProfile from './MyProfile';
 import Welcome from './Welcome';
+import ViewRobot from './ViewRobot';
 import Grid from 'react-bootstrap/lib/Grid';
 
 var scroll = Scroll.animateScroll;
@@ -20,7 +21,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      renderedPage: 'CustomizeRobot',
+      renderedPage: 'ViewRobot',
       countUntilNextQuiz: 4,
       selectedExhibit: "none",
       selectedActivity: "none",
@@ -86,14 +87,17 @@ function getTitle (currentPage) {
     return (<h1 id="explore-page-title">Select an Activity</h1>);
   } else if (currentPage === 'Quiz'){
     return (<h1 id="explore-page-title">Quiz</h1>);
-  } else if (currentPage === 'CustomizeRobot'){
+  } else if (currentPage === 'CustomizeRobot') {
     return (<h1 id="explore-page-title">Congratulations!</h1>);
   } else if (currentPage === 'Intro') {
     return (<h1 id="explore-page-title">Welcome</h1>);
   } else if (currentPage === 'MyProfile') {
     return (<h1 id="explore-page-title">My Profile</h1>);
-  } else if (currentPage === 'Welcome') {
-    return null;
+  } else if (currentPage === 'ViewRobot') {
+    return (<h1 id="explore-page-title">Check Out Your Robot</h1>);
+  } else {
+    console.log(currentPage);
+    //return null;
   }
 }
 
@@ -119,6 +123,13 @@ function getPage (renderPage, countUntilNextQuiz, selectedExhibit, selectedActiv
         {/* <QuizCountdown count={countUntilNextQuiz}/> */}
         <Instructions page={renderPage}/>
         <CustomizeRobot changePage={changePageFunction} changeRobot={changeRobotFunction} head={robotArray[0]} body={robotArray[1]} arms={robotArray[2]} legs={robotArray[3]} />
+      </div>
+    );
+  } else if (renderPage === 'ViewRobot') {
+    return (
+      <div>
+        {/* <QuizCountdown count={countUntilNextQuiz}/> */}
+        <ViewRobot changePage={changePageFunction} head={robotArray[0]} body={robotArray[1]} arms={robotArray[2]} legs={robotArray[3]} />
       </div>
     );
   } else if (renderPage === 'Activity') {
