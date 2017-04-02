@@ -195,3 +195,8 @@
         margin-right: 0;
     }
 }
+
+.brand-robot-image{
+  max-width: 75px !important;
+  border: 2px darkgray solid;
+}

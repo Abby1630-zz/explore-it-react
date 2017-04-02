@@ -21,7 +21,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      renderedPage: 'ViewRobot',
+      renderedPage: 'Welcome',
       countUntilNextQuiz: 4,
       selectedExhibit: "none",
       selectedActivity: "none",
@@ -71,10 +71,10 @@ class App extends Component {
     var robotArray = [this.state.robotHead, this.state.robotBody, this.state.robotArms, this.state.robotLegs];
     return (
       <div className="App">
-        <NavBar changePage={this.changePage} currentPage={this.state.renderedPage}/>
+        <NavBar changePage={this.changePage} currentPage={this.state.renderedPage} showRobot={this.props.showRobot} robotImage={robotArray[0]+robotArray[1]+robotArray[2]+robotArray[3]}/>
         {getTitle (this.state.renderedPage)}
         <div className="App-Body">
-          {getPage (this.state.renderedPage, this.state.countUntilNextQuiz, this.state.selectedExhibit, this.state.selectedActivity, robotArray, this.changePage, this.changeActivity, this.changeRobot)}
+          {getPage (this.state.renderedPage, this.state.countUntilNextQuiz, this.state.selectedExhibit, this.state.selectedActivity, robotArray, this.props.showRobot, this.changePage, this.changeActivity, this.changeRobot)}
           <hr className="explore-small-hr"/>
         </div>
       </div>
@@ -101,7 +101,7 @@ function getTitle (currentPage) {
   }
 }
 
-function getPage (renderPage, countUntilNextQuiz, selectedExhibit, selectedActivity, robotArray, changePageFunction, changeActivityFunction, changeRobotFunction) {
+function getPage (renderPage, countUntilNextQuiz, selectedExhibit, selectedActivity, robotArray, showRobot, changePageFunction, changeActivityFunction, changeRobotFunction) {
   if (renderPage === 'SelectActivity') {
     return (
       <div>
@@ -114,7 +114,7 @@ function getPage (renderPage, countUntilNextQuiz, selectedExhibit, selectedActiv
     return (
       <div>
         <Instructions page={renderPage}/>
-        <Quiz changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity}/>
+        <Quiz changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity} showRobot={showRobot}/>
       </div>
     );
   } else if (renderPage === 'CustomizeRobot') {
