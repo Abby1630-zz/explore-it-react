@@ -186,11 +186,11 @@ class Enter extends Component{
         </h2>
         <Grid>
           <Row>
-            <Col xs={3}></Col>
-            <Col xs={6}>
+            <Col xs={2}></Col>
+            <Col xs={8}>
               <Button bsStyle="info" className="explore-light-blue-button" bsSize="large" block onClick={this.props.onClick}>Lets Go!</Button>
             </Col>
-            <Col xs={3}></Col>
+            <Col xs={2}></Col>
           </Row>
           <hr className="explore-small-hr"/>
         </Grid>

@@ -6,4 +6,6 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import './css/index.css';
 import './css/common.css';
 
-ReactDOM.render(<App />,document.getElementById('body'));
+var boolShouldShowRobot = true;
+
+ReactDOM.render(<App showRobot={boolShouldShowRobot}/>,document.getElementById('body'));

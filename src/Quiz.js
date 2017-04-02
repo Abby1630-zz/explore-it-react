@@ -888,7 +888,11 @@ class Quiz extends Component{
   }
 
   nextStep () {
-    this.props.changePage('CustomizeRobot');
+    if(this.props.showRobot === true){
+      this.props.changePage('CustomizeRobot');
+    } else {
+      this.props.changePage('SelectActivity');
+    }
   }
 
   randomizeQuestion() {
