@@ -21,6 +21,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      exhibitsAndActivities: [],
+      activitiesInDetail: [],
+      questions: [],
       renderedPage: 'Welcome',
       countUntilNextQuiz: 4,
       selectedExhibit: "none",
@@ -67,14 +70,42 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    var me = this;
+    fetch(process.env.PUBLIC_URL +'content/exhibitsAndActivities.json').then(function (rawResponse) {
+      return rawResponse.json();
+    }).then(function (responseData) {
+      me.setState({
+        exhibitsAndActivities: responseData
+      });
+    })
+
+    fetch(process.env.PUBLIC_URL +'content/activitiesInDetail.json').then(function (rawResponse) {
+      return rawResponse.json();
+    }).then(function (responseData) {
+      me.setState({
+        activitiesInDetail: responseData
+      });
+    })
+
+    fetch(process.env.PUBLIC_URL +'content/questions.json').then(function (rawResponse) {
+      return rawResponse.json();
+    }).then(function (responseData) {
+      me.setState({
+        questions: responseData
+      });
+    })
+  }
+
   render() {
     var robotArray = [this.state.robotHead, this.state.robotBody, this.state.robotArms, this.state.robotLegs];
+
     return (
       <div className="App">
         <NavBar changePage={this.changePage} currentPage={this.state.renderedPage} showRobot={this.props.showRobot} robotImage={robotArray[0]+robotArray[1]+robotArray[2]+robotArray[3]}/>
         {getTitle (this.state.renderedPage)}
         <div className="App-Body">
-          {getPage (this.state.renderedPage, this.state.countUntilNextQuiz, this.state.selectedExhibit, this.state.selectedActivity, robotArray, this.props.showRobot, this.changePage, this.changeActivity, this.changeRobot)}
+          {getPage (this.state, this.props.showRobot, this.changePage, this.changeActivity, this.changeRobot)}
           <hr className="explore-small-hr"/>
         </div>
       </div>
@@ -96,25 +127,34 @@ function getTitle (currentPage) {
   } else if (currentPage === 'ViewRobot') {
     return (<h1 id="explore-page-title">Check Out Your Robot</h1>);
   } else {
-    console.log(currentPage);
-    //return null;
+    return null;
   }
 }
 
-function getPage (renderPage, countUntilNextQuiz, selectedExhibit, selectedActivity, robotArray, showRobot, changePageFunction, changeActivityFunction, changeRobotFunction) {
+function getPage (state, showRobot, changePageFunction, changeActivityFunction, changeRobotFunction) {
+// this.state.selectedActivity
+  var renderPage = state.renderedPage;
+  var countUntilNextQuiz = state.countUntilNextQuiz;
+  var selectedExhibit = state.selectedExhibit;
+  var selectedActivity = state.selectedActivity;
+  var robotArray = [state.robotHead, state.robotBody, state.robotArms, state.robotLegs];
+  var exhibitsAndActivities = state.exhibitsAndActivities;
+  var activitiesInDetail = state.activitiesInDetail;
+  var questions = state.questions;
+
   if (renderPage === 'SelectActivity') {
     return (
       <div>
         {/* <QuizCountdown count={countUntilNextQuiz}/> */}
         <Instructions page={renderPage}/>
-        <SelectActivity changePage={changePageFunction} changeActivity={changeActivityFunction}/>
+        <SelectActivity changePage={changePageFunction} changeActivity={changeActivityFunction} exhibitsAndActivities={exhibitsAndActivities}/>
       </div>
     );
   } else if (renderPage === 'Quiz') {
     return (
       <div>
         <Instructions page={renderPage}/>
-        <Quiz changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity} showRobot={showRobot}/>
+        <Quiz changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity} showRobot={showRobot} questions={questions}/>
       </div>
     );
   } else if (renderPage === 'CustomizeRobot') {
@@ -136,7 +176,7 @@ function getPage (renderPage, countUntilNextQuiz, selectedExhibit, selectedActiv
     return (
       <div>
         {/* <QuizCountdown count={countUntilNextQuiz}/> */}
-        <Activity changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity}/>
+        <Activity changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity} activitiesInDetail={activitiesInDetail}/>
       </div>
     );
   } else if (renderPage === 'MyProfile' ) {
