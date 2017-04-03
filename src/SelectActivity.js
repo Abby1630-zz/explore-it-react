@@ -13,71 +13,10 @@ import './css/common.css';
 var Element = Scroll.Element;
 var scroller = Scroll.scroller;
 
-var exhibits =
-[
-  {
-    name: "Publix",
-    activities:   [
-      {name: "Cultural Foods"},
-      {name: "Nutrition"},
-      {name: "Money"},
-      {name: "Sorting"},
-      {name: "Letters"}
-    ]
-  },
-  {
-    name: "Medical and Vet",
-    activities:   [
-      {name: "Bones"},
-      {name: "Eating the Rainbow"}
-    ]
-  },
-  {
-    name: "Outback/ Carraba's",
-    activities:   [
-      {name: "Order up!"},
-      {name: "I’m Here to Help"},
-    ]
-  },
-  {
-    name: "Art",
-    activities:   [
-      {name: "Kaleidoscope"},
-      {name: "The Case of the Missing Letter"}
-    ]
-  },
-  {
-    name: "Get Moving",
-    activities:   [
-      {name: "Who is faster?"},
-      {name: "At the Races"},
-      {name: "How High?"},
-      {name: "How Strong?"},
-      {name: "Stop that Ball!"}
-    ]
-  },
-  {
-    name: "Invention Zone",
-    activities:   [
-      {name: "Lego Activity-egocentrism and motor skills"}
-    ]
-  },
-  {
-    name: "Water Area",
-    activities:   [
-      {name: "Hidden Treasure"},
-      {name: "Sailing, Sailing"},
-      {name: "Ahoy, There!"},
-      {name: "What's Down There?"}
-    ]
-  }
-];
-
-
-function getActivities (exhibitName) {
-  var exhibit = exhibits.filter(
-      function(exhibits){
-        return exhibits.name === exhibitName;
+function getActivities (exhibitName, exhibitsAndActivities) {
+  var exhibit = exhibitsAndActivities.filter(
+      function(exhibitsAndActivities){
+        return exhibitsAndActivities.name === exhibitName;
       }
   );
   return exhibit[0].activities;
@@ -129,8 +68,8 @@ class SelectActivity extends Component{
   render(){
     return(
       <div>
-        <Exhibit elements={exhibits} onSelection={this.setExhibitState} currentlySelected={this.state.exhibit}/>
-        { this.state.exhibit !== "not set" ? <Activity elements={getActivities(this.state.exhibit)} onSelection={this.setActivityState} currentlySelected={this.state.activity}/> : null }
+        <Exhibit elements={this.props.exhibitsAndActivities} onSelection={this.setExhibitState} currentlySelected={this.state.exhibit}/>
+        { this.state.exhibit !== "not set" ? <Activity elements={getActivities(this.state.exhibit, this.props.exhibitsAndActivities)} onSelection={this.setActivityState} currentlySelected={this.state.activity}/> : null }
         <Element name="step2"></Element>
         { this.state.activity !== "not set" ? <Enter onClick={this.nextPage}/> : null}
         <Element name="step3"></Element>
