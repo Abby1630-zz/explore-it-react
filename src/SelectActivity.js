@@ -29,6 +29,7 @@ class SelectActivity extends Component{
       exhibit: "not set",
       activity: "not set"
     }
+
     var scroll = Scroll.animateScroll;
     scroll.scrollToTop();
     this.nextPage= this.nextPage.bind(this);
@@ -51,6 +52,11 @@ class SelectActivity extends Component{
       delay: 0,
       smooth: true,
     })
+    this.props.ReactGA.event({
+      category: 'Navigation',
+      action: 'SelectExhibit',
+      value: e.currentTarget.name
+    });
     this.setState({exhibit:e.currentTarget.name})
   }
 
@@ -62,6 +68,11 @@ class SelectActivity extends Component{
       delay: 0,
       smooth: true,
     })
+    this.props.ReactGA.event({
+      category: 'Navigation',
+      action: 'SelectActivity',
+      value: e.currentTarget.name
+    });
     this.setState({activity:e.currentTarget.name})
   }
 

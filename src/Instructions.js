@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 //import ReactDOM from 'react-dom';
 import Alert from 'react-bootstrap/lib/Alert';
-import Grid from 'react-bootstrap/lib/Grid';
-import Row from 'react-bootstrap/lib/Row';
 import './css/Instructions.css';
 
 

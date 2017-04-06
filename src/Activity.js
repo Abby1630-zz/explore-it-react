@@ -7,7 +7,6 @@ import FormGroup from 'react-bootstrap/lib/FormGroup';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
 import Button from 'react-bootstrap/lib/Button';
-import ButtonGroup from 'react-bootstrap/lib/ButtonGroup';
 import Alert from 'react-bootstrap/lib/Alert';
 import Collapse from 'react-bootstrap/lib/Collapse';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
@@ -38,8 +37,20 @@ class Activity extends Component{
 
   nextPage () {
     if (this.state.rating !== "notRated"){
+      this.props.ReactGA.event({
+        category: 'User',
+        action: 'ActivityRating',
+        label: this.props.activity,
+        value: this.state.rating
+      });
       this.props.changePage('Quiz');
     } else{
+      this.props.ReactGA.event({
+        category: 'Navigation',
+        action: 'ActivityRating',
+        label: this.props.activity,
+        value: 'ForgotToRate'
+      });
       alert("Please rate this activity.")
     }
   }
@@ -144,7 +155,17 @@ class Collapsible extends Component {
       return (<Glyphicon className="pull-right" glyph="chevron-up" />);
     }
     return (<Glyphicon className="pull-right" glyph="chevron-down" />);
+
+    if (this.state.open !== this.props.open){
+      this.props.ReactGA.event({
+        category: 'CollapseClick',
+        action: this.props.header,
+        value: this.state.open
+      });
+    }
   }
+
+
 
   render() {
     var alertClasses = this.props.alertClass + " lang-container";

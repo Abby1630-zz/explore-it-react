@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Checkbox from 'react-bootstrap/lib/Checkbox';
 import Button from 'react-bootstrap/lib/Button';
-import Alert from 'react-bootstrap/lib/Alert';
 import Well from 'react-bootstrap/lib/Well';
 import Collapse from 'react-bootstrap/lib/Collapse';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
@@ -34,6 +33,11 @@ class MyProfile extends Component{
     if (this.props.page === "MyProfile" || this.state.iAgree === true){
       this.props.changePage('SelectActivity');
     } else {
+      this.props.ReactGA.event({
+        category: 'Navigation',
+        action: 'TermsAndConditionsMissing',
+        value: 'ForgotToRate'
+      });
       alert("Please agree to the terms and conditions");
     }
   }
