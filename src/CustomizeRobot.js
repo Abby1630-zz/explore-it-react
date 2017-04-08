@@ -179,9 +179,11 @@ class Customize extends Component{
   render(){
     return(
       <div>
-        <h2 className="explore-heading-no-top-margin">
+        <div>
+          <h2 className="explore-heading-no-top-margin">
+          </h2>
           <h3 className="explore-heading-no-top-margin">Which {this.props.bodyPart} would you like?</h3>
-        </h2>
+        </div>
 
         <Grid>
           <Squares color="danger" elements={this.props.availableCustomization} bodyPart={this.props.bodyPart} currentlySelected={this.props.currentlySelected} onSelection={this.props.onSelection} />

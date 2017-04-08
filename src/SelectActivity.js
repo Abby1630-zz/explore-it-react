@@ -92,10 +92,12 @@ class Exhibit extends Component{
   render(){
     return(
       <div>
-        <h2 className="explore-heading-no-top-margin">
-          <Label id="step1" className="pull-left explore-green-label">1</Label>
+        <div>
+          <h2 className="explore-heading-no-top-margin">
+            <Label id="step1" className="pull-left explore-green-label">1</Label>
+          </h2>
           <h3 className="explore-heading-no-top-margin">Choose Your Exhibit</h3>
-        </h2>
+        </div>
 
         <Grid>
           <Squares exhibitOrActivity="exhibit" currentlySelected={this.props.currentlySelected} elements={this.props.elements} onSelection={this.props.onSelection} color="success"/>
@@ -110,10 +112,12 @@ class Activity extends Component{
   render(){
     return(
       <div>
-        <h2 className="explore-heading-no-top-margin">
-          <Label id="step2" className="pull-left explore-red-label">2</Label>
+        <div>
+          <h2 className="explore-heading-no-top-margin">
+            <Label id="step2" className="pull-left explore-red-label">2</Label>
+          </h2>
           <h3 className="explore-heading-no-top-margin">Choose Your Activity</h3>
-        </h2>
+        </div>
 
         <Grid>
           <Squares exhibitOrActivity="activity" currentlySelected={this.props.currentlySelected} elements={this.props.elements} onSelection={this.props.onSelection} color="danger"/>
@@ -128,10 +132,12 @@ class Enter extends Component{
   render(){
     return(
       <div>
-        <h2 className="explore-heading-no-top-margin">
-          <Label bsStyle="info" id="step3" className="pull-left explore-light-blue-label">3</Label>
+        <div>
+          <h2 className="explore-heading-no-top-margin">
+            <Label bsStyle="info" id="step3" className="pull-left explore-light-blue-label">3</Label>
+          </h2>
           <h3 className="explore-heading-no-top-margin">Ready?</h3>
-        </h2>
+        </div>
         <Grid>
           <Row>
             <Col xs={2}></Col>

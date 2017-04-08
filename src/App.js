@@ -26,6 +26,7 @@ class App extends Component {
       questions: [],
       disclaimer: "",
       renderedPage: 'Welcome',
+      quizDifficulty: 'medium',
       countUntilNextQuiz: 4,
       selectedExhibit: "none",
       selectedActivity: "none",
@@ -39,8 +40,8 @@ class App extends Component {
     this.changePage = this.changePage.bind(this)
     this.changeActivity = this.changeActivity.bind(this)
     this.changeRobot = this.changeRobot.bind(this)
+    this.changeQuizDifficulty = this.changeQuizDifficulty.bind(this)
     ReactGA.initialize('UA-96822574-1'); //Unique Google Analytics tracking number
-
   }
 
   changePage(pageName){
@@ -53,7 +54,6 @@ class App extends Component {
       action: this.state.renderedPage,
       label: timeInSeconds.toString()
     });
-    console.log('CurrentPage: ' + this.state.renderedPage + " Time actively spent on page: " + timeInSeconds);
     scroll.scrollToTop();
     this.setState({renderedPage: pageName});
 
@@ -62,6 +62,13 @@ class App extends Component {
     this.setState({
       selectedExhibit: exhibit,
       selectedActivity: activity
+    });
+  }
+
+  changeQuizDifficulty(changeTo){
+    console.log("Change Quiz Level to " + changeTo);
+    this.setState({
+      quizDifficulty: changeTo
     });
   }
 
@@ -128,7 +135,7 @@ class App extends Component {
         <NavBar changePage={this.changePage} currentPage={this.state.renderedPage} showRobot={this.props.showRobot} robotImage={robotArray[0]+robotArray[1]+robotArray[2]+robotArray[3]}/>
         {getTitle (this.state.renderedPage)}
         <div className="App-Body">
-          {getPage (this.state, this.props.showRobot, this.changePage, this.changeActivity, this.changeRobot, ReactGA)}
+          {getPage (this.state, this.props.showRobot, this.changePage, this.changeActivity, this.changeRobot, this.changeQuizDifficulty, ReactGA)}
           <hr className="explore-small-hr"/>
         </div>
       </div>
@@ -154,8 +161,9 @@ function getTitle (currentPage) {
   }
 }
 
-function getPage (state, showRobot, changePageFunction, changeActivityFunction, changeRobotFunction, ReactGA) {
-  //this.state.selectedActivity
+
+function getPage (state, showRobot, changePageFunction, changeActivityFunction, changeRobotFunction, changeQuizDifficultyFunction, ReactGA) {
+// this.state.selectedActivity
   var renderPage = state.renderedPage;
   var countUntilNextQuiz = state.countUntilNextQuiz;
   var selectedExhibit = state.selectedExhibit;
@@ -164,12 +172,14 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction, 
   var exhibitsAndActivities = state.exhibitsAndActivities;
   var activitiesInDetail = state.activitiesInDetail;
   var questions = state.questions;
+  var quizDifficulty = state.quizDifficulty;
   var disclaimer = state.disclaimer;
 
   TimeMe.initialize({});
   TimeMe.setCurrentPageName(renderPage);
   TimeMe.startTimer();
   ReactGA.pageview(renderPage);
+
 
   if (renderPage === 'SelectActivity') {
     return (
@@ -183,7 +193,7 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction, 
     return (
       <div>
         <Instructions page={renderPage}/>
-        <Quiz ReactGA={ReactGA} changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity} showRobot={showRobot} questions={questions}/>
+        <Quiz ReactGA={ReactGA} changePage={changePageFunction} changeQuizDifficulty={changeQuizDifficultyFunction} quizDifficulty={quizDifficulty} exhibit={selectedExhibit} activity={selectedActivity} showRobot={showRobot} questions={questions}/>
       </div>
     );
   } else if (renderPage === 'CustomizeRobot') {

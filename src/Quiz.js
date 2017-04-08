@@ -38,6 +38,8 @@ class Quiz extends Component{
     this.validateAnswer= this.validateAnswer.bind(this);
     this.setValues= this.setValues.bind(this);
     this.randomizeQuestion= this.randomizeQuestion.bind(this);
+    this.moveUpQuizDifficulty= this.moveUpQuizDifficulty.bind(this);
+    this.moveDownQuizDifficulty= this.moveDownQuizDifficulty.bind(this);
   }
 
   setValues(actualVal, expectedVal){
@@ -72,7 +74,29 @@ class Quiz extends Component{
     }
   }
 
+  moveUpQuizDifficulty(){
+    if (this.props.quizDifficulty === "easy"){
+      return "medium";
+    } else {
+      return "hard";
+    }
+  }
+
+  moveDownQuizDifficulty(){
+    if (this.props.quizDifficulty === "hard"){
+      return "medium";
+    } else {
+      return "easy";
+    }
+  }
+
   nextStep () {
+    if (this.state.isCorrect === 'true'){
+      this.props.changeQuizDifficulty(this.moveUpQuizDifficulty());
+    } else if (this.state.isCorrect === 'false'){
+      this.props.changeQuizDifficulty(this.moveDownQuizDifficulty());
+    }
+
     if(this.props.showRobot === true){
       this.props.changePage('CustomizeRobot');
     } else {
