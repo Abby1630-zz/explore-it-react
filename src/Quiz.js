@@ -10,14 +10,9 @@ import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import './css/Quiz.css';
 
-var rand = Math.random();
-
-
 function getQuestions (activityName, questions) {
   var questionsForActivity = questions.filter(
       function(questions){
-        //console.log(questions.activityName);
-        //console.log(activityName);
         return questions.activityName === activityName;
       }
   );
@@ -37,40 +32,47 @@ class Quiz extends Component{
     this.nextStep= this.nextStep.bind(this);
     this.validateAnswer= this.validateAnswer.bind(this);
     this.setValues= this.setValues.bind(this);
-    this.randomizeQuestion= this.randomizeQuestion.bind(this);
+    this.getQuestion= this.getQuestion.bind(this);
     this.moveUpQuizDifficulty= this.moveUpQuizDifficulty.bind(this);
     this.moveDownQuizDifficulty= this.moveDownQuizDifficulty.bind(this);
   }
 
   setValues(actualVal, expectedVal){
+    console.log("set");
+
     this.setState({actualValue: actualVal.toLowerCase()});
     this.setState({expectedValue: expectedVal.toLowerCase()});
   }
 
   validateAnswer () {
-    var expectedArray = this.state.expectedValue.split(",");
-    if(expectedArray.indexOf(this.state.actualValue) > -1){
-      this.props.ReactGA.event({
-        category: 'QuizAnswer',
-        action: this.props.activity,
-        label: 'Correct - ' + rand
-      });
+    if (this.state.expectedValue !== ''){
+      var expectedArray = this.state.expectedValue.split(",");
 
-      this.setState({
-        isCorrect: 'true',
-        percentComplete: 100
-      });
-    } else {
-      this.props.ReactGA.event({
-        category: 'QuizAnswer - Incorrect',
-        action: this.props.activity,
-        label:'Difficulty: ' + rand + ' Answered Value: '+ this.state.actualValue
-      });
+      if(expectedArray.indexOf(this.state.actualValue) > -1){
+        this.props.ReactGA.event({
+          category: 'QuizAnswer',
+          action: this.props.activity,
+          label: 'Correct - ' + this.props.quizDifficulty
+        });
 
-      this.setState({
-        isCorrect: 'false',
-        percentComplete: 100
-      });
+        this.setState({
+          isCorrect: 'true',
+          percentComplete: 100
+        });
+      } else {
+        this.props.ReactGA.event({
+          category: 'QuizAnswer - Incorrect',
+          action: this.props.activity,
+          label:'Difficulty: ' + this.props.quizDifficulty + ' Answered Value: '+ this.state.actualValue
+        });
+
+        this.setState({
+          isCorrect: 'false',
+          percentComplete: 100
+        });
+      }
+    } else{
+      alert("Oops, you didn't answer the question!");
     }
   }
 
@@ -104,28 +106,29 @@ class Quiz extends Component{
     }
   }
 
-  randomizeQuestion() {
-    if (rand < .33) {
+  getQuestion() {
+    if (this.props.quizDifficulty === 'easy') {
       return (
         <QuestionBlock questionInfo={getQuestions(this.props.activity, this.props.questions).easy} setValue={this.setValues}/>
       );
-    } else if (rand > .66) {
+    } else if (this.props.quizDifficulty === 'hard') {
       return (
-        <QuestionBlock questionInfo={getQuestions(this.props.activity, this.props.questions).medium} setValue={this.setValues}/>
+        <QuestionBlock questionInfo={getQuestions(this.props.activity, this.props.questions).hard} setValue={this.setValues}/>
       );
     } else {
       return (
-        <QuestionBlock questionInfo={getQuestions(this.props.activity, this.props.questions).hard} setValue={this.setValues}/>
+        <QuestionBlock questionInfo={getQuestions(this.props.activity, this.props.questions).medium} setValue={this.setValues}/>
       );
     }
   }
 
   render(){
+    console.log(this.state.expectedValue);
     return(
       <div>
         <Grid>
-          <AnswerFeedback isCorrect={this.state.isCorrect}  />
-          {this.randomizeQuestion()}
+          <AnswerFeedback isCorrect={this.state.isCorrect} expectedValue={this.state.expectedValue.split(",")} />
+          {this.getQuestion()}
           <ProgressBar striped bsStyle="info" now={this.state.percentComplete} />
           <SubmitButton validateAnswer={this.validateAnswer} nextStep={this.nextStep} isCorrect={this.state.isCorrect}/>
         </Grid>
@@ -156,7 +159,7 @@ class AnswerFeedback extends Component {
       );
     } else if(this.props.isCorrect === 'false') {
       return (
-        <Alert bsStyle="danger" className="explore-red-text explore-red-panel background-image-white"><strong>Oh snap! </strong>That wasn't the correct answer. You will do great on the next one!</Alert>
+        <Alert bsStyle="danger" className="explore-red-text explore-red-panel background-image-white"><strong>Oh snap! </strong>The correct answer was {this.props.expectedValue[0]}. You will do great on the next one!</Alert>
       );
     };
     return <div/>;

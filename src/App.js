@@ -66,7 +66,6 @@ class App extends Component {
   }
 
   changeQuizDifficulty(changeTo){
-    console.log("Change Quiz Level to " + changeTo);
     this.setState({
       quizDifficulty: changeTo
     });
