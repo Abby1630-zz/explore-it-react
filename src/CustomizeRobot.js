@@ -6,8 +6,6 @@ import Alert from 'react-bootstrap/lib/Alert';
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
-import Glyphicon from 'react-bootstrap/lib/Glyphicon';
-import Label from 'react-bootstrap/lib/Label';
 import Button from 'react-bootstrap/lib/Button';
 import './css/CustomizeRobot.css';
 import './css/common.css';
@@ -110,6 +108,8 @@ class CustomizeRobot extends Component{
       case "legs":
         value = this.state.robotLegs;
         break;
+      default:
+        break;
     }
     this.props.changeRobot(part, value);
     this.props.changePage('ViewRobot');
@@ -129,6 +129,8 @@ class CustomizeRobot extends Component{
         break;
       case "legs":
         this.setState({robotLegs:e.currentTarget.name});
+        break;
+      default:
         break;
     }
 
@@ -152,16 +154,12 @@ class CustomizeRobot extends Component{
     switch(part) {
       case "head":
         return <Customize availableCustomization={head} onSelection={this.setSelected} currentlySelected={this.state.robotHead} bodyPart="head" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
-        break;
       case "body":
         return <Customize availableCustomization={body} onSelection={this.setSelected} currentlySelected={this.state.robotBody} bodyPart="body" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
-        break;
       case "arms":
         return <Customize availableCustomization={arms} onSelection={this.setSelected} currentlySelected={this.state.robotArms} bodyPart="arms" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
-        break;
       case "legs":
         return <Customize availableCustomization={legs} onSelection={this.setSelected} currentlySelected={this.state.robotLegs} bodyPart="legs" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
-        break;
       default:
         return null;
     }

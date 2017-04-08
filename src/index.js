@@ -8,4 +8,5 @@ import './css/common.css';
 
 var boolShouldShowRobot = true;
 
+
 ReactDOM.render(<App showRobot={boolShouldShowRobot}/>,document.getElementById('body'));

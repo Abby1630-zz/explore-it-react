@@ -48,11 +48,23 @@ class Quiz extends Component{
   validateAnswer () {
     var expectedArray = this.state.expectedValue.split(",");
     if(expectedArray.indexOf(this.state.actualValue) > -1){
+      this.props.ReactGA.event({
+        category: 'QuizAnswer',
+        action: this.props.activity,
+        label: 'Correct - ' + rand
+      });
+
       this.setState({
         isCorrect: 'true',
         percentComplete: 100
       });
     } else {
+      this.props.ReactGA.event({
+        category: 'QuizAnswer - Incorrect',
+        action: this.props.activity,
+        label:'Difficulty: ' + rand + ' Answered Value: '+ this.state.actualValue
+      });
+
       this.setState({
         isCorrect: 'false',
         percentComplete: 100

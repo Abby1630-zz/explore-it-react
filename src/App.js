@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Scroll from 'react-scroll';
-
+import ReactGA from 'react-ga';
+import TimeMe from 'timeme.js'
 import './css/App.css';
 import './css/common.css';
 import NavBar from './NavBar';
@@ -13,7 +14,6 @@ import Activity from './Activity';
 import MyProfile from './MyProfile';
 import Welcome from './Welcome';
 import ViewRobot from './ViewRobot';
-import Grid from 'react-bootstrap/lib/Grid';
 
 var scroll = Scroll.animateScroll;
 
@@ -24,6 +24,7 @@ class App extends Component {
       exhibitsAndActivities: [],
       activitiesInDetail: [],
       questions: [],
+      disclaimer: "",
       renderedPage: 'Welcome',
       countUntilNextQuiz: 4,
       selectedExhibit: "none",
@@ -38,10 +39,21 @@ class App extends Component {
     this.changePage = this.changePage.bind(this)
     this.changeActivity = this.changeActivity.bind(this)
     this.changeRobot = this.changeRobot.bind(this)
+    ReactGA.initialize('UA-96822574-1'); //Unique Google Analytics tracking number
+
   }
 
   changePage(pageName){
     //console.log(pageName);
+    TimeMe.stopTimer();
+    var timeInSeconds = TimeMe.getTimeOnPageInSeconds(this.state.renderedPage);
+    TimeMe.resetAllRecordedPageTimes();
+    ReactGA.event({
+      category: 'Timing',
+      action: this.state.renderedPage,
+      label: timeInSeconds.toString()
+    });
+    console.log('CurrentPage: ' + this.state.renderedPage + " Time actively spent on page: " + timeInSeconds);
     scroll.scrollToTop();
     this.setState({renderedPage: pageName});
 
@@ -66,6 +78,8 @@ class App extends Component {
         break;
       case "legs":
         this.setState({robotLegs:selected});
+        break;
+      default:
         break;
     }
   }
@@ -95,6 +109,15 @@ class App extends Component {
         questions: responseData
       });
     })
+
+    fetch(process.env.PUBLIC_URL +'content/disclaimer.json').then(function (rawResponse) {
+      return rawResponse.json();
+
+    }).then(function (responseData) {
+      me.setState({
+        disclaimer: responseData.disclaimer
+      });
+    })
   }
 
   render() {
@@ -105,7 +128,7 @@ class App extends Component {
         <NavBar changePage={this.changePage} currentPage={this.state.renderedPage} showRobot={this.props.showRobot} robotImage={robotArray[0]+robotArray[1]+robotArray[2]+robotArray[3]}/>
         {getTitle (this.state.renderedPage)}
         <div className="App-Body">
-          {getPage (this.state, this.props.showRobot, this.changePage, this.changeActivity, this.changeRobot)}
+          {getPage (this.state, this.props.showRobot, this.changePage, this.changeActivity, this.changeRobot, ReactGA)}
           <hr className="explore-small-hr"/>
         </div>
       </div>
@@ -131,8 +154,8 @@ function getTitle (currentPage) {
   }
 }
 
-function getPage (state, showRobot, changePageFunction, changeActivityFunction, changeRobotFunction) {
-// this.state.selectedActivity
+function getPage (state, showRobot, changePageFunction, changeActivityFunction, changeRobotFunction, ReactGA) {
+  //this.state.selectedActivity
   var renderPage = state.renderedPage;
   var countUntilNextQuiz = state.countUntilNextQuiz;
   var selectedExhibit = state.selectedExhibit;
@@ -141,20 +164,26 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction, 
   var exhibitsAndActivities = state.exhibitsAndActivities;
   var activitiesInDetail = state.activitiesInDetail;
   var questions = state.questions;
+  var disclaimer = state.disclaimer;
+
+  TimeMe.initialize({});
+  TimeMe.setCurrentPageName(renderPage);
+  TimeMe.startTimer();
+  ReactGA.pageview(renderPage);
 
   if (renderPage === 'SelectActivity') {
     return (
       <div>
         {/* <QuizCountdown count={countUntilNextQuiz}/> */}
         <Instructions page={renderPage}/>
-        <SelectActivity changePage={changePageFunction} changeActivity={changeActivityFunction} exhibitsAndActivities={exhibitsAndActivities}/>
+        <SelectActivity ReactGA={ReactGA} changePage={changePageFunction} changeActivity={changeActivityFunction} exhibitsAndActivities={exhibitsAndActivities}/>
       </div>
     );
   } else if (renderPage === 'Quiz') {
     return (
       <div>
         <Instructions page={renderPage}/>
-        <Quiz changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity} showRobot={showRobot} questions={questions}/>
+        <Quiz ReactGA={ReactGA} changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity} showRobot={showRobot} questions={questions}/>
       </div>
     );
   } else if (renderPage === 'CustomizeRobot') {
@@ -162,37 +191,37 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction, 
       <div>
         {/* <QuizCountdown count={countUntilNextQuiz}/> */}
         <Instructions page={renderPage}/>
-        <CustomizeRobot changePage={changePageFunction} changeRobot={changeRobotFunction} head={robotArray[0]} body={robotArray[1]} arms={robotArray[2]} legs={robotArray[3]} />
+        <CustomizeRobot ReactGA={ReactGA} changePage={changePageFunction} changeRobot={changeRobotFunction} head={robotArray[0]} body={robotArray[1]} arms={robotArray[2]} legs={robotArray[3]} />
       </div>
     );
   } else if (renderPage === 'ViewRobot') {
     return (
       <div>
         {/* <QuizCountdown count={countUntilNextQuiz}/> */}
-        <ViewRobot changePage={changePageFunction} head={robotArray[0]} body={robotArray[1]} arms={robotArray[2]} legs={robotArray[3]} />
+        <ViewRobot ReactGA={ReactGA} changePage={changePageFunction} head={robotArray[0]} body={robotArray[1]} arms={robotArray[2]} legs={robotArray[3]} />
       </div>
     );
   } else if (renderPage === 'Activity') {
     return (
       <div>
         {/* <QuizCountdown count={countUntilNextQuiz}/> */}
-        <Activity changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity} activitiesInDetail={activitiesInDetail}/>
+        <Activity ReactGA={ReactGA} changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity} activitiesInDetail={activitiesInDetail}/>
       </div>
     );
-  } else if (renderPage === 'MyProfile' ) {
+  } else if (renderPage === 'MyProfile' || renderPage === 'Intro') {
     return (
       <div>
-        <MyProfile changePage={changePageFunction} page={renderPage}/>
+        <MyProfile ReactGA={ReactGA} changePage={changePageFunction} page={renderPage} disclaimer={disclaimer}/>
       </div>
     );
   } else if (renderPage === 'Welcome' ) {
     return (
       <div>
-        <Welcome changePage={changePageFunction} page={renderPage}/>
+        <Welcome ReactGA={ReactGA} changePage={changePageFunction} page={renderPage}/>
       </div>
     );
   }
-  return <MyProfile changePage={changePageFunction} page={renderPage}/>;
+
 }
 
 export default App;
