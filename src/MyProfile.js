@@ -12,11 +12,6 @@ import HelpBlock from 'react-bootstrap/lib/HelpBlock';
 import Panel from 'react-bootstrap/lib/Panel';
 import './css/common.css';
 
-
-// import './css/Activity.css';
-
-var disclaimer = "By using ExploreIT I understand that any data I enter or generate will be stored and used by The Glazer Children’s Museum (GCM) and its related partners. You will likely to be contacted in two weeks to inquire about your experience and what your child remembers. Any external use of these data including activity ratings and quiz responses will be reported in aggregate and not tied to any individual’s data."
-
 class MyProfile extends Component{
   constructor(props) {
     super(props);
@@ -34,9 +29,8 @@ class MyProfile extends Component{
       this.props.changePage('SelectActivity');
     } else {
       this.props.ReactGA.event({
-        category: 'Navigation',
-        action: 'TermsAndConditionsMissing',
-        value: 'ForgotToRate'
+        category: 'TermsAndConditions',
+        action: 'ForgotToAgree'
       });
       alert("Please agree to the terms and conditions");
     }
@@ -50,7 +44,7 @@ class MyProfile extends Component{
     if(currentPage === "Intro"){
       return (
         <div>
-          <Disclaimer header="Terms & Conditions" open={false} body={disclaimer}/>
+          <Disclaimer header="Terms & Conditions" open={false} body={this.props.disclaimer}/>
           <Checkbox onChange={e => this.enableSubmit(e)} ref="check_me" id="iAgree">
             By selecting, you agree to the terms and conditions.
           </Checkbox>
@@ -62,6 +56,7 @@ class MyProfile extends Component{
   }
 
   render(){
+
     return(
       <div>
         <Grid>

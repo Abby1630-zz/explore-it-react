@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Scroll from 'react-scroll';
 import ReactGA from 'react-ga';
-
+import TimeMe from 'timeme.js'
 import './css/App.css';
 import './css/common.css';
 import NavBar from './NavBar';
@@ -16,7 +16,6 @@ import Welcome from './Welcome';
 import ViewRobot from './ViewRobot';
 
 var scroll = Scroll.animateScroll;
-ReactGA.initialize('UA-96822574-1'); //Unique Google Analytics tracking number
 
 class App extends Component {
   constructor(props) {
@@ -25,6 +24,7 @@ class App extends Component {
       exhibitsAndActivities: [],
       activitiesInDetail: [],
       questions: [],
+      disclaimer: "",
       renderedPage: 'Welcome',
       countUntilNextQuiz: 4,
       selectedExhibit: "none",
@@ -39,10 +39,21 @@ class App extends Component {
     this.changePage = this.changePage.bind(this)
     this.changeActivity = this.changeActivity.bind(this)
     this.changeRobot = this.changeRobot.bind(this)
+    ReactGA.initialize('UA-96822574-1'); //Unique Google Analytics tracking number
+
   }
 
   changePage(pageName){
     //console.log(pageName);
+    TimeMe.stopTimer();
+    var timeInSeconds = TimeMe.getTimeOnPageInSeconds(this.state.renderedPage);
+    TimeMe.resetAllRecordedPageTimes();
+    ReactGA.event({
+      category: 'Timing',
+      action: this.state.renderedPage,
+      label: timeInSeconds.toString()
+    });
+    console.log('CurrentPage: ' + this.state.renderedPage + " Time actively spent on page: " + timeInSeconds);
     scroll.scrollToTop();
     this.setState({renderedPage: pageName});
 
@@ -98,6 +109,15 @@ class App extends Component {
         questions: responseData
       });
     })
+
+    fetch(process.env.PUBLIC_URL +'content/disclaimer.json').then(function (rawResponse) {
+      return rawResponse.json();
+
+    }).then(function (responseData) {
+      me.setState({
+        disclaimer: responseData.disclaimer
+      });
+    })
   }
 
   render() {
@@ -144,7 +164,11 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction, 
   var exhibitsAndActivities = state.exhibitsAndActivities;
   var activitiesInDetail = state.activitiesInDetail;
   var questions = state.questions;
+  var disclaimer = state.disclaimer;
 
+  TimeMe.initialize({});
+  TimeMe.setCurrentPageName(renderPage);
+  TimeMe.startTimer();
   ReactGA.pageview(renderPage);
 
   if (renderPage === 'SelectActivity') {
@@ -187,7 +211,7 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction, 
   } else if (renderPage === 'MyProfile' || renderPage === 'Intro') {
     return (
       <div>
-        <MyProfile ReactGA={ReactGA} changePage={changePageFunction} page={renderPage}/>
+        <MyProfile ReactGA={ReactGA} changePage={changePageFunction} page={renderPage} disclaimer={disclaimer}/>
       </div>
     );
   } else if (renderPage === 'Welcome' ) {

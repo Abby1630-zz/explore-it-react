@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-//import ReactDOM from 'react-dom';
 import Alert from 'react-bootstrap/lib/Alert';
 import './css/Instructions.css';
 

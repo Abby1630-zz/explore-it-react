@@ -53,9 +53,8 @@ class SelectActivity extends Component{
       smooth: true,
     })
     this.props.ReactGA.event({
-      category: 'Navigation',
-      action: 'SelectExhibit',
-      value: e.currentTarget.name
+      category: 'SelectExhibit',
+      action: e.currentTarget.name
     });
     this.setState({exhibit:e.currentTarget.name})
   }
@@ -69,9 +68,8 @@ class SelectActivity extends Component{
       smooth: true,
     })
     this.props.ReactGA.event({
-      category: 'Navigation',
-      action: 'SelectActivity',
-      value: e.currentTarget.name
+      category: 'SelectActivity',
+      action: e.currentTarget.name
     });
     this.setState({activity:e.currentTarget.name})
   }
