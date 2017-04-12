@@ -137,11 +137,11 @@ class CustomizeRobot extends Component{
   }
 
   getWhatBodyPart(props){
-    if (props.head === 'x') {
+    if (props.head === '#') {
       return "head";
-    } else if (props.body === 'x') {
+    } else if (props.body === '#') {
       return "body";
-    } else if (props.arms === 'x') {
+    } else if (props.arms === '#') {
       return "arms";
     } else {
       return "legs";

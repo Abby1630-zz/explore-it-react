@@ -54,6 +54,11 @@ class Quiz extends Component{
           action: this.props.activity,
           label: 'Correct - ' + this.props.quizDifficulty
         });
+        this.props.ReactGA.event({
+          category: 'QuizLevel',
+          action: this.props.quizDifficulty,
+          label: 'Correct'
+        });
 
         this.setState({
           isCorrect: 'true',
@@ -64,6 +69,11 @@ class Quiz extends Component{
           category: 'QuizAnswer - Incorrect',
           action: this.props.activity,
           label:'Difficulty: ' + this.props.quizDifficulty + ' Answered Value: '+ this.state.actualValue
+        });
+        this.props.ReactGA.event({
+          category: 'QuizLevel',
+          action: this.props.quizDifficulty,
+          label: 'Incorrect'
         });
 
         this.setState({

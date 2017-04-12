@@ -30,10 +30,10 @@ class App extends Component {
       countUntilNextQuiz: 4,
       selectedExhibit: "none",
       selectedActivity: "none",
-      robotHead: "x",
-      robotBody: "x",
-      robotArms: "x",
-      robotLegs: "x"
+      robotHead: "#",
+      robotBody: "#",
+      robotArms: "#",
+      robotLegs: "#"
       /* On load load in all the questions, activities, and exhibits so you
         don't have to rerender since you have to use setState */
     };
@@ -49,11 +49,13 @@ class App extends Component {
     TimeMe.stopTimer();
     var timeInSeconds = TimeMe.getTimeOnPageInSeconds(this.state.renderedPage);
     TimeMe.resetAllRecordedPageTimes();
-    ReactGA.event({
-      category: 'Timing',
-      action: this.state.renderedPage,
-      label: timeInSeconds.toString()
+    ReactGA.timing({
+      category: 'Time On Page',
+      variable: this.state.renderedPage,
+      value: Math.round(timeInSeconds * 1000), // in milliseconds
+      label: this.state.selectedActivity
     });
+
     scroll.scrollToTop();
     this.setState({renderedPage: pageName});
 
@@ -92,7 +94,7 @@ class App extends Component {
 
   componentDidMount() {
     var me = this;
-    fetch(process.env.PUBLIC_URL +'content/exhibitsAndActivities.json').then(function (rawResponse) {
+    fetch(process.env.PUBLIC_URL +'/content/exhibitsAndActivities.json').then(function (rawResponse) {
       return rawResponse.json();
     }).then(function (responseData) {
       me.setState({
@@ -100,7 +102,7 @@ class App extends Component {
       });
     })
 
-    fetch(process.env.PUBLIC_URL +'content/activitiesInDetail.json').then(function (rawResponse) {
+    fetch(process.env.PUBLIC_URL +'/content/activitiesInDetail.json').then(function (rawResponse) {
       return rawResponse.json();
     }).then(function (responseData) {
       me.setState({
@@ -108,7 +110,7 @@ class App extends Component {
       });
     })
 
-    fetch(process.env.PUBLIC_URL +'content/questions.json').then(function (rawResponse) {
+    fetch(process.env.PUBLIC_URL +'/content/questions.json').then(function (rawResponse) {
       return rawResponse.json();
     }).then(function (responseData) {
       me.setState({
@@ -116,7 +118,7 @@ class App extends Component {
       });
     })
 
-    fetch(process.env.PUBLIC_URL +'content/disclaimer.json').then(function (rawResponse) {
+    fetch(process.env.PUBLIC_URL +'/content/disclaimer.json').then(function (rawResponse) {
       return rawResponse.json();
 
     }).then(function (responseData) {

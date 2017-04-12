@@ -24,7 +24,7 @@ class ViewRobot extends Component{
 
   render(){
     var filepath = process.env.PUBLIC_URL + '/images/robot/robot' + this.props.head + this.props.body + this.props.arms + this.props.legs + ".jpg";
-    filepath = filepath.replace(new RegExp('x', 'g'), '0');
+    filepath = filepath.replace(new RegExp('#', 'g'), '0');
     return(
       <div>
           <Grid>

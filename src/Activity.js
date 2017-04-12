@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import Radio from 'react-bootstrap/lib/Radio';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
+import FormControl from 'react-bootstrap/lib/FormControl';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
 import Button from 'react-bootstrap/lib/Button';
@@ -40,7 +41,8 @@ class Activity extends Component{
       this.props.ReactGA.event({
         category: 'ActivityRating',
         action: this.props.activity,
-        label: this.state.rating
+        label: this.state.rating,
+        value: parseInt(this.state.rating, 10)
       });
       this.props.changePage('Quiz');
     } else{
@@ -82,10 +84,24 @@ class Activity extends Component{
             </Col>
             <Col>
               <FormGroup>
-                <Radio name="rating" className="explore-activity-rating" value="1" onChange={this.setRating}>
+                <Radio name="rating" className="explore-activity-rating" value="5" onChange={this.setRating}>
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star' />
+                </Radio>
+                <Radio name="rating" className="explore-activity-rating" value="4" onChange={this.setRating}>
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star' />
                   <FontAwesome className="activity-rating" name='star' />
                   <FontAwesome className="activity-rating" name='star-o' />
-                  <FontAwesome className="activity-rating" name='star-o' />
+                </Radio>
+                <Radio name="rating" className="explore-activity-rating" value="3" onChange={this.setRating}>
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star' />
                   <FontAwesome className="activity-rating" name='star-o' />
                   <FontAwesome className="activity-rating" name='star-o' />
                 </Radio>
@@ -96,26 +112,12 @@ class Activity extends Component{
                   <FontAwesome className="activity-rating" name='star-o' />
                   <FontAwesome className="activity-rating" name='star-o' />
                 </Radio>
-                <Radio name="rating" className="explore-activity-rating" value="3" onChange={this.setRating}>
-                  <FontAwesome className="activity-rating" name='star' />
-                  <FontAwesome className="activity-rating" name='star' />
+                <Radio name="rating" className="explore-activity-rating" value="1" onChange={this.setRating}>
                   <FontAwesome className="activity-rating" name='star' />
                   <FontAwesome className="activity-rating" name='star-o' />
                   <FontAwesome className="activity-rating" name='star-o' />
-                </Radio>
-                <Radio name="rating" className="explore-activity-rating" value="4" onChange={this.setRating}>
-                  <FontAwesome className="activity-rating" name='star' />
-                  <FontAwesome className="activity-rating" name='star' />
-                  <FontAwesome className="activity-rating" name='star' />
-                  <FontAwesome className="activity-rating" name='star' />
                   <FontAwesome className="activity-rating" name='star-o' />
-                </Radio>
-                <Radio name="rating" className="explore-activity-rating" value="5" onChange={this.setRating}>
-                  <FontAwesome className="activity-rating" name='star' />
-                  <FontAwesome className="activity-rating" name='star' />
-                  <FontAwesome className="activity-rating" name='star' />
-                  <FontAwesome className="activity-rating" name='star' />
-                  <FontAwesome className="activity-rating" name='star' />
+                  <FontAwesome className="activity-rating" name='star-o' />
                 </Radio>
               </FormGroup>
             </Col>
@@ -151,7 +153,8 @@ class Collapsible extends Component {
     if (this.state.open !== this.props.open){
       this.props.ReactGA.event({
         category: 'ActivityCollapseClick',
-        action: this.props.header + '-' + this.state.open
+        action: this.props.header + '-' + this.state.open,
+        value:1
       });
     }
 

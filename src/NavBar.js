@@ -51,7 +51,7 @@ class NavBar extends Component {
 class NavBrand extends Component {
   render() {
     var filepath = process.env.PUBLIC_URL + '/images/robot/robot' + this.props.robotImage+ ".jpg";
-    filepath = filepath.replace(new RegExp('x', 'g'), '0');
+    filepath = filepath.replace(new RegExp('#', 'g'), '0');
 
     if (this.props.showRobot === true && this.props.currentPage !== "Welcome" && this.props.currentPage !== "Intro" && this.props.currentPage !== "ViewRobot"){
       return (
