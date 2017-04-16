@@ -48,12 +48,22 @@ class App extends Component {
     //console.log(pageName);
     TimeMe.stopTimer();
     var timeInSeconds = TimeMe.getTimeOnPageInSeconds(this.state.renderedPage);
+    var timeInMS = Math.round(timeInSeconds * 1000); // in milliseconds
     TimeMe.resetAllRecordedPageTimes();
+    ReactGA.set({ UserTimeOnPage: timeInMS });
+    ReactGA.set({ 'UserTimeOnPage': timeInMS });
     ReactGA.timing({
       category: 'Time On Page',
       variable: this.state.renderedPage,
-      value: Math.round(timeInSeconds * 1000), // in milliseconds
+      value: timeInMS, // in milliseconds
       label: this.state.selectedActivity
+    });
+
+    ReactGA.ga('send', 'timing', {
+      'timingCategory': 'TimeOnPage',
+      'timingVar': this.state.renderedPage,
+      'timingValue': timeInMS,
+      'timingLabel': this.state.selectedActivity
     });
 
     scroll.scrollToTop();
@@ -179,7 +189,11 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction, 
   TimeMe.initialize({});
   TimeMe.setCurrentPageName(renderPage);
   TimeMe.startTimer();
-  ReactGA.pageview(renderPage);
+  if (renderPage === "Activity"){
+    ReactGA.pageview(selectedActivity + " " + renderPage);
+  }else{
+    ReactGA.pageview(renderPage);
+  }
 
 
   if (renderPage === 'SelectActivity') {

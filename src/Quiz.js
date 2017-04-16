@@ -46,7 +46,11 @@ class Quiz extends Component{
 
   validateAnswer () {
     if (this.state.expectedValue !== ''){
-      var expectedArray = this.state.expectedValue.split(",");
+      var expectedArray = this.state.expectedValue.split(";");
+
+
+      console.log(expectedArray);
+      console.log(this.state.actualValue);
 
       if(expectedArray.indexOf(this.state.actualValue) > -1){
         this.props.ReactGA.event({
@@ -137,7 +141,7 @@ class Quiz extends Component{
     return(
       <div>
         <Grid>
-          <AnswerFeedback isCorrect={this.state.isCorrect} expectedValue={this.state.expectedValue.split(",")} />
+          <AnswerFeedback isCorrect={this.state.isCorrect} expectedValue={this.state.expectedValue.split(";")} />
           {this.getQuestion()}
           <ProgressBar striped bsStyle="info" now={this.state.percentComplete} />
           <SubmitButton validateAnswer={this.validateAnswer} nextStep={this.nextStep} isCorrect={this.state.isCorrect}/>
@@ -247,7 +251,9 @@ class FillInQuestion extends Component {
   handleChange(e) {
     this.setState({ localValue: e.target.value });
     var expectedValues = this.props.questionInfo.correctAnswers;
-    this.props.setValue(e.target.value,expectedValues.toString());
+    expectedValues=expectedValues.toString();
+    expectedValues=expectedValues.replace(new RegExp(',', 'g'), ';');
+    this.props.setValue(e.target.value,expectedValues);
   }
 
   render() {
