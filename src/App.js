@@ -28,6 +28,7 @@ class App extends Component {
       renderedPage: 'Welcome',
       quizDifficulty: 'medium',
       countUntilNextQuiz: 4,
+      priorActivitiesForQuiz:[],
       selectedExhibit: "none",
       selectedActivity: "none",
       robotHead: "#",
@@ -67,17 +68,31 @@ class App extends Component {
     });
 
     scroll.scrollToTop();
-    this.setState({renderedPage: pageName});
-
+    var statesToSet = {renderedPage: pageName};
+    if (pageName === 'CustomizeRobot'){
+      statesToSet = {
+        renderedPage: pageName,
+        countUntilNextQuiz: 4,
+        priorActivitiesForQuiz:[]
+      }
+    }
+    this.setState(statesToSet);
   }
+
   changeActivity(exhibit, activity){
+    var activityArray = this.state.priorActivitiesForQuiz;
+
+    activityArray.push(activity);
     this.setState({
       selectedExhibit: exhibit,
-      selectedActivity: activity
+      selectedActivity: activity,
+      priorActivitiesForQuiz: activityArray,
+      countUntilNextQuiz: this.state.countUntilNextQuiz - 1
     });
   }
 
   changeQuizDifficulty(changeTo){
+    console.log(changeTo);
     this.setState({
       quizDifficulty: changeTo
     });
@@ -144,7 +159,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar changePage={this.changePage} currentPage={this.state.renderedPage} showRobot={this.props.showRobot} robotImage={robotArray[0]+robotArray[1]+robotArray[2]+robotArray[3]}/>
-        {getTitle (this.state.renderedPage)}
+        {getTitle (this.state.renderedPage, this.state.selectedActivity)}
         <div className="App-Body">
           {getPage (this.state, this.props.showRobot, this.changePage, this.changeActivity, this.changeRobot, this.changeQuizDifficulty, ReactGA)}
           <hr className="explore-small-hr"/>
@@ -154,7 +169,7 @@ class App extends Component {
   }
 }
 
-function getTitle (currentPage) {
+function getTitle (currentPage, activity) {
   if (currentPage === 'SelectActivity') {
     return (<h1 id="explore-page-title">Select an Activity</h1>);
   } else if (currentPage === 'Quiz'){
@@ -167,6 +182,8 @@ function getTitle (currentPage) {
     return (<h1 id="explore-page-title">My Profile</h1>);
   } else if (currentPage === 'ViewRobot') {
     return (<h1 id="explore-page-title">Check Out Your Robot</h1>);
+  } else if (currentPage === 'Activity') {
+    return (<h1 id="explore-page-title">{activity}</h1>);
   } else {
     return null;
   }
@@ -185,6 +202,7 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction, 
   var questions = state.questions;
   var quizDifficulty = state.quizDifficulty;
   var disclaimer = state.disclaimer;
+  var priorActivitiesForQuiz = state.priorActivitiesForQuiz;
 
   TimeMe.initialize({});
   TimeMe.setCurrentPageName(renderPage);
@@ -199,7 +217,7 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction, 
   if (renderPage === 'SelectActivity') {
     return (
       <div>
-        {/* <QuizCountdown count={countUntilNextQuiz}/> */}
+        {<QuizCountdown countUntilNextQuiz={countUntilNextQuiz}/> }
         <Instructions page={renderPage}/>
         <SelectActivity ReactGA={ReactGA} changePage={changePageFunction} changeActivity={changeActivityFunction} exhibitsAndActivities={exhibitsAndActivities}/>
       </div>
@@ -208,13 +226,13 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction, 
     return (
       <div>
         <Instructions page={renderPage}/>
-        <Quiz ReactGA={ReactGA} changePage={changePageFunction} changeQuizDifficulty={changeQuizDifficultyFunction} quizDifficulty={quizDifficulty} exhibit={selectedExhibit} activity={selectedActivity} showRobot={showRobot} questions={questions}/>
+        <Quiz ReactGA={ReactGA} changePage={changePageFunction} changeQuizDifficulty={changeQuizDifficultyFunction} quizDifficulty={quizDifficulty} exhibit={selectedExhibit} activity={priorActivitiesForQuiz} showRobot={showRobot} questions={questions}/>
       </div>
     );
   } else if (renderPage === 'CustomizeRobot') {
     return (
       <div>
-        {/* <QuizCountdown count={countUntilNextQuiz}/> */}
+        {<QuizCountdown countUntilNextQuiz={countUntilNextQuiz}/> }
         <Instructions page={renderPage}/>
         <CustomizeRobot ReactGA={ReactGA} changePage={changePageFunction} changeRobot={changeRobotFunction} head={robotArray[0]} body={robotArray[1]} arms={robotArray[2]} legs={robotArray[3]} />
       </div>
@@ -222,15 +240,15 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction, 
   } else if (renderPage === 'ViewRobot') {
     return (
       <div>
-        {/* <QuizCountdown count={countUntilNextQuiz}/> */}
+        {<QuizCountdown countUntilNextQuiz={countUntilNextQuiz}/> }
         <ViewRobot ReactGA={ReactGA} changePage={changePageFunction} head={robotArray[0]} body={robotArray[1]} arms={robotArray[2]} legs={robotArray[3]} />
       </div>
     );
   } else if (renderPage === 'Activity') {
     return (
       <div>
-        {/* <QuizCountdown count={countUntilNextQuiz}/> */}
-        <Activity ReactGA={ReactGA} changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity} activitiesInDetail={activitiesInDetail}/>
+        {<QuizCountdown countUntilNextQuiz={countUntilNextQuiz}/> }
+        <Activity ReactGA={ReactGA} changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity} activitiesInDetail={activitiesInDetail} countUntilNextQuiz={countUntilNextQuiz}/>
       </div>
     );
   } else if (renderPage === 'MyProfile' || renderPage === 'Intro') {
