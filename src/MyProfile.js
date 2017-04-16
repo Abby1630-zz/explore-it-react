@@ -69,25 +69,13 @@ class MyProfile extends Component {
     return null;
   }
 
-  // onSubmit(e) {
-  //     e.preventDefault();
-  //     fetch(this.props.formAction, {
-  //         headers: {
-  //             'Accept': 'application/json',
-  //             'Content-Type': 'application/json'
-  //         },
-  //         body: JSON.stringify({description: this.state.description})
-  //     });
-  //     this.nextPage();
-  // }
-
   onChange(event, name, data, change) {
     // ...
     var stateObject = function() {
         var returnObj = {};
         returnObj[name] = data;
         return returnObj;
-    }.bind(event)();
+    };
 
     this.setState(stateObject);
     console.log(this.state);

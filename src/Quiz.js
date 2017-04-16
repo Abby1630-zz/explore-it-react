@@ -27,7 +27,8 @@ class Quiz extends Component{
       isCorrect: 'not answered',
       actualValue: 'not answered',
       expectedValue: '',
-      percentComplete: 0
+      currentQuestionNumber: 0,
+      correctCount: 0,
     };
     this.nextStep= this.nextStep.bind(this);
     this.validateAnswer= this.validateAnswer.bind(this);
@@ -38,24 +39,20 @@ class Quiz extends Component{
   }
 
   setValues(actualVal, expectedVal){
-    console.log("set");
-
-    this.setState({actualValue: actualVal.toLowerCase()});
-    this.setState({expectedValue: expectedVal.toLowerCase()});
+    this.setState({
+      actualValue: actualVal.toLowerCase(),
+      expectedValue: expectedVal.toLowerCase(),
+    });
   }
 
   validateAnswer () {
     if (this.state.expectedValue !== ''){
       var expectedArray = this.state.expectedValue.split(";");
 
-
-      console.log(expectedArray);
-      console.log(this.state.actualValue);
-
       if(expectedArray.indexOf(this.state.actualValue) > -1){
         this.props.ReactGA.event({
           category: 'QuizAnswer',
-          action: this.props.activity,
+          action: this.props.activity[this.state.currentQuestionNumber],
           label: 'Correct - ' + this.props.quizDifficulty
         });
         this.props.ReactGA.event({
@@ -66,12 +63,13 @@ class Quiz extends Component{
 
         this.setState({
           isCorrect: 'true',
-          percentComplete: 100
+          currentQuestionNumber: this.state.currentQuestionNumber + 1,
+          correctCount: this.state.correctCount + 1
         });
       } else {
         this.props.ReactGA.event({
           category: 'QuizAnswer - Incorrect',
-          action: this.props.activity,
+          action: this.props.activity[this.state.currentQuestionNumber],
           label:'Difficulty: ' + this.props.quizDifficulty + ' Answered Value: '+ this.state.actualValue
         });
         this.props.ReactGA.event({
@@ -82,8 +80,9 @@ class Quiz extends Component{
 
         this.setState({
           isCorrect: 'false',
-          percentComplete: 100
+          currentQuestionNumber: this.state.currentQuestionNumber + 1,
         });
+        console.log("actual: " + this.state.actualValue + "  expected: " + this.state.actualValue);
       }
     } else{
       alert("Oops, you didn't answer the question!");
@@ -107,11 +106,12 @@ class Quiz extends Component{
   }
 
   nextStep () {
-    if (this.state.isCorrect === 'true'){
+    if (this.state.correctCount/this.props.activity.length > .75){
       this.props.changeQuizDifficulty(this.moveUpQuizDifficulty());
-    } else if (this.state.isCorrect === 'false'){
+    } else if (this.state.correctCount/this.props.activity.length <= .50){
       this.props.changeQuizDifficulty(this.moveDownQuizDifficulty());
     }
+    console.log(this.state.correctCount/this.props.activity.length);
 
     if(this.props.showRobot === true){
       this.props.changePage('CustomizeRobot');
@@ -120,31 +120,39 @@ class Quiz extends Component{
     }
   }
 
-  getQuestion() {
+  getQuestion(numOfQuestions) {
+    var activity = this.props.activity[this.state.currentQuestionNumber];
+    var difficulty = this.props.questions;
+
+    if (numOfQuestions === this.state.currentQuestionNumber){
+      activity = this.props.activity[this.state.currentQuestionNumber-1];;
+    }
+    console.log(activity);
+
     if (this.props.quizDifficulty === 'easy') {
       return (
-        <QuestionBlock questionInfo={getQuestions(this.props.activity, this.props.questions).easy} setValue={this.setValues}/>
+        <QuestionBlock questionInfo={getQuestions(activity, difficulty).easy} setValue={this.setValues}/>
       );
     } else if (this.props.quizDifficulty === 'hard') {
       return (
-        <QuestionBlock questionInfo={getQuestions(this.props.activity, this.props.questions).hard} setValue={this.setValues}/>
+        <QuestionBlock questionInfo={getQuestions(activity, difficulty).hard} setValue={this.setValues}/>
       );
     } else {
       return (
-        <QuestionBlock questionInfo={getQuestions(this.props.activity, this.props.questions).medium} setValue={this.setValues}/>
+        <QuestionBlock questionInfo={getQuestions(activity, difficulty).medium} setValue={this.setValues}/>
       );
     }
   }
 
   render(){
-    console.log(this.state.expectedValue);
+    var numOfQuestions = this.props.activity.length;
     return(
       <div>
         <Grid>
           <AnswerFeedback isCorrect={this.state.isCorrect} expectedValue={this.state.expectedValue.split(";")} />
-          {this.getQuestion()}
-          <ProgressBar striped bsStyle="info" now={this.state.percentComplete} />
-          <SubmitButton validateAnswer={this.validateAnswer} nextStep={this.nextStep} isCorrect={this.state.isCorrect}/>
+          {this.getQuestion(numOfQuestions)}
+          <ProgressBar striped bsStyle="info" now={this.state.currentQuestionNumber/numOfQuestions * 100}/>
+          <SubmitButton validateAnswer={this.validateAnswer} nextStep={this.nextStep} isCorrect={this.state.isCorrect} currentQuestionNumber={this.state.currentQuestionNumber} totalQuestionNumber={numOfQuestions}/>
         </Grid>
       </div>
     );
@@ -153,7 +161,7 @@ class Quiz extends Component{
 
 class SubmitButton extends Component {
   render() {
-    if (this.props.isCorrect ==='not answered'){
+    if (this.props.currentQuestionNumber < this.props.totalQuestionNumber){
       return (
         <Button bsStyle="success" className="explore-light-blue-button" bsSize="large" onClick={this.props.validateAnswer}>Am I Correct?</Button>
       );
@@ -173,7 +181,7 @@ class AnswerFeedback extends Component {
       );
     } else if(this.props.isCorrect === 'false') {
       return (
-        <Alert bsStyle="danger" className="explore-red-text explore-red-panel background-image-white"><strong>Oh snap! </strong>The correct answer was {this.props.expectedValue[0]}. You will do great on the next one!</Alert>
+        <Alert bsStyle="danger" className="explore-red-text explore-red-panel background-image-white"><strong>Oh snap! </strong>The correct answer was {this.props.expectedValue[0]}. You will do great next time!</Alert>
       );
     };
     return <div/>;
@@ -257,7 +265,6 @@ class FillInQuestion extends Component {
   }
 
   render() {
-    // console.log(this.props.questionInfo.correctAnswers);
     return (
       <form>
         <FormGroup

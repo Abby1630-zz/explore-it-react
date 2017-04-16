@@ -4,7 +4,6 @@ import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 import Radio from 'react-bootstrap/lib/Radio';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
-import FormControl from 'react-bootstrap/lib/FormControl';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
 import Button from 'react-bootstrap/lib/Button';
@@ -44,7 +43,11 @@ class Activity extends Component{
         label: this.state.rating,
         value: parseInt(this.state.rating, 10)
       });
-      this.props.changePage('Quiz');
+      if(this.props.countUntilNextQuiz === 0){
+        this.props.changePage('Quiz');
+      }else{
+        this.props.changePage('SelectActivity');
+      }
     } else{
       this.props.ReactGA.event({
         category: 'MissingActivityRating',
@@ -62,11 +65,6 @@ class Activity extends Component{
     var activity = getActivity(this.props.activity, this.props.activitiesInDetail);
     return(
       <div>
-        <Grid>
-          <Row>
-            <SectionTitle text={activity.activityName}/>
-          </Row>
-        </Grid>
         <Instructions page="Activity"/>
         <Grid>
           <Row>
@@ -185,12 +183,6 @@ class Collapsible extends Component {
         </Collapse>
       </div>
     );
-  }
-}
-
-class SectionTitle extends Component {
-  render () {
-    return <h2 className="explore-no-margin">{this.props.text}</h2>;
   }
 }
 
