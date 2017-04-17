@@ -10,68 +10,7 @@ import Button from 'react-bootstrap/lib/Button';
 import './css/CustomizeRobot.css';
 import './css/common.css';
 
-var head =
-[
-  {
-    fileName: "head1.jpg",
-    value: "1"
-  },
-  {
-    fileName: "head2.jpg",
-    value: "2"
-  },
-  {
-    fileName: "head3.jpg",
-     value: "3"
-  }
-];
-var body =
-[
-  {
-    fileName: "body1.jpg",
-    value: "1"
-  },
-  {
-    fileName: "body2.jpg",
-    value: "2"
-  },
-  {
-    fileName: "body3.jpg",
-    value: "3"
-  }
-];
-var arms =
-[
-  {
-    fileName: "arms0.jpg",
-    value: "0"
-  },
-  {
-    fileName: "arms1.jpg",
-    value: "1"
-  },
-  {
-    fileName: "arms2.jpg",
-    value: "2"
-  },
-  {
-    fileName: "arms3.jpg",
-    value: "3"
-  }
-];
-var legs =
-[
-  {
-    fileName: "legs0.jpg",
-    value: "0"
-  },
-  {
-    fileName: "legs1.jpg",
-    value: "1"
-  },
-];
-
-
+var lastPart = "legs"
 class CustomizeRobot extends Component{
   constructor(props) {
     super(props);
@@ -81,8 +20,6 @@ class CustomizeRobot extends Component{
       robotBody: "0",
       robotArms: "0",
       robotLegs: "0"
-      /* On load load in all the questions, activities, and exhibits so you
-        don't have to rerender since you have to use setState */
     };
     var scroll = Scroll.animateScroll;
     scroll.scrollToTop();
@@ -113,6 +50,15 @@ class CustomizeRobot extends Component{
     }
     this.props.changeRobot(part, value);
     this.props.changePage('ViewRobot');
+    if (lastPart === "legs") {
+      lastPart = "head";
+    } else if (lastPart === "head") {
+      lastPart = "body";
+    } else if (lastPart === "body") {
+      lastPart = "arms";
+    }else{
+      lastPart = "legs";
+    }
   }
 
   setSelected (e) {
@@ -137,13 +83,13 @@ class CustomizeRobot extends Component{
   }
 
   getWhatBodyPart(props){
-    if (props.head === '#') {
+    if (lastPart === "legs") {
       return "head";
-    } else if (props.body === '#') {
+    } else if (lastPart === "head") {
       return "body";
-    } else if (props.arms === '#') {
+    } else if (lastPart === "body") {
       return "arms";
-    } else {
+    }else{
       return "legs";
     }
   }
@@ -153,13 +99,13 @@ class CustomizeRobot extends Component{
 
     switch(part) {
       case "head":
-        return <Customize availableCustomization={head} onSelection={this.setSelected} currentlySelected={this.state.robotHead} bodyPart="head" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
+        return <Customize availableCustomization={this.props.robotHeadImages} onSelection={this.setSelected} currentlySelected={this.state.robotHead} bodyPart="head" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
       case "body":
-        return <Customize availableCustomization={body} onSelection={this.setSelected} currentlySelected={this.state.robotBody} bodyPart="body" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
+        return <Customize availableCustomization={this.props.robotBodyImages} onSelection={this.setSelected} currentlySelected={this.state.robotBody} bodyPart="body" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
       case "arms":
-        return <Customize availableCustomization={arms} onSelection={this.setSelected} currentlySelected={this.state.robotArms} bodyPart="arms" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
+        return <Customize availableCustomization={this.props.robotArmsImages} onSelection={this.setSelected} currentlySelected={this.state.robotArms} bodyPart="arms" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
       case "legs":
-        return <Customize availableCustomization={legs} onSelection={this.setSelected} currentlySelected={this.state.robotLegs} bodyPart="legs" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
+        return <Customize availableCustomization={this.props.robotLegsImages} onSelection={this.setSelected} currentlySelected={this.state.robotLegs} bodyPart="legs" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
       default:
         return null;
     }

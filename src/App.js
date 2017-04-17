@@ -23,6 +23,10 @@ class App extends Component {
     this.state = {
       exhibitsAndActivities: [],
       activitiesInDetail: [],
+      robotArmsImages: [],
+      robotBodyImages: [],
+      robotHeadImages: [],
+      robotLegsImages: [],
       questions: [],
       disclaimer: "",
       renderedPage: 'Welcome',
@@ -151,6 +155,42 @@ class App extends Component {
         disclaimer: responseData.disclaimer
       });
     })
+
+    fetch(process.env.PUBLIC_URL +'/content/robotArmsImages.json').then(function (rawResponse) {
+      return rawResponse.json();
+
+    }).then(function (responseData) {
+      me.setState({
+        robotArmsImages: responseData
+      });
+    })
+
+    fetch(process.env.PUBLIC_URL +'/content/robotBodyImages.json').then(function (rawResponse) {
+      return rawResponse.json();
+
+    }).then(function (responseData) {
+      me.setState({
+        robotBodyImages: responseData
+      });
+    })
+
+    fetch(process.env.PUBLIC_URL +'/content/robotHeadImages.json').then(function (rawResponse) {
+      return rawResponse.json();
+
+    }).then(function (responseData) {
+      me.setState({
+        robotHeadImages: responseData
+      });
+    })
+
+    fetch(process.env.PUBLIC_URL +'/content/robotLegsImages.json').then(function (rawResponse) {
+      return rawResponse.json();
+
+    }).then(function (responseData) {
+      me.setState({
+        robotLegsImages: responseData
+      });
+    })
   }
 
   render() {
@@ -203,6 +243,10 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction, 
   var quizDifficulty = state.quizDifficulty;
   var disclaimer = state.disclaimer;
   var priorActivitiesForQuiz = state.priorActivitiesForQuiz;
+  var robotArmsImages = state.robotArmsImages;
+  var robotBodyImages = state.robotBodyImages;
+  var robotHeadImages = state.robotHeadImages;
+  var robotLegsImages = state.robotLegsImages;
 
   TimeMe.initialize({});
   TimeMe.setCurrentPageName(renderPage);
@@ -234,7 +278,7 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction, 
       <div>
         {<QuizCountdown countUntilNextQuiz={countUntilNextQuiz}/> }
         <Instructions page={renderPage}/>
-        <CustomizeRobot ReactGA={ReactGA} changePage={changePageFunction} changeRobot={changeRobotFunction} head={robotArray[0]} body={robotArray[1]} arms={robotArray[2]} legs={robotArray[3]} />
+        <CustomizeRobot ReactGA={ReactGA} changePage={changePageFunction} changeRobot={changeRobotFunction} head={robotArray[0]} body={robotArray[1]} arms={robotArray[2]} legs={robotArray[3]} robotArmsImages={robotArmsImages} robotBodyImages={robotBodyImages} robotHeadImages={robotHeadImages} robotLegsImages={robotLegsImages}/>
       </div>
     );
   } else if (renderPage === 'ViewRobot') {
