@@ -203,7 +203,7 @@
     "exhibitName": "Outback/Carraba's",
     "activityName": "Make Me a Pizza",
     "easy": {
-      "question": "What’s the first ingredient that you put on the pizza?",
+      "question": "What's the first ingredient that you put on the pizza?",
       "questionType": "multiple choice",
       "possibleAnswers": [
         "Cheese", "Pepperoni", "Sauce", "Peppers"
@@ -276,9 +276,9 @@
   },
   {
     "exhibitName": "Outback/Carraba's",
-    "activityName": "I’m Here to Help",
+    "activityName": "I'm Here to Help",
     "easy": {
-      "question": "How much was the bill for the family who couldn’t afford their meals?",
+      "question": "How much was the bill for the family who couldn't afford their meals?",
       "questionType": "multiple choice",
       "possibleAnswers": [
         "$10", "$20", "$30", "$40"
@@ -286,7 +286,7 @@
       "correctAnswer" : "$20"
     },
     "medium": {
-      "question": "How much money did the family who couldn’t pay their bill need to completely pay their bill?",
+      "question": "How much money did the family who couldn't pay their bill need to completely pay their bill?",
       "questionType": "multiple choice",
       "possibleAnswers": [
         "$1", "$5", "$10", "$15"
@@ -294,7 +294,7 @@
       "correctAnswer" : "$5"
     },
     "hard": {
-      "question": "How much money did the family who couldn’t pay their bill need to completely pay the bill?",
+      "question": "How much money did the family who couldn't pay their bill need to completely pay the bill?",
       "questionType": "fill in",
       "correctAnswers": ["$5", "5"]
     }
@@ -378,7 +378,7 @@
     "exhibitName": "Art",
     "activityName": "Kaleidoscope",
     "easy": {
-      "question": "If you have a pink circle and Malcolm, who can’t see your circle, has a purple circle, does Malcolm think your circle is purple?",
+      "question": "If you have a pink circle and Malcolm, who can't see your circle, has a purple circle, does Malcolm think your circle is purple?",
       "questionType": "multiple choice",
       "possibleAnswers": [
         "Yes", "No"
@@ -386,7 +386,7 @@
       "correctAnswer" : "Yes"
     },
     "medium": {
-      "question": "If you have a pink circle and Malcolm, who can’t see your circle, has a purple circle, what color does Malcolm think your circle is?",
+      "question": "If you have a pink circle and Malcolm, who can't see your circle, has a purple circle, what color does Malcolm think your circle is?",
       "questionType": "multiple choice",
       "possibleAnswers": [
         "Pink", "Blue", "Purple", "Orange"
@@ -394,7 +394,7 @@
       "correctAnswer" : "Purple"
     },
     "hard": {
-      "question": "If you have a pink circle and Malcolm, who can’t see your circle, has a purple circle, does Malcolm think your circle is purple?",
+      "question": "If you have a pink circle and Malcolm, who can't see your circle, has a purple circle, does Malcolm think your circle is purple?",
       "questionType": "fill in",
       "correctAnswers": ["Yes"]
     }
@@ -476,7 +476,7 @@
   },
   {
     "exhibitName": "Get Moving",
-    "activityName": "Surely You’re Joking",
+    "activityName": "Surely You're Joking",
     "easy": {
       "question": "Complete the sentence: The _____ is a plane.",
       "questionType": "multiple choice",
@@ -656,7 +656,7 @@
       "question": "What happens when the vacuum sucks up the ball?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "It flies out the top", "It doesn’t move", "It goes down the pipe"
+        "It flies out the top", "It doesn't move", "It goes down the pipe"
       ],
       "correctAnswer" : "It flies out the top"
     },
@@ -736,7 +736,7 @@
       "correctAnswer" : "Jose Gaspar"
     },
     "medium": {
-      "question": "What was Jose Gaspar’s nickname?",
+      "question": "What was Jose Gaspar's nickname?",
       "questionType": "multiple choice",
       "possibleAnswers": [
         "The Buccaneering Pirate", "The last of the Buccaneers", "The last of the pirates of Tampa Bay", "The Great Gasparilla"
