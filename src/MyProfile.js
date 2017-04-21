@@ -83,17 +83,17 @@ class MyProfile extends Component {
 
   render() {
     return (
-        <div>
-            <Grid>
-                <AutoForm   onSubmit={this._onSubmit}>
-                    <ChildInfo bsStyle="success" className="explore-purple-panel"/>
-                    <hr className="explore-small-hr"/>
-                    <ParentInfo bsStyle="success" className="explore-blue-panel"/>
-                    <hr className="explore-small-hr"/> {this.returnTermsAndConditions(this.props.page, this.enableSubmit)}
-                    <Button className="explore-light-blue-button" bsStyle="info" bsSize="large" onClick={this.nextPage}>Done!</Button>
-                </AutoForm>
-            </Grid>
-        </div>
+      <div>
+        <Grid>
+          <AutoForm>
+            <ChildInfo bsStyle="success" className="explore-purple-panel"/>
+            <hr className="explore-small-hr"/>
+            <ParentInfo bsStyle="success" className="explore-blue-panel"/>
+            <hr className="explore-small-hr"/> {this.returnTermsAndConditions(this.props.page, this.enableSubmit)}
+            <Button className="explore-light-blue-button" bsStyle="info" bsSize="large" onClick={this.nextPage}>Done!</Button>
+          </AutoForm>
+        </Grid>
+      </div>
     );
   }
 }
@@ -104,10 +104,10 @@ function FieldGroup({
     ...props
 }) {
     return (
-        <FormGroup controlId={id}>
-            <ControlLabel>{label}</ControlLabel>
-            <FormControl {...props}/>
-        </FormGroup>
+      <FormGroup controlId={id}>
+        <ControlLabel>{label}</ControlLabel>
+        <FormControl {...props}/>
+      </FormGroup>
     );
 }
 
