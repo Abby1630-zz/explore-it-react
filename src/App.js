@@ -17,7 +17,7 @@ import ViewRobot from './ViewRobot';
 
 var scroll = Scroll.animateScroll;
 var numOfActivitiesBeforeQuiz = 1;
-var numOfActivitiesBeforeReward = 1;
+var numOfActivitiesBeforeReward = 4;
 
 class App extends Component {
   constructor(props) {
@@ -281,7 +281,7 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction, 
     return (
       <div>
         <Instructions page={renderPage}/>
-        <Quiz ReactGA={ReactGA} changePage={changePageFunction} changeQuizDifficulty={changeQuizDifficultyFunction} quizDifficulty={quizDifficulty} exhibit={selectedExhibit} activity={priorActivitiesForQuiz} showRobot={showRobot} questions={questions}/>
+        <Quiz ReactGA={ReactGA} changePage={changePageFunction} changeQuizDifficulty={changeQuizDifficultyFunction} quizDifficulty={quizDifficulty} exhibit={selectedExhibit} activity={priorActivitiesForQuiz} showRobot={showRobot} questions={questions} countUntilNextReward={countUntilNextReward}/>
       </div>
     );
   } else if (renderPage === 'CustomizeRobot') {

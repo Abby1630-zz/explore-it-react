@@ -115,7 +115,7 @@ class Quiz extends Component{
       this.props.changeQuizDifficulty(this.moveDownQuizDifficulty());
     }
 
-    if(this.props.showRobot === true){
+    if(this.props.showRobot === true && this.props.countUntilNextReward === 0){
       this.props.changePage('CustomizeRobot');
     } else {
       this.props.changePage('SelectActivity');
