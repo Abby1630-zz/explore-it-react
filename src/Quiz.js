@@ -10,6 +10,9 @@ import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
 import './css/Quiz.css';
 
+
+var difficulty = '';
+
 function getQuestions (activityName, questions) {
   var questionsForActivity = questions.filter(
       function(questions){
@@ -30,6 +33,9 @@ class Quiz extends Component{
       expectedValue: '',
       currentQuestionNumber: 0,
       correctCount: 0,
+      quizQuestionsCorrectInARow: 0,
+      quizQuestionsWrongInARow: 0,
+      difficulty: 'unknown'
     };
     this.nextStep= this.nextStep.bind(this);
     this.validateAnswer= this.validateAnswer.bind(this);
@@ -43,57 +49,79 @@ class Quiz extends Component{
     this.setState({
       actualValue: actualVal.toLowerCase(),
       expectedValue: expectedVal.toLowerCase(),
-      showAlert: false
+      showAlert: false,
+      difficulty: this.props.quizDifficulty,
+      quizQuestionsCorrectInARow: this.props.quizQuestionsCorrectInARow,
+      quizQuestionsWrongInARow: this.props.quizQuestionsWrongInARow
     });
   }
 
   validateAnswer () {
     if (this.state.expectedValue !== ''){
       var expectedArray = this.state.expectedValue.split(";");
+      var setStateTo = {};
+      var numCorrectInARow = this.state.quizQuestionsCorrectInARow;
+      var numWrongInARow = this.state.quizQuestionsWrongInARow;
 
       if(expectedArray.indexOf(this.state.actualValue) > -1){
         this.props.ReactGA.event({
           category: 'QuizAnswer',
           action: this.props.activity[this.state.currentQuestionNumber],
-          label: 'Correct - ' + this.props.quizDifficulty
+          label: 'Correct - ' + this.state.difficulty
         });
         this.props.ReactGA.event({
           category: 'QuizLevel',
-          action: this.props.quizDifficulty,
+          action: this.state.difficulty,
           label: 'Correct'
         });
 
-        this.setState({
-          isCorrect: 'true',
-          currentQuestionNumber: this.state.currentQuestionNumber + 1,
-          correctCount: this.state.correctCount + 1,
-          showAlert: true
-        });
+        setStateTo.isCorrect = 'true';
+        setStateTo.currentQuestionNumber = this.state.currentQuestionNumber + 1;
+        setStateTo.correctCount = this.state.correctCount + 1;
+        setStateTo.showAlert = true;
+        setStateTo.quizQuestionsCorrectInARow = this.state.quizQuestionsCorrectInARow + 1;
+        setStateTo.quizQuestionsWrongInARow = 0;
+
+        numCorrectInARow += 1;
+        numWrongInARow = 0;
+
       } else {
         this.props.ReactGA.event({
           category: 'QuizAnswer - Incorrect',
           action: this.props.activity[this.state.currentQuestionNumber],
-          label:'Difficulty: ' + this.props.quizDifficulty + ' Answered Value: '+ this.state.actualValue
+          label:'Difficulty: ' + this.state.difficulty + ' Answered Value: '+ this.state.actualValue
         });
         this.props.ReactGA.event({
           category: 'QuizLevel',
-          action: this.props.quizDifficulty,
+          action: this.state.difficulty,
           label: 'Incorrect'
         });
 
-        this.setState({
-          isCorrect: 'false',
-          currentQuestionNumber: this.state.currentQuestionNumber + 1,
-          showAlert: true
-        });
+        setStateTo.isCorrect = 'false';
+        setStateTo.currentQuestionNumber = this.state.currentQuestionNumber + 1;
+        setStateTo.showAlert = true;
+        setStateTo.quizQuestionsCorrectInARow = 0;
+        setStateTo.quizQuestionsWrongInARow = this.state.quizQuestionsWrongInARow + 1;
+
+        numCorrectInARow = 0;
+        numWrongInARow += 1;
       }
+
+      if (numCorrectInARow % 2 === 0 && numCorrectInARow > 0){
+        setStateTo.difficulty = this.moveUpQuizDifficulty();
+      } else if (numWrongInARow % 2 === 0 && numWrongInARow > 0){
+        setStateTo.difficulty = this.moveDownQuizDifficulty();
+      }
+
+      this.setState(setStateTo);
+
     } else{
       alert("Oops, you didn't answer the question!");
     }
   }
 
   moveUpQuizDifficulty(){
-    if (this.props.quizDifficulty === "easy"){
+    if (this.state.difficulty === "easy"){
       return "medium";
     } else {
       return "hard";
@@ -101,7 +129,7 @@ class Quiz extends Component{
   }
 
   moveDownQuizDifficulty(){
-    if (this.props.quizDifficulty === "hard"){
+    if (this.state.difficulty === "hard"){
       return "medium";
     } else {
       return "easy";
@@ -109,11 +137,7 @@ class Quiz extends Component{
   }
 
   nextStep () {
-    if (this.state.correctCount/this.props.activity.length > .75){
-      this.props.changeQuizDifficulty(this.moveUpQuizDifficulty());
-    } else if (this.state.correctCount/this.props.activity.length <= .50){
-      this.props.changeQuizDifficulty(this.moveDownQuizDifficulty());
-    }
+    this.props.changeQuizValues(this.state.difficulty, this.state.quizQuestionsCorrectInARow, this.state.quizQuestionsWrongInARow);
 
     if(this.props.showRobot === true && this.props.countUntilNextReward === 0){
       this.props.changePage('CustomizeRobot');
@@ -124,23 +148,29 @@ class Quiz extends Component{
 
   getQuestion(numOfQuestions) {
     var activity = this.props.activity[this.state.currentQuestionNumber];
-    var difficulty = this.props.questions;
+    var questions = this.props.questions;
 
     if (numOfQuestions === this.state.currentQuestionNumber){
       activity = this.props.activity[this.state.currentQuestionNumber-1];;
+    } else{
+      if (this.state.difficulty === 'unknown'){
+        difficulty = this.props.quizDifficulty;
+      } else {
+        difficulty = this.state.difficulty;
+      }
     }
 
-    if (this.props.quizDifficulty === 'easy') {
+    if (difficulty === 'easy') {
       return (
-        <QuestionBlock questionInfo={getQuestions(activity, difficulty).easy} setValue={this.setValues}/>
+        <QuestionBlock questionInfo={getQuestions(activity, questions).easy} setValue={this.setValues}/>
       );
-    } else if (this.props.quizDifficulty === 'hard') {
+    } else if (difficulty === 'hard') {
       return (
-        <QuestionBlock questionInfo={getQuestions(activity, difficulty).hard} setValue={this.setValues}/>
+        <QuestionBlock questionInfo={getQuestions(activity, questions).hard} setValue={this.setValues}/>
       );
     } else {
       return (
-        <QuestionBlock questionInfo={getQuestions(activity, difficulty).medium} setValue={this.setValues}/>
+        <QuestionBlock questionInfo={getQuestions(activity, questions).medium} setValue={this.setValues}/>
       );
     }
   }
@@ -268,9 +298,7 @@ class FillInQuestion extends Component {
   render() {
     return (
       <form>
-        <FormGroup
-          controlId="formBasicText"
-        >
+        <FormGroup controlId="formBasicText" >
           <ControlLabel>{this.props.questionInfo.question}</ControlLabel>
           <FormControl
             name={this.props.questionInfo.question}

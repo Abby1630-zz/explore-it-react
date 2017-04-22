@@ -45,6 +45,8 @@ class Activity extends Component{
       });
       if(this.props.countUntilNextQuiz === 0){
         this.props.changePage('Quiz');
+      }else if (this.props.countUntilNextReward === 0) {
+        this.props.changePage('CustomizeRobot');
       }else{
         this.props.changePage('SelectActivity');
       }
