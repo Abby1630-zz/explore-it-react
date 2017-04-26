@@ -40,7 +40,6 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
   // Making sure that the publicPath goes back to to build folder.
   ? { publicPath: Array(cssFilename.split('/').length).join('../') }
   : undefined;
-
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
@@ -64,7 +63,8 @@ module.exports = {
     filename: 'static/js/[name].[chunkhash:8].js',
     chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
     // We inferred the "public path" (such as / or /my-project) from homepage.
-    publicPath: publicPath
+    //publicPath: publicPath
+    publicPath: '/'
   },
   resolve: {
     // This allows you to set a fallback for where Webpack should look for modules.
