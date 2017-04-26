@@ -1,6 +1,6 @@
 {
-  "name": "explore-it",
-  "homepage": "https://explore-it-react.herokuapp.com/",
+  "name": "explore-it-react",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
