@@ -11,9 +11,18 @@ import Grid from 'react-bootstrap/lib/Grid';
 import HelpBlock from 'react-bootstrap/lib/HelpBlock';
 import Panel from 'react-bootstrap/lib/Panel';
 import AutoForm from 'react-auto-form'
-
+import Rebase from 're-base';
 
 import './css/common.css';
+
+var base = Rebase.createClass({
+      apiKey: "AIzaSyBvNUuL3R89gOQIvilSJzjP-3dhOo3vxq0",
+      authDomain: "glazer-exploreit.firebaseapp.com",
+      databaseURL: "https://glazer-exploreit.firebaseio.com",
+      storageBucket: "glazer-exploreit.appspot.com",
+      messagingSenderId: "511948691806"
+}, 'myApp');
+
 
 class MyProfile extends Component {
   constructor(props) {
@@ -31,18 +40,27 @@ class MyProfile extends Component {
     this.nextPage = this.nextPage.bind(this);
     this.enableSubmit = this.enableSubmit.bind(this);
     this.returnTermsAndConditions = this.returnTermsAndConditions.bind(this);
-    //this.onSubmit = this.onSubmit.bind(this);
+    this.addtoFirebase = this.addtoFirebase.bind(this);
     this.onChange = this.onChange.bind(this);
 
   }
 
-  addRowToGoogleSheets(){
-    // spreadsheet key is the long id in the sheets URL
-    //bni0Tfa9Dz2bo1Q-c0c5t3SKh6h3Kx4rQwJjN7j4BAo'
+  addtoFirebase(){
+    var immediatelyAvailableReference = base.push('my_profile', {
+      data: {child_age: this.state.childAge, child_name: this.state.childName, parent_email: this.state.email, parent_name: this.state.parentName}
+    }).then(newLocation => {
+      var generatedKey = newLocation.key;
+    }).catch(err => {
+      //handle error
+      console.log(err);
+    });
+    //available immediately, you don't have to wait for the Promise to resolve
+    var generatedKey = immediatelyAvailableReference.key;
   }
 
   nextPage() {
     if (this.props.page === "MyProfile" || this.state.iAgree === true) {
+      this.addtoFirebase();
       this.props.changePage('SelectActivity');
     } else {
       this.props.ReactGA.event({category: 'TermsAndConditions', action: 'ForgotToAgree'});
@@ -78,6 +96,7 @@ class MyProfile extends Component {
     };
 
     this.setState(stateObject);
+
     console.log(this.state);
   }
 
@@ -85,7 +104,7 @@ class MyProfile extends Component {
     return (
       <div>
         <Grid>
-          <AutoForm>
+          <AutoForm onChange={this.onChange}>
             <ChildInfo bsStyle="success" className="explore-purple-panel"/>
             <hr className="explore-small-hr"/>
             <ParentInfo bsStyle="success" className="explore-blue-panel"/>
