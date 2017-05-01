@@ -8,13 +8,14 @@ var leftLinks =
   {
     text: "Home",
     navigateTo: "SelectActivity"
-  },
-  {
-    text: "My Profile",
-    navigateTo: "MyProfile"
   }
 ];
 
+// ,
+// {
+//   text: "My Profile",
+//   navigateTo: "MyProfile"
+// }
 class NavBar extends Component {
   constructor(props) {
     super(props);
