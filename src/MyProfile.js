@@ -96,8 +96,6 @@ class MyProfile extends Component {
     };
 
     this.setState(stateObject);
-
-    console.log(this.state);
   }
 
   render() {
