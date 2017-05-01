@@ -173,29 +173,31 @@ class Disclaimer extends Component {
 }
 
 class ChildInfo extends Component {
-    render() {
-        return (
-            <div>
-                <Panel header="Child's Information" className={this.props.className}>
-                    <FieldGroup id="childName" name="childName" type="text" label="Child's First Name" placeholder="Enter name"/>
-                    <FieldGroup id="childAge" name="childAge" type="number" label="Child's Age:" placeholder="Enter age"/>
-                    <FieldGroup id="favFood" name="favFood" type="text" label="Favorite Food:" placeholder="Enter food"/>
-                    <FormGroup controlId="formControlsSelect">
-                        <ControlLabel>Favorite Color</ControlLabel>
-                        <FormControl componentClass="select" placeholder="select" name="favColor">
-                            <option value="selectOne">Please select a color</option>
-                            <option value="blue">Blue</option>
-                            <option value="green">Green</option>
-                            <option value="red">Red</option>
-                            <option value="purple">Purple</option>
-                            <option value="pink">Pink</option>
-                            <option value="yellow">Yellow</option>
-                        </FormControl>
-                    </FormGroup>
-                </Panel>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <Panel header="Child's Information" className={this.props.className}>
+          <FieldGroup id="childName" name="childName" type="text" label="Child's First Name" placeholder="Enter name"/>
+          <FieldGroup id="childAge" name="childAge" type="number" label="Child's Age:" placeholder="Enter age"/>
+          {/*
+          <FieldGroup id="favFood" name="favFood" type="text" label="Favorite Food:" placeholder="Enter food"/>
+          <FormGroup controlId="formControlsSelect">
+            <ControlLabel>Favorite Color</ControlLabel>
+            <FormControl componentClass="select" placeholder="select" name="favColor">
+              <option value="selectOne">Please select a color</option>
+              <option value="blue">Blue</option>
+              <option value="green">Green</option>
+              <option value="red">Red</option>
+              <option value="purple">Purple</option>
+              <option value="pink">Pink</option>
+              <option value="yellow">Yellow</option>
+            </FormControl>
+          </FormGroup>
+          */}
+        </Panel>
+      </div>
+    );
+  }
 }
 
 class ParentInfo extends Component {
