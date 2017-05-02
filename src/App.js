@@ -72,13 +72,6 @@ class App extends Component {
       label: this.state.selectedActivity
     });
 
-    ReactGA.ga('send', 'timing', {
-      'timingCategory': 'TimeOnPage',
-      'timingVar': this.state.renderedPage,
-      'timingValue': timeInMS,
-      'timingLabel': this.state.selectedActivity
-    });
-
     scroll.scrollToTop();
     var statesToSet = {renderedPage: pageName};
     if (this.state.renderedPage=== 'CustomizeRobot'){
