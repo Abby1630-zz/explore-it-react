@@ -55,6 +55,11 @@ class App extends Component {
     this.changeRobot = this.changeRobot.bind(this)
     this.changeQuizValues = this.changeQuizValues.bind(this)
     ReactGA.initialize('UA-96822574-1'); //Unique Google Analytics tracking number
+    var uid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+      return v.toString(16);
+    });
+    ReactGA.set({ userId: uid });
   }
 
   changePage(pageName){
