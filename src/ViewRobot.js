@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import ReactDOM from 'react-dom';
 import Scroll from 'react-scroll';
 import Image from 'react-bootstrap/lib/Image';
 import Button from 'react-bootstrap/lib/Button';

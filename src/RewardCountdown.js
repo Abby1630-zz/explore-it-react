@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-//import ReactDOM from 'react-dom';
 import Badge from 'react-bootstrap/lib/Badge';
 import './css/RewardCountdown.css'
 

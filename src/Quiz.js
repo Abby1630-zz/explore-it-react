@@ -69,11 +69,21 @@ class Quiz extends Component{
           action: this.props.activity[this.state.currentQuestionNumber],
           label: 'Correct - ' + this.state.difficulty
         });
+
         this.props.ReactGA.event({
           category: 'QuizLevel',
           action: this.state.difficulty,
           label: 'Correct'
         });
+
+        var tableData = {
+          user_id: this.props.userID,
+          activity: this.props.activity[this.state.currentQuestionNumber],
+          difficulty: this.state.difficulty,
+          answered_correctly: 'Yes'
+        };
+        this.props.addtoFirebase('Quiz', tableData);
+
 
         setStateTo.isCorrect = 'true';
         setStateTo.currentQuestionNumber = this.state.currentQuestionNumber + 1;
@@ -96,6 +106,16 @@ class Quiz extends Component{
           action: this.state.difficulty,
           label: 'Incorrect'
         });
+
+        var tableData = {
+          user_id: this.props.userID,
+          activity: this.props.activity[this.state.currentQuestionNumber],
+          difficulty: this.state.difficulty,
+          answered_correctly: 'No',
+          actual_answer: this.state.actualValue,
+          correct_answer: this.state.expectedValue
+        };
+        this.props.addtoFirebase('Quiz', tableData);
 
         setStateTo.isCorrect = 'false';
         setStateTo.currentQuestionNumber = this.state.currentQuestionNumber + 1;

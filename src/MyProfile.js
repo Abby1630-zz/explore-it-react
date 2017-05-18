@@ -40,30 +40,29 @@ class MyProfile extends Component {
     this.nextPage = this.nextPage.bind(this);
     this.enableSubmit = this.enableSubmit.bind(this);
     this.returnTermsAndConditions = this.returnTermsAndConditions.bind(this);
-    this.addtoFirebase = this.addtoFirebase.bind(this);
     this.onChange = this.onChange.bind(this);
-
-  }
-
-  addtoFirebase(){
-    var immediatelyAvailableReference = base.push('my_profile', {
-      data: {child_age: this.state.childAge, child_name: this.state.childName, parent_email: this.state.email, parent_name: this.state.parentName}
-    }).then(newLocation => {
-      var generatedKey = newLocation.key;
-    }).catch(err => {
-      //handle error
-      console.log(err);
-    });
-    //available immediately, you don't have to wait for the Promise to resolve
-    var generatedKey = immediatelyAvailableReference.key;
   }
 
   nextPage() {
     if (this.props.page === "MyProfile" || this.state.iAgree === true) {
-      this.addtoFirebase();
+      var tableData = {
+        user_id: this.props.userID,
+        child_age: this.state.childAge,
+        child_name: this.state.childName,
+        parent_email: this.state.email,
+        parent_name: this.state.parentName
+      };
+      this.props.addtoFirebase('my_profile', tableData);
       this.props.changePage('SelectActivity');
     } else {
       this.props.ReactGA.event({category: 'TermsAndConditions', action: 'ForgotToAgree'});
+      var tableData = {
+        user_id: this.props.userID,
+        category: 'Terms And Conditions',
+        action: 'Forgot To Agree'
+      };
+      this.props.addtoFirebase('event', tableData);
+
       alert("Please agree to the terms and conditions");
     }
   }

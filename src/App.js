@@ -14,14 +14,29 @@ import Activity from './Activity';
 import MyProfile from './MyProfile';
 import Welcome from './Welcome';
 import ViewRobot from './ViewRobot';
+import Rebase from 're-base';
 
 var scroll = Scroll.animateScroll;
 var numOfActivitiesBeforeQuiz = 1;
 var numOfActivitiesBeforeReward = 4;
 
+var base = Rebase.createClass({
+      apiKey: "AIzaSyBvNUuL3R89gOQIvilSJzjP-3dhOo3vxq0",
+      authDomain: "glazer-exploreit.firebaseapp.com",
+      databaseURL: "https://glazer-exploreit.firebaseio.com",
+      storageBucket: "glazer-exploreit.appspot.com",
+      messagingSenderId: "511948691806"
+}, 'myApp');
+
 class App extends Component {
   constructor(props) {
     super(props);
+
+    var uid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+      return v.toString(16);
+    });
+
     this.state = {
       //Content States
       /* On load load in all the questions, activities, and exhibits so you
@@ -47,19 +62,33 @@ class App extends Component {
       robotHead: "#",
       robotBody: "#",
       robotArms: "#",
-      robotLegs: "#"
+      robotLegs: "#",
+      //User Information
+      userID: uid
 
     };
     this.changePage = this.changePage.bind(this)
     this.changeActivity = this.changeActivity.bind(this)
     this.changeRobot = this.changeRobot.bind(this)
     this.changeQuizValues = this.changeQuizValues.bind(this)
+    this.addtoFirebase = this.addtoFirebase.bind(this)
     ReactGA.initialize('UA-96822574-1'); //Unique Google Analytics tracking number
-    var uid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-      var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
-      return v.toString(16);
-    });
+
     ReactGA.set({ userId: uid });
+  }
+
+
+  addtoFirebase(tableName, tableData){
+    var immediatelyAvailableReference = base.push(tableName, {
+      data: tableData
+    }).then(newLocation => {
+      var generatedKey = newLocation.key;
+    }).catch(err => {
+      //handle error
+      console.log(err);
+    });
+    //available immediately, you don't have to wait for the Promise to resolve
+    var generatedKey = immediatelyAvailableReference.key;
   }
 
   changePage(pageName){
@@ -76,6 +105,14 @@ class App extends Component {
       value: timeInMS, // in milliseconds
       label: this.state.selectedActivity
     });
+
+    var tableData = {
+      user_id: this.state.userID,
+      seconds_on_page: timeInSeconds,
+      page: this.state.renderedPage,
+      activity: this.state.selectedActivity
+    };
+    this.addtoFirebase('UserTimeOnPage', tableData);
 
     scroll.scrollToTop();
     var statesToSet = {renderedPage: pageName};
@@ -217,7 +254,7 @@ class App extends Component {
         <NavBar changePage={this.changePage} currentPage={this.state.renderedPage} showRobot={this.props.showRobot} robotImage={robotArray[0]+robotArray[1]+robotArray[2]+robotArray[3]}/>
         {getTitle (this.state.renderedPage, this.state.selectedActivity)}
         <div className="App-Body">
-          {getPage (this.state, this.props.showRobot, this.changePage, this.changeActivity, this.changeRobot, this.changeQuizValues, ReactGA)}
+          {getPage (this.state, this.props.showRobot, this.changePage, this.changeActivity, this.changeRobot, this.changeQuizValues, this.addtoFirebase, ReactGA)}
           <hr className="explore-small-hr"/>
         </div>
       </div>
@@ -246,7 +283,7 @@ function getTitle (currentPage, activity) {
 }
 
 
-function getPage (state, showRobot, changePageFunction, changeActivityFunction, changeRobotFunction, changeQuizValuesFunction, ReactGA) {
+function getPage (state, showRobot, changePageFunction, changeActivityFunction, changeRobotFunction, changeQuizValuesFunction, addtoFirebaseFunction, ReactGA) {
 // this.state.selectedActivity
   var renderPage = state.renderedPage;
   var countUntilNextQuiz = state.countUntilNextQuiz;
@@ -266,6 +303,7 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction, 
   var robotLegsImages = state.robotLegsImages;
   var quizQuestionsCorrectInARow = state.quizQuestionsCorrectInARow;
   var quizQuestionsWrongInARow = state.quizQuestionsWrongInARow;
+  var userID = state.userID;
 
   TimeMe.initialize({});
   TimeMe.setCurrentPageName(renderPage);
@@ -282,45 +320,45 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction, 
       <div>
         {<RewardCountdown countUntilNextReward={countUntilNextReward}/> }
         <Instructions page={renderPage}/>
-        <SelectActivity ReactGA={ReactGA} changePage={changePageFunction} changeActivity={changeActivityFunction} exhibitsAndActivities={exhibitsAndActivities}/>
+        <SelectActivity addtoFirebase={addtoFirebaseFunction} userID={userID} ReactGA={ReactGA} changePage={changePageFunction} changeActivity={changeActivityFunction} exhibitsAndActivities={exhibitsAndActivities}/>
       </div>
     );
   } else if (renderPage === 'Quiz') {
     return (
       <div>
         <Instructions page={renderPage}/>
-        <Quiz ReactGA={ReactGA} changePage={changePageFunction} changeQuizValues={changeQuizValuesFunction} quizDifficulty={quizDifficulty} quizQuestionsCorrectInARow={quizQuestionsCorrectInARow} quizQuestionsWrongInARow={quizQuestionsWrongInARow} exhibit={selectedExhibit} activity={priorActivitiesForQuiz} showRobot={showRobot} questions={questions} countUntilNextReward={countUntilNextReward}/>
+        <Quiz addtoFirebase={addtoFirebaseFunction} userID={userID} ReactGA={ReactGA} changePage={changePageFunction} changeQuizValues={changeQuizValuesFunction} quizDifficulty={quizDifficulty} quizQuestionsCorrectInARow={quizQuestionsCorrectInARow} quizQuestionsWrongInARow={quizQuestionsWrongInARow} exhibit={selectedExhibit} activity={priorActivitiesForQuiz} showRobot={showRobot} questions={questions} countUntilNextReward={countUntilNextReward}/>
       </div>
     );
   } else if (renderPage === 'CustomizeRobot') {
     return (
       <div>
         <Instructions page={renderPage}/>
-        <CustomizeRobot ReactGA={ReactGA} changePage={changePageFunction} changeRobot={changeRobotFunction} head={robotArray[0]} body={robotArray[1]} arms={robotArray[2]} legs={robotArray[3]} robotArmsImages={robotArmsImages} robotBodyImages={robotBodyImages} robotHeadImages={robotHeadImages} robotLegsImages={robotLegsImages}/>
+        <CustomizeRobot addtoFirebase={addtoFirebaseFunction} userID={userID} ReactGA={ReactGA} changePage={changePageFunction} changeRobot={changeRobotFunction} head={robotArray[0]} body={robotArray[1]} arms={robotArray[2]} legs={robotArray[3]} robotArmsImages={robotArmsImages} robotBodyImages={robotBodyImages} robotHeadImages={robotHeadImages} robotLegsImages={robotLegsImages}/>
       </div>
     );
   } else if (renderPage === 'ViewRobot') {
     return (
       <div>
-        <ViewRobot ReactGA={ReactGA} changePage={changePageFunction} head={robotArray[0]} body={robotArray[1]} arms={robotArray[2]} legs={robotArray[3]} />
+        <ViewRobot addtoFirebase={addtoFirebaseFunction} userID={userID} ReactGA={ReactGA} changePage={changePageFunction} head={robotArray[0]} body={robotArray[1]} arms={robotArray[2]} legs={robotArray[3]} />
       </div>
     );
   } else if (renderPage === 'Activity') {
     return (
       <div>
-        <Activity ReactGA={ReactGA} changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity} activitiesInDetail={activitiesInDetail} countUntilNextQuiz={countUntilNextQuiz} countUntilNextReward={countUntilNextReward}/>
+        <Activity addtoFirebase={addtoFirebaseFunction} userID={userID} ReactGA={ReactGA} changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity} activitiesInDetail={activitiesInDetail} countUntilNextQuiz={countUntilNextQuiz} countUntilNextReward={countUntilNextReward}/>
       </div>
     );
   } else if (renderPage === 'MyProfile' || renderPage === 'Intro') {
     return (
       <div>
-        <MyProfile ReactGA={ReactGA} changePage={changePageFunction} page={renderPage} disclaimer={disclaimer}/>
+        <MyProfile addtoFirebase={addtoFirebaseFunction} userID={userID} ReactGA={ReactGA} changePage={changePageFunction} page={renderPage} disclaimer={disclaimer}/>
       </div>
     );
   } else if (renderPage === 'Welcome' ) {
     return (
       <div>
-        <Welcome ReactGA={ReactGA} changePage={changePageFunction} page={renderPage}/>
+        <Welcome addtoFirebase={addtoFirebaseFunction} userID={userID} ReactGA={ReactGA} changePage={changePageFunction} page={renderPage}/>
       </div>
     );
   }

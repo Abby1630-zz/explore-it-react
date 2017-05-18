@@ -43,6 +43,14 @@ class Activity extends Component{
         label: this.state.rating,
         value: parseInt(this.state.rating, 10)
       });
+
+      var tableData = {
+        user_id: this.props.userID,
+        activity: this.props.activity,
+        rating: parseInt(this.state.rating, 10)
+      };
+      this.props.addtoFirebase('ActivityRating', tableData);
+
       if(this.props.countUntilNextQuiz === 0){
         this.props.changePage('Quiz');
       }else if (this.props.countUntilNextReward === 0) {
@@ -55,6 +63,14 @@ class Activity extends Component{
         category: 'MissingActivityRating',
         action: this.props.activity,
       });
+
+      var tableData = {
+        user_id: this.props.userID,
+        category: 'Missing Activity Rating',
+        action: this.props.activity
+      };
+      this.props.addtoFirebase('event', tableData);
+
       alert("Please rate this activity.")
     }
   }
@@ -70,13 +86,13 @@ class Activity extends Component{
         <Instructions page="Activity"/>
         <Grid>
           <Row>
-            <Collapsible header="The Activity" bsStyle="success" buttonClass="explore-blue-collapse-button" alertClass="explore-blue-collapse-body" open={true} body={activity.theActivity} ReactGA={this.props.ReactGA}/>
+            <Collapsible header="The Activity" bsStyle="success" buttonClass="explore-blue-collapse-button" alertClass="explore-blue-collapse-body" open={true} body={activity.theActivity} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
             <hr className="explore-small-hr"/>
-            <Collapsible header="What Children Learn" bsStyle="success" buttonClass="explore-purple-collapse-button" alertClass="explore-purple-collapse-body" open={true} body={activity.whatChildrenLearn} ReactGA={this.props.ReactGA}/>
+            <Collapsible header="What Children Learn" bsStyle="success" buttonClass="explore-purple-collapse-button" alertClass="explore-purple-collapse-body" open={true} body={activity.whatChildrenLearn} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
             <hr className="explore-small-hr"/>
-            <Collapsible header="Extending The Activity" bsStyle="success" buttonClass="explore-orange-collapse-button" alertClass="explore-orange-collapse-body" open={false} body={activity.extendingTheActivity} ReactGA={this.props.ReactGA}/>
+            <Collapsible header="Extending The Activity" bsStyle="success" buttonClass="explore-orange-collapse-button" alertClass="explore-orange-collapse-body" open={false} body={activity.extendingTheActivity} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
             <hr className="explore-small-hr"/>
-            <ExploringLanguage heading="Exploring Language" bsStyle="success" buttonClass="explore-green-collapse-button" alertClass="explore-green-collapse-body" open={false} languageContent={activity.exploringLanguage} ReactGA={this.props.ReactGA}/>
+            <ExploringLanguage heading="Exploring Language" bsStyle="success" buttonClass="explore-green-collapse-button" alertClass="explore-green-collapse-body" open={false} languageContent={activity.exploringLanguage} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
             <hr className="explore-small-hr"/>
             <h3>How would you rate this activity?</h3>
             <Col>
@@ -151,11 +167,20 @@ class Collapsible extends Component {
 
   getIcon (){
     if (this.state.open !== this.props.open){
+      var stateOfCollapse = this.state.open === true ? "opened" : "closed"
+
       this.props.ReactGA.event({
         category: 'ActivityCollapseClick',
-        action: this.props.header + '-' + this.state.open,
+        action: this.props.header + '-' + stateOfCollapse,
         value:1
       });
+
+      var tableData = {
+        user_id: this.props.userID,
+        category: this.props.header + ' - Activity Collapse Click',
+        action: stateOfCollapse
+      };
+      this.props.addtoFirebase('event', tableData);
     }
 
     if (this.state.open) {
@@ -201,7 +226,7 @@ class ExploringLanguage extends Component {
     });
 
     return (
-      <Collapsible header={this.props.heading} bsStyle={this.props.bsStyle} buttonClass={this.props.buttonClass} alertClass={this.props.alertClass} open={this.props.open} body={langList} ReactGA={this.props.ReactGA}/>
+      <Collapsible header={this.props.heading} bsStyle={this.props.bsStyle} buttonClass={this.props.buttonClass} alertClass={this.props.alertClass} open={this.props.open} body={langList} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
     );
   }
 }

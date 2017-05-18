@@ -57,6 +57,13 @@ class SelectActivity extends Component{
       action: e.currentTarget.name
     });
     this.setState({exhibit:e.currentTarget.name})
+
+    var tableData = {
+      user_id: this.props.userID,
+      category: 'Select Exhibit',
+      action: e.currentTarget.name
+    };
+    this.props.addtoFirebase('event', tableData);
   }
 
   setActivityState (e) {
@@ -72,6 +79,13 @@ class SelectActivity extends Component{
       action: e.currentTarget.name
     });
     this.setState({activity:e.currentTarget.name})
+
+    var tableData = {
+      user_id: this.props.userID,
+      category: 'Select Activity',
+      action: e.currentTarget.name
+    };
+    this.props.addtoFirebase('event', tableData);
   }
 
   render(){
