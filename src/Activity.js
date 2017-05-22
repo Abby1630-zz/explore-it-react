@@ -10,6 +10,7 @@ import Button from 'react-bootstrap/lib/Button';
 import Alert from 'react-bootstrap/lib/Alert';
 import Collapse from 'react-bootstrap/lib/Collapse';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
+import Image from 'react-bootstrap/lib/Image';
 import FontAwesome from 'react-fontawesome';
 import './css/Activity.css';
 import './css/common.css';
@@ -31,11 +32,13 @@ class Activity extends Component{
     this.state = {
       rating: "notRated"
     }
-    this.nextPage= this.nextPage.bind(this);
-    this.setRating= this.setRating.bind(this);
+    this.nextPage = this.nextPage.bind(this);
+    this.setRating = this.setRating.bind(this);
+    this.getImage = this.getImage.bind(this);
   }
 
   nextPage () {
+    var tableData;
     if (this.state.rating !== "notRated"){
       this.props.ReactGA.event({
         category: 'ActivityRating',
@@ -44,7 +47,7 @@ class Activity extends Component{
         value: parseInt(this.state.rating, 10)
       });
 
-      var tableData = {
+      tableData = {
         user_id: this.props.userID,
         activity: this.props.activity,
         rating: parseInt(this.state.rating, 10)
@@ -64,7 +67,7 @@ class Activity extends Component{
         action: this.props.activity,
       });
 
-      var tableData = {
+      tableData = {
         user_id: this.props.userID,
         category: 'Missing Activity Rating',
         action: this.props.activity
@@ -75,17 +78,31 @@ class Activity extends Component{
     }
   }
 
-  setRating (e) {
+  setRating(e) {
     this.setState({rating:e.currentTarget.value});
+  }
+
+  getImage(activity) {
+    if (activity.activityImage !== undefined && activity.activityImage !== '') {
+      return (
+        <div className="explore-image-container">
+          <Image responsive src={process.env.PUBLIC_URL + '/images/' + activity.activityImage}/>
+        </div>
+      );
+    }
+    return null;
+
   }
 
   render(){
     var activity = getActivity(this.props.activity, this.props.activitiesInDetail);
+    var image = this.getImage(activity);
     return(
       <div>
         <Instructions page="Activity"/>
         <Grid>
           <Row>
+            {image}
             <Collapsible header="The Activity" bsStyle="success" buttonClass="explore-blue-collapse-button" alertClass="explore-blue-collapse-body" open={true} body={activity.theActivity} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
             <hr className="explore-small-hr"/>
             <Collapsible header="What Children Learn" bsStyle="success" buttonClass="explore-purple-collapse-button" alertClass="explore-purple-collapse-body" open={true} body={activity.whatChildrenLearn} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
@@ -96,7 +113,6 @@ class Activity extends Component{
             <hr className="explore-small-hr"/>
             <h3>How would you rate this activity?</h3>
             <Col>
-
             </Col>
             <Col>
               <FormGroup>
