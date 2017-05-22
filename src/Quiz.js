@@ -8,8 +8,6 @@ import Button from 'react-bootstrap/lib/Button';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
-import './css/Quiz.css';
-
 
 var difficulty = '';
 
@@ -57,6 +55,7 @@ class Quiz extends Component{
   }
 
   validateAnswer () {
+    var tableData;
     if (this.state.expectedValue !== ''){
       var expectedArray = this.state.expectedValue.split(";");
       var setStateTo = {};
@@ -76,7 +75,7 @@ class Quiz extends Component{
           label: 'Correct'
         });
 
-        var tableData = {
+        tableData = {
           user_id: this.props.userID,
           activity: this.props.activity[this.state.currentQuestionNumber],
           difficulty: this.state.difficulty,
@@ -107,7 +106,7 @@ class Quiz extends Component{
           label: 'Incorrect'
         });
 
-        var tableData = {
+        tableData = {
           user_id: this.props.userID,
           activity: this.props.activity[this.state.currentQuestionNumber],
           difficulty: this.state.difficulty,

@@ -7,7 +7,6 @@ import Image from 'react-bootstrap/lib/Image';
 import Collapse from 'react-bootstrap/lib/Collapse';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 import './css/common.css';
-import './css/Welcome.css';
 
 class Welcome extends Component {
   constructor(props) {

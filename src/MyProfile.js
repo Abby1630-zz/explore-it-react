@@ -11,18 +11,7 @@ import Grid from 'react-bootstrap/lib/Grid';
 import HelpBlock from 'react-bootstrap/lib/HelpBlock';
 import Panel from 'react-bootstrap/lib/Panel';
 import AutoForm from 'react-auto-form'
-import Rebase from 're-base';
-
 import './css/common.css';
-
-var base = Rebase.createClass({
-      apiKey: "AIzaSyBvNUuL3R89gOQIvilSJzjP-3dhOo3vxq0",
-      authDomain: "glazer-exploreit.firebaseapp.com",
-      databaseURL: "https://glazer-exploreit.firebaseio.com",
-      storageBucket: "glazer-exploreit.appspot.com",
-      messagingSenderId: "511948691806"
-}, 'myApp');
-
 
 class MyProfile extends Component {
   constructor(props) {
@@ -44,8 +33,9 @@ class MyProfile extends Component {
   }
 
   nextPage() {
+    var tableData;
     if (this.props.page === "MyProfile" || this.state.iAgree === true) {
-      var tableData = {
+      tableData = {
         user_id: this.props.userID,
         child_age: this.state.childAge,
         child_name: this.state.childName,
@@ -56,7 +46,7 @@ class MyProfile extends Component {
       this.props.changePage('SelectActivity');
     } else {
       this.props.ReactGA.event({category: 'TermsAndConditions', action: 'ForgotToAgree'});
-      var tableData = {
+      tableData = {
         user_id: this.props.userID,
         category: 'Terms And Conditions',
         action: 'Forgot To Agree'
