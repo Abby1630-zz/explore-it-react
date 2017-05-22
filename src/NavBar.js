@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+// react-bootstrap imports
 import Image from 'react-bootstrap/lib/Image';
+// css imports
 import './css/NavBar.css';
 
 

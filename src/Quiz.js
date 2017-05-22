@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import ListGroup from 'react-bootstrap/lib/ListGroup';
-import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
+// react-bootstrap imports
 import Alert from 'react-bootstrap/lib/Alert';
-import Grid from 'react-bootstrap/lib/Grid';
-import ProgressBar from 'react-bootstrap/lib/ProgressBar';
 import Button from 'react-bootstrap/lib/Button';
-import FormGroup from 'react-bootstrap/lib/FormGroup';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import Grid from 'react-bootstrap/lib/Grid';
+import ListGroup from 'react-bootstrap/lib/ListGroup';
+import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
+import ProgressBar from 'react-bootstrap/lib/ProgressBar';
 
 var difficulty = '';
 

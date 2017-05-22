@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+// react-bootstrap imports
+import Alert from 'react-bootstrap/lib/Alert';
+import Button from 'react-bootstrap/lib/Button';
+import Col from 'react-bootstrap/lib/Col';
+import Grid from 'react-bootstrap/lib/Grid';
+import Label from 'react-bootstrap/lib/Label';
+import Row from 'react-bootstrap/lib/Row';
 import Scroll from 'react-scroll';
 import Thumbnail from 'react-bootstrap/lib/Thumbnail';
-import Alert from 'react-bootstrap/lib/Alert';
-import Grid from 'react-bootstrap/lib/Grid';
-import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
-import Label from 'react-bootstrap/lib/Label';
-import Button from 'react-bootstrap/lib/Button';
+// css imports
 import './css/SelectActivity.css';
-import './css/common.css';
 
 var Element = Scroll.Element;
 var scroller = Scroll.scroller;

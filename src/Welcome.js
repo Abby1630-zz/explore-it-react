@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
+// react-bootstrap imports
 import Alert from 'react-bootstrap/lib/Alert';
-import Grid from 'react-bootstrap/lib/Grid';
-import Row from 'react-bootstrap/lib/Row';
 import Button from 'react-bootstrap/lib/Button';
-import Image from 'react-bootstrap/lib/Image';
 import Collapse from 'react-bootstrap/lib/Collapse';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
-import './css/common.css';
+import Grid from 'react-bootstrap/lib/Grid';
+import Image from 'react-bootstrap/lib/Image';
+import Row from 'react-bootstrap/lib/Row';
 
 class Welcome extends Component {
   constructor(props) {

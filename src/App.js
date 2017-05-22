@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
-import Scroll from 'react-scroll';
-import ReactGA from 'react-ga';
-import TimeMe from 'timeme.js'
-import './css/App.css';
-import './css/common.css';
-import NavBar from './NavBar';
-import RewardCountdown from './RewardCountdown';
-import Instructions from './Instructions';
-import SelectActivity from './SelectActivity';
-import Quiz from './Quiz';
-import CustomizeRobot from './CustomizeRobot';
+import Scroll from 'react-scroll'; // react-scroll import
+import ReactGA from 'react-ga'; //google-analytics import
+import TimeMe from 'timeme.js' // timeme import
+import Rebase from 're-base'; // rebase import
+// explore-it imports
 import Activity from './Activity';
+import CustomizeRobot from './CustomizeRobot';
+import Instructions from './Instructions';
 import MyProfile from './MyProfile';
-import Welcome from './Welcome';
+import NavBar from './NavBar';
+import Quiz from './Quiz';
+import RewardCountdown from './RewardCountdown';
+import SelectActivity from './SelectActivity';
 import ViewRobot from './ViewRobot';
-import Rebase from 're-base';
+import Welcome from './Welcome';
+// css imports
+import './css/App.css';
 
 var scroll = Scroll.animateScroll;
 var numOfActivitiesBeforeQuiz = 1;
@@ -176,7 +177,8 @@ class App extends Component {
 
   componentDidMount() {
     var me = this;
-    fetch(process.env.PUBLIC_URL +'/content/exhibitsAndActivities.json').then(function (rawResponse) {
+    fetch(process.env.PUBLIC_URL +'/content/exhibitsAndActivities.json')
+    .then(function (rawResponse) {
       return rawResponse.json();
     }).then(function (responseData) {
       me.setState({
@@ -184,7 +186,8 @@ class App extends Component {
       });
     })
 
-    fetch(process.env.PUBLIC_URL +'/content/activitiesInDetail.json').then(function (rawResponse) {
+    fetch(process.env.PUBLIC_URL +'/content/activitiesInDetail.json')
+    .then(function (rawResponse) {
       return rawResponse.json();
     }).then(function (responseData) {
       me.setState({
@@ -192,7 +195,8 @@ class App extends Component {
       });
     })
 
-    fetch(process.env.PUBLIC_URL +'/content/questions.json').then(function (rawResponse) {
+    fetch(process.env.PUBLIC_URL +'/content/questions.json')
+    .then(function (rawResponse) {
       return rawResponse.json();
     }).then(function (responseData) {
       me.setState({
@@ -200,7 +204,8 @@ class App extends Component {
       });
     })
 
-    fetch(process.env.PUBLIC_URL +'/content/disclaimer.json').then(function (rawResponse) {
+    fetch(process.env.PUBLIC_URL +'/content/disclaimer.json')
+    .then(function (rawResponse) {
       return rawResponse.json();
 
     }).then(function (responseData) {
@@ -209,7 +214,8 @@ class App extends Component {
       });
     })
 
-    fetch(process.env.PUBLIC_URL +'/content/robotArmsImages.json').then(function (rawResponse) {
+    fetch(process.env.PUBLIC_URL +'/content/robotArmsImages.json')
+    .then(function (rawResponse) {
       return rawResponse.json();
 
     }).then(function (responseData) {
@@ -218,7 +224,8 @@ class App extends Component {
       });
     })
 
-    fetch(process.env.PUBLIC_URL +'/content/robotBodyImages.json').then(function (rawResponse) {
+    fetch(process.env.PUBLIC_URL +'/content/robotBodyImages.json')
+    .then(function (rawResponse) {
       return rawResponse.json();
 
     }).then(function (responseData) {
@@ -227,7 +234,8 @@ class App extends Component {
       });
     })
 
-    fetch(process.env.PUBLIC_URL +'/content/robotHeadImages.json').then(function (rawResponse) {
+    fetch(process.env.PUBLIC_URL +'/content/robotHeadImages.json')
+    .then(function (rawResponse) {
       return rawResponse.json();
 
     }).then(function (responseData) {
@@ -236,7 +244,8 @@ class App extends Component {
       });
     })
 
-    fetch(process.env.PUBLIC_URL +'/content/robotLegsImages.json').then(function (rawResponse) {
+    fetch(process.env.PUBLIC_URL +'/content/robotLegsImages.json')
+    .then(function (rawResponse) {
       return rawResponse.json();
 
     }).then(function (responseData) {
@@ -251,10 +260,26 @@ class App extends Component {
 
     return (
       <div className="App">
-        <NavBar changePage={this.changePage} currentPage={this.state.renderedPage} showRobot={this.props.showRobot} robotImage={robotArray[0]+robotArray[1]+robotArray[2]+robotArray[3]}/>
+        <NavBar
+          changePage={this.changePage}
+          currentPage={this.state.renderedPage}
+          showRobot={this.props.showRobot}
+          robotImage={robotArray[0]+robotArray[1]+robotArray[2]+robotArray[3]}
+        />
+
         {getTitle (this.state.renderedPage, this.state.selectedActivity)}
+
         <div className="App-Body">
-          {getPage (this.state, this.props.showRobot, this.changePage, this.changeActivity, this.changeRobot, this.changeQuizValues, this.addtoFirebase, ReactGA)}
+          {getPage (
+            this.state,
+            this.props.showRobot,
+            this.changePage,
+            this.changeActivity,
+            this.changeRobot,
+            this.changeQuizValues,
+            this.addtoFirebase,
+            ReactGA
+          )}
           <hr className="explore-small-hr"/>
         </div>
       </div>
@@ -283,7 +308,8 @@ function getTitle (currentPage, activity) {
 }
 
 
-function getPage (state, showRobot, changePageFunction, changeActivityFunction, changeRobotFunction, changeQuizValuesFunction, addtoFirebaseFunction, ReactGA) {
+function getPage (state, showRobot, changePageFunction, changeActivityFunction,
+  changeRobotFunction, changeQuizValuesFunction, addtoFirebaseFunction, ReactGA) {
 // this.state.selectedActivity
   var renderPage = state.renderedPage;
   var countUntilNextQuiz = state.countUntilNextQuiz;
@@ -320,45 +346,112 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction, 
       <div>
         {<RewardCountdown countUntilNextReward={countUntilNextReward}/> }
         <Instructions page={renderPage}/>
-        <SelectActivity addtoFirebase={addtoFirebaseFunction} userID={userID} ReactGA={ReactGA} changePage={changePageFunction} changeActivity={changeActivityFunction} exhibitsAndActivities={exhibitsAndActivities}/>
+        <SelectActivity
+          addtoFirebase={addtoFirebaseFunction}
+          userID={userID}
+          ReactGA={ReactGA}
+          changePage={changePageFunction}
+          changeActivity={changeActivityFunction}
+          exhibitsAndActivities={exhibitsAndActivities}
+        />
       </div>
     );
   } else if (renderPage === 'Quiz') {
     return (
       <div>
         <Instructions page={renderPage}/>
-        <Quiz addtoFirebase={addtoFirebaseFunction} userID={userID} ReactGA={ReactGA} changePage={changePageFunction} changeQuizValues={changeQuizValuesFunction} quizDifficulty={quizDifficulty} quizQuestionsCorrectInARow={quizQuestionsCorrectInARow} quizQuestionsWrongInARow={quizQuestionsWrongInARow} exhibit={selectedExhibit} activity={priorActivitiesForQuiz} showRobot={showRobot} questions={questions} countUntilNextReward={countUntilNextReward}/>
+        <Quiz
+          addtoFirebase={addtoFirebaseFunction}
+          userID={userID}
+          ReactGA={ReactGA}
+          changePage={changePageFunction}
+          changeQuizValues={changeQuizValuesFunction}
+          quizDifficulty={quizDifficulty}
+          quizQuestionsCorrectInARow={quizQuestionsCorrectInARow}
+          quizQuestionsWrongInARow={quizQuestionsWrongInARow}
+          exhibit={selectedExhibit}
+          activity={priorActivitiesForQuiz}
+          showRobot={showRobot}
+          questions={questions}
+          countUntilNextReward={countUntilNextReward}
+        />
       </div>
     );
   } else if (renderPage === 'CustomizeRobot') {
     return (
       <div>
         <Instructions page={renderPage}/>
-        <CustomizeRobot addtoFirebase={addtoFirebaseFunction} userID={userID} ReactGA={ReactGA} changePage={changePageFunction} changeRobot={changeRobotFunction} head={robotArray[0]} body={robotArray[1]} arms={robotArray[2]} legs={robotArray[3]} robotArmsImages={robotArmsImages} robotBodyImages={robotBodyImages} robotHeadImages={robotHeadImages} robotLegsImages={robotLegsImages}/>
+        <CustomizeRobot
+          addtoFirebase={addtoFirebaseFunction}
+          userID={userID}
+          ReactGA={ReactGA}
+          changePage={changePageFunction}
+          changeRobot={changeRobotFunction}
+          head={robotArray[0]}
+          body={robotArray[1]}
+          arms={robotArray[2]}
+          legs={robotArray[3]}
+          robotArmsImages={robotArmsImages}
+          robotBodyImages={robotBodyImages}
+          robotHeadImages={robotHeadImages}
+          robotLegsImages={robotLegsImages}
+        />
       </div>
     );
   } else if (renderPage === 'ViewRobot') {
     return (
       <div>
-        <ViewRobot addtoFirebase={addtoFirebaseFunction} userID={userID} ReactGA={ReactGA} changePage={changePageFunction} head={robotArray[0]} body={robotArray[1]} arms={robotArray[2]} legs={robotArray[3]} />
+        <ViewRobot
+          addtoFirebase={addtoFirebaseFunction}
+          userID={userID}
+          ReactGA={ReactGA}
+          changePage={changePageFunction}
+          head={robotArray[0]}
+          body={robotArray[1]}
+          arms={robotArray[2]}
+          legs={robotArray[3]}
+        />
       </div>
     );
   } else if (renderPage === 'Activity') {
     return (
       <div>
-        <Activity addtoFirebase={addtoFirebaseFunction} userID={userID} ReactGA={ReactGA} changePage={changePageFunction} exhibit={selectedExhibit} activity={selectedActivity} activitiesInDetail={activitiesInDetail} countUntilNextQuiz={countUntilNextQuiz} countUntilNextReward={countUntilNextReward}/>
+        <Activity
+          addtoFirebase={addtoFirebaseFunction}
+          userID={userID}
+          ReactGA={ReactGA}
+          changePage={changePageFunction}
+          exhibit={selectedExhibit}
+          activity={selectedActivity}
+          activitiesInDetail={activitiesInDetail}
+          countUntilNextQuiz={countUntilNextQuiz}
+          countUntilNextReward={countUntilNextReward}
+        />
       </div>
     );
   } else if (renderPage === 'MyProfile' || renderPage === 'Intro') {
     return (
       <div>
-        <MyProfile addtoFirebase={addtoFirebaseFunction} userID={userID} ReactGA={ReactGA} changePage={changePageFunction} page={renderPage} disclaimer={disclaimer}/>
+        <MyProfile
+          addtoFirebase={addtoFirebaseFunction}
+          userID={userID}
+          ReactGA={ReactGA}
+          changePage={changePageFunction}
+          page={renderPage}
+          disclaimer={disclaimer}
+        />
       </div>
     );
   } else if (renderPage === 'Welcome' ) {
     return (
       <div>
-        <Welcome addtoFirebase={addtoFirebaseFunction} userID={userID} ReactGA={ReactGA} changePage={changePageFunction} page={renderPage}/>
+        <Welcome
+          addtoFirebase={addtoFirebaseFunction}
+          userID={userID}
+          ReactGA={ReactGA}
+          changePage={changePageFunction}
+          page={renderPage}
+        />
       </div>
     );
   }

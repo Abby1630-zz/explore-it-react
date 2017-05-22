@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+// react-bootstrap imports
 import Alert from 'react-bootstrap/lib/Alert';
+// css imports
 import './css/Instructions.css';
 
 

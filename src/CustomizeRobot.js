@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-//import ReactDOM from 'react-dom';
-import Scroll from 'react-scroll';
-import Thumbnail from 'react-bootstrap/lib/Thumbnail';
+// react-bootstrap imports
 import Alert from 'react-bootstrap/lib/Alert';
+import Button from 'react-bootstrap/lib/Button';
+import Col from 'react-bootstrap/lib/Col';
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
-import Button from 'react-bootstrap/lib/Button';
+import Scroll from 'react-scroll';
+import Thumbnail from 'react-bootstrap/lib/Thumbnail';
+// css imports
 import './css/CustomizeRobot.css';
-import './css/common.css';
 
 var lastPart = "legs"
 class CustomizeRobot extends Component{

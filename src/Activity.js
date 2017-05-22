@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
-import Grid from 'react-bootstrap/lib/Grid';
-import Row from 'react-bootstrap/lib/Row';
+// react-bootstrap imports
+import Alert from 'react-bootstrap/lib/Alert';
+import Button from 'react-bootstrap/lib/Button';
 import Col from 'react-bootstrap/lib/Col';
-import Radio from 'react-bootstrap/lib/Radio';
+import Collapse from 'react-bootstrap/lib/Collapse';
+import FontAwesome from 'react-fontawesome';
 import FormGroup from 'react-bootstrap/lib/FormGroup';
+import Glyphicon from 'react-bootstrap/lib/Glyphicon';
+import Grid from 'react-bootstrap/lib/Grid';
+import Image from 'react-bootstrap/lib/Image';
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
-import Button from 'react-bootstrap/lib/Button';
-import Alert from 'react-bootstrap/lib/Alert';
-import Collapse from 'react-bootstrap/lib/Collapse';
-import Glyphicon from 'react-bootstrap/lib/Glyphicon';
-import Image from 'react-bootstrap/lib/Image';
-import FontAwesome from 'react-fontawesome';
-import './css/Activity.css';
-import './css/common.css';
+import Radio from 'react-bootstrap/lib/Radio';
+import Row from 'react-bootstrap/lib/Row';
+// explore-it component imports
 import Instructions from './Instructions';
-
+// css imports
+import './css/Activity.css';
 
 function getActivity (activityName, activitiesInDetail) {
   var activity = activitiesInDetail.filter(

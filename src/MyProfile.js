@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
-import Checkbox from 'react-bootstrap/lib/Checkbox';
+// react-bootstrap imports
 import Button from 'react-bootstrap/lib/Button';
-import Well from 'react-bootstrap/lib/Well';
+import Checkbox from 'react-bootstrap/lib/Checkbox';
 import Collapse from 'react-bootstrap/lib/Collapse';
-import Glyphicon from 'react-bootstrap/lib/Glyphicon';
-import FormGroup from 'react-bootstrap/lib/FormGroup';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import FormControl from 'react-bootstrap/lib/FormControl';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 import Grid from 'react-bootstrap/lib/Grid';
 import HelpBlock from 'react-bootstrap/lib/HelpBlock';
 import Panel from 'react-bootstrap/lib/Panel';
+import Well from 'react-bootstrap/lib/Well';
+// react-auto-form import
 import AutoForm from 'react-auto-form'
-import './css/common.css';
 
 class MyProfile extends Component {
   constructor(props) {

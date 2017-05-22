@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Scroll from 'react-scroll';
-import Image from 'react-bootstrap/lib/Image';
+// react-bootstrap imports
 import Button from 'react-bootstrap/lib/Button';
 import Col from 'react-bootstrap/lib/Col';
-import Row from 'react-bootstrap/lib/Row';
 import Grid from 'react-bootstrap/lib/Grid';
-import './css/common.css';
+import Image from 'react-bootstrap/lib/Image';
+import Row from 'react-bootstrap/lib/Row';
+import Scroll from 'react-scroll';
+// css imports
 import './css/ViewRobot.css';
 
 class ViewRobot extends Component{
