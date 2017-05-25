@@ -87,7 +87,7 @@ class Activity extends Component{
     if (activity.activityImage !== undefined && activity.activityImage !== '') {
       return (
         <div className="explore-image-container">
-          <Image responsive src={process.env.PUBLIC_URL + '/images/' + activity.activityImage}/>
+          <Image responsive src={process.env.PUBLIC_URL + '/images/activity/' + activity.activityImage}/>
         </div>
       );
     }
