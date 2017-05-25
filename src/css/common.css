@@ -179,6 +179,7 @@ input, textarea, select {
 .explore-image-container {
   display: flex;
   justify-content: center;
+  padding-bottom: 10px;
 }
 
 .explore-flexbox-container {
