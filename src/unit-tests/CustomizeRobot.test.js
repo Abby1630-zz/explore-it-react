@@ -8,17 +8,57 @@ it('renders without crashing', () => {
   var userID = '123';
   var ReactGA = function() {};
   var changePageFunction = function() {};
-  var changeRobotFunction = fucntion () {};
-  var robotArray = {
-    [],
-    [],
-    [],
-    []
-  };
-  var robotArmsImages = {};
-  var robotBodyImages = {};
-  var robotHeadImages = {};
-  var robotLegsImages = {};
+  var changeRobotFunction = function () {};
+  var robotArray = [
+    [
+      {
+        "fileName": "arms1.jpg",
+        "value": "1"
+      }
+    ],
+    [
+      {
+        "fileName": "arms1.jpg",
+        "value": "1"
+      }
+    ],
+    [
+      {
+        "fileName": "arms1.jpg",
+        "value": "1"
+      }
+    ],
+    [
+      {
+        "fileName": "arms1.jpg",
+        "value": "1"
+      }
+    ]
+  ];
+  var robotArmsImages = [
+    {
+      "fileName": "arms1.jpg",
+      "value": "1"
+    }
+  ];
+  var robotBodyImages = [
+    {
+      "fileName": "arms1.jpg",
+      "value": "1"
+    }
+  ];
+  var robotHeadImages = [
+    {
+      "fileName": "arms1.jpg",
+      "value": "1"
+    }
+  ];
+  var robotLegsImages = [
+    {
+      "fileName": "arms1.jpg",
+      "value": "1"
+    }
+  ];
 
   ReactDOM.render(
     <CustomizeRobot

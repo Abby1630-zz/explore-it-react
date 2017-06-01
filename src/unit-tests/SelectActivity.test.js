@@ -9,7 +9,18 @@ it('renders without crashing', () => {
   var ReactGA = function() {};
   var changePageFunction = function() {};
   var changeActivityFunction = function() {};
-  var exhibitsAndActivities = {};
+  var exhibitsAndActivities = [
+    {
+      "name": "Publix",
+      "activities":   [
+        {"name": "Cultural Foods"},
+        {"name": "Nutrition"},
+        {"name": "Money"},
+        {"name": "Sorting"},
+        {"name": "Letters"}
+      ]
+    },
+  ];
 
   ReactDOM.render(
     <SelectActivity

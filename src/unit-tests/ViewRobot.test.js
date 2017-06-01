@@ -8,7 +8,32 @@ it('renders without crashing', () => {
   var userID = '123';
   var ReactGA = function() {};
   var changePageFunction = function() {};
-  var robotArray = { [],[],[],[] };
+  var robotArray =  [
+    [
+      {
+        "fileName": "arms1.jpg",
+        "value": "1"
+      }
+    ],
+    [
+      {
+        "fileName": "arms1.jpg",
+        "value": "1"
+      }
+    ],
+    [
+      {
+        "fileName": "arms1.jpg",
+        "value": "1"
+      }
+    ],
+    [
+      {
+        "fileName": "arms1.jpg",
+        "value": "1"
+      }
+    ]
+  ];
 
   ReactDOM.render(
     <ViewRobot

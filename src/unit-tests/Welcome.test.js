@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ViewRobot from './../ViewRobot';
+import Welcome from './../Welcome';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -8,7 +8,7 @@ it('renders without crashing', () => {
   var userID = '123';
   var ReactGA = function() {};
   var changePageFunction = function() {};
-  var page = '';
+  var renderPage = '';
 
   ReactDOM.render(
     <Welcome
