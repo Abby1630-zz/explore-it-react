@@ -44,7 +44,11 @@ class MyProfile extends Component {
         parent_name: this.state.parentName
       };
       this.props.addtoFirebase('my_profile', tableData);
-      this.props.changePage('SelectActivity');
+      if (this.props.page) {
+        this.props.changePage('CustomizeRobot');
+      } else {
+        this.props.changePage('SelectActivity');
+      }
     } else {
       this.props.ReactGA.event({category: 'TermsAndConditions', action: 'ForgotToAgree'});
       tableData = {

@@ -48,6 +48,7 @@ class App extends Component {
       robotBodyImages: [],
       robotHeadImages: [],
       robotLegsImages: [],
+      robotBowTieImages: [],
       questions: [],
       disclaimer: "",
       //Application States
@@ -60,10 +61,12 @@ class App extends Component {
       priorActivitiesForQuiz:[],
       selectedExhibit: "none",
       selectedActivity: "none",
+      robotBowTie: "#",
       robotHead: "#",
       robotBody: "#",
       robotArms: "#",
       robotLegs: "#",
+      activityCount: 0,
       //User Information
       userID: uid
 
@@ -143,7 +146,8 @@ class App extends Component {
       selectedActivity: activity,
       priorActivitiesForQuiz: activityArray,
       countUntilNextQuiz: this.state.countUntilNextQuiz - 1,
-      countUntilNextReward: this.state.countUntilNextReward - 1
+      countUntilNextReward: this.state.countUntilNextReward - 1,
+      activityCount: this.state.activityCount + 1
     });
   }
 
@@ -169,6 +173,9 @@ class App extends Component {
         break;
       case "legs":
         this.setState({robotLegs:selected});
+        break;
+      case "bow tie":
+        this.setState({robotBowTie:selected});
         break;
       default:
         break;
@@ -253,10 +260,20 @@ class App extends Component {
         robotLegsImages: responseData
       });
     })
+
+    fetch(process.env.PUBLIC_URL +'/content/robotBowTieImages.json')
+    .then(function (rawResponse) {
+      return rawResponse.json();
+
+    }).then(function (responseData) {
+      me.setState({
+        robotBowTieImages: responseData
+      });
+    })
   }
 
   render() {
-    var robotArray = [this.state.robotHead, this.state.robotBody, this.state.robotArms, this.state.robotLegs];
+    var robotArray = [this.state.robotHead, this.state.robotBody, this.state.robotArms, this.state.robotLegs, this.state.robotBowTie];
 
     return (
       <div className="App">
@@ -264,7 +281,7 @@ class App extends Component {
           changePage={this.changePage}
           currentPage={this.state.renderedPage}
           showRobot={this.props.showRobot}
-          robotImage={robotArray[0]+robotArray[1]+robotArray[2]+robotArray[3]}
+          robotImage={robotArray[0]+robotArray[1]+robotArray[2]+robotArray[3]+robotArray[4]}
         />
 
         {getTitle (this.state.renderedPage, this.state.selectedActivity)}
@@ -316,7 +333,7 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction,
   var countUntilNextReward = state.countUntilNextReward;
   var selectedExhibit = state.selectedExhibit;
   var selectedActivity = state.selectedActivity;
-  var robotArray = [state.robotHead, state.robotBody, state.robotArms, state.robotLegs];
+  var robotArray = [state.robotHead, state.robotBody, state.robotArms, state.robotLegs, state.robotBowTie];
   var exhibitsAndActivities = state.exhibitsAndActivities;
   var activitiesInDetail = state.activitiesInDetail;
   var questions = state.questions;
@@ -327,9 +344,11 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction,
   var robotBodyImages = state.robotBodyImages;
   var robotHeadImages = state.robotHeadImages;
   var robotLegsImages = state.robotLegsImages;
+  var robotBowTieImages = state.robotBowTieImages;
   var quizQuestionsCorrectInARow = state.quizQuestionsCorrectInARow;
   var quizQuestionsWrongInARow = state.quizQuestionsWrongInARow;
   var userID = state.userID;
+  var activityCount = state.activityCount;
 
   TimeMe.initialize({});
   TimeMe.setCurrentPageName(renderPage);
@@ -340,7 +359,6 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction,
     ReactGA.pageview(renderPage);
   }
 
-
   if (renderPage === 'SelectActivity') {
     return (
       <div>
@@ -350,6 +368,7 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction,
           addtoFirebase={addtoFirebaseFunction}
           userID={userID}
           ReactGA={ReactGA}
+          activityCount={activityCount}
           changePage={changePageFunction}
           changeActivity={changeActivityFunction}
           exhibitsAndActivities={exhibitsAndActivities}
@@ -391,10 +410,12 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction,
           body={robotArray[1]}
           arms={robotArray[2]}
           legs={robotArray[3]}
+          bowTie={robotArray[4]}
           robotArmsImages={robotArmsImages}
           robotBodyImages={robotBodyImages}
           robotHeadImages={robotHeadImages}
           robotLegsImages={robotLegsImages}
+          robotBowTieImages={robotBowTieImages}
         />
       </div>
     );
@@ -410,6 +431,8 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction,
           body={robotArray[1]}
           arms={robotArray[2]}
           legs={robotArray[3]}
+          bowTie={robotArray[4]}
+          test="test"
         />
       </div>
     );

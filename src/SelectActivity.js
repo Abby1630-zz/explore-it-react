@@ -84,7 +84,8 @@ class SelectActivity extends Component{
     var tableData = {
       user_id: this.props.userID,
       category: 'Select Activity',
-      action: e.currentTarget.name
+      action: e.currentTarget.name,
+      activityCount: this.props.activityCount
     };
     this.props.addtoFirebase('event', tableData);
   }

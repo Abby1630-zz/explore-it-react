@@ -19,7 +19,8 @@ class CustomizeRobot extends Component{
       robotHead: "0",
       robotBody: "0",
       robotArms: "0",
-      robotLegs: "0"
+      robotLegs: "0",
+      robotBowTie: "0"
     };
     var scroll = Scroll.animateScroll;
     scroll.scrollToTop();
@@ -45,12 +46,17 @@ class CustomizeRobot extends Component{
       case "legs":
         value = this.state.robotLegs;
         break;
+      case 'bow tie':
+        value = this.state.robotBowTie;
+        break;
       default:
         break;
     }
     this.props.changeRobot(part, value);
     this.props.changePage('ViewRobot');
     if (lastPart === "legs") {
+      lastPart = "bow tie";
+    } else if (lastPart === "bow tie") {
       lastPart = "head";
     } else if (lastPart === "head") {
       lastPart = "body";
@@ -76,6 +82,9 @@ class CustomizeRobot extends Component{
       case "legs":
         this.setState({robotLegs:e.currentTarget.name});
         break;
+      case "bow tie":
+        this.setState({robotBowTie:e.currentTarget.name});
+        break;
       default:
         break;
     }
@@ -84,6 +93,8 @@ class CustomizeRobot extends Component{
 
   getWhatBodyPart(props){
     if (lastPart === "legs") {
+      return "bow tie";
+    } else if (lastPart === "bow tie") {
       return "head";
     } else if (lastPart === "head") {
       return "body";
@@ -106,6 +117,8 @@ class CustomizeRobot extends Component{
         return <Customize availableCustomization={this.props.robotArmsImages} onSelection={this.setSelected} currentlySelected={this.state.robotArms} bodyPart="arms" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
       case "legs":
         return <Customize availableCustomization={this.props.robotLegsImages} onSelection={this.setSelected} currentlySelected={this.state.robotLegs} bodyPart="legs" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
+      case "bow tie":
+        return <Customize availableCustomization={this.props.robotBowTieImages} onSelection={this.setSelected} currentlySelected={this.state.robotBowTie} bodyPart="bow tie" onButtonClick={this.nextPage} changeRobot={props.changeRobot}/>;
       default:
         return null;
     }
