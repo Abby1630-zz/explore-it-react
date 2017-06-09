@@ -3,7 +3,7 @@
     "exhibitName": "Publix",
     "activityName": "Cultural Foods",
     "easy": {
-      "question": "How many ingredients did you need to make the Hispanic meal?",
+      "question": "How many ingredients did you need for the Hispanic meal?",
       "questionType": "multiple choice",
       "possibleAnswers": [
         "3", "5", "1", "7"
@@ -11,17 +11,17 @@
       "correctAnswer" : "3"
     },
     "medium": {
-      "question": "Which one of these did we not use in the Hispanic recipe?",
+      "question": "Which one of these did we not buy in the store?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "Rice", "Soup", "Tomato", "Carrots"
+        "Beans", "Coffee", "Tomato", "Carrots"
       ],
       "correctAnswer" : "Tomato"
     },
     "hard": {
-      "question": "Name one of the ingredients from the Hispanic meal in Spanish",
+      "question": "Name one of the ingredients we bought at the store",
       "questionType": "fill in",
-      "correctAnswers": ["arroz", "zanahoria", "sopa"]
+      "correctAnswers": ["coffee", "beans", "carrots"]
     }
   },
   {
@@ -46,7 +46,7 @@
     "hard": {
       "question": "Name one of the five main food group.",
       "questionType": "fill in",
-      "correctAnswers": ["Fruits", "Vegetables", "Protein", "Dairy"]
+      "correctAnswers": ["Fruits", "Vegetables", "Protein", "Dairy", "Grains"]
     }
   },
   {
@@ -125,7 +125,7 @@
     }
   },
   {
-    "exhibitName": "Medical and Vet",
+    "exhibitName": "Hospital and Vet Clinic",
     "activityName": "Bones",
     "easy": {
       "question": "What animal needed to get an X-Ray at the vet?",
@@ -150,7 +150,7 @@
     }
   },
   {
-    "exhibitName": "Medical and Vet",
+    "exhibitName": "Hospital and Vet Clinic",
     "activityName": "Eating the Rainbow",
     "easy": {
       "question": "What can a person with Celiac disease not eat?",
@@ -175,8 +175,8 @@
     }
   },
   {
-    "exhibitName": "Medical and Vet",
-    "activityName": "Going to the Doctor",
+    "exhibitName": "Hospital and Vet Clinic",
+    "activityName": "Body Puzzle",
     "easy": {
       "question": "What body part is affected when it hurts to swallow?",
       "questionType": "multiple choice",
@@ -200,8 +200,8 @@
     }
   },
   {
-    "exhibitName": "Outback/Carraba's",
-    "activityName": "Make Me a Pizza",
+    "exhibitName": "Pizza Place",
+    "activityName": "Pizza Making",
     "easy": {
       "question": "What's the first ingredient that you put on the pizza?",
       "questionType": "multiple choice",
@@ -225,8 +225,8 @@
     }
   },
   {
-    "exhibitName": "Outback/Carraba's",
-    "activityName": "Advanced Pizza Making (8-11 year olds)",
+    "exhibitName": "Pizza Place",
+    "activityName": "Advanced Pizza Making",
     "easy": {
       "question": "You and three friends each want two pizzas. How many pizzas will you have total?",
       "questionType": "multiple choice",
@@ -250,7 +250,7 @@
     }
   },
   {
-    "exhibitName": "Outback/Carraba's",
+    "exhibitName": "Pizza Place",
     "activityName": "Order up!",
     "easy": {
       "question": "What does a server at a restaurant not do?",
@@ -275,7 +275,7 @@
     }
   },
   {
-    "exhibitName": "Outback/Carraba's",
+    "exhibitName": "Pizza Place",
     "activityName": "I'm Here to Help",
     "easy": {
       "question": "How much was the bill for the family who couldn't afford their meals?",
@@ -300,7 +300,7 @@
     }
   },
   {
-    "exhibitName": "Outback/Carraba's",
+    "exhibitName": "Pizza Place",
     "activityName": "Planning a Party",
     "easy": {
       "question": "How many steps are there when planning a party?",
@@ -325,7 +325,7 @@
     }
   },
   {
-    "exhibitName": "Fire Station",
+    "exhibitName": "Firehouse",
     "activityName": "Fire Fighter!",
     "easy": {
       "question": "How many steps are there in a fire drill?",
@@ -350,32 +350,32 @@
     }
   },
   {
-    "exhibitName": "Art",
+    "exhibitName": "Art Smart",
     "activityName": "Shall We Dance?",
     "easy": {
-      "question": "",
+      "question": "What music style is not available?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "", "", "", ""
+        "Country", "Latin", "Choice", "Right Answer"
       ],
-      "correctAnswer" : ""
+      "correctAnswer" : "Right Answer"
     },
     "medium": {
-      "question": "",
+      "question": "What music style is not available?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "", "", "", ""
+        "Country", "Latin", "Choice", "Right Answer"
       ],
-      "correctAnswer" : ""
+      "correctAnswer" : "Right Answer"
     },
     "hard": {
-      "question": "",
+      "question": "Name one of the music styles.",
       "questionType": "fill in",
-      "correctAnswers": ["", "", "", ""]
+      "correctAnswers": ["Latin", "Country", "Choice1", "Choice2"]
     }
   },
   {
-    "exhibitName": "Art",
+    "exhibitName": "Art Smart",
     "activityName": "Kaleidoscope",
     "easy": {
       "question": "If you have a pink circle and Malcolm, who can't see your circle, has a purple circle, does Malcolm think your circle is purple?",
@@ -400,7 +400,7 @@
     }
   },
   {
-    "exhibitName": "Art",
+    "exhibitName": "Art Smart",
     "activityName": "The Case of the Missing Letter",
     "easy": {
       "question": "Which letter completes this word: C_W",
@@ -425,60 +425,35 @@
     }
   },
   {
-    "exhibitName": "Art",
-    "activityName": "How the Mind Wanders",
+    "exhibitName": "Art Smart",
+    "activityName": "Future... Sculpter",
     "easy": {
-      "question": "",
+      "question": "Question?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "", "", "", ""
+        "Choice1", "Choice2", "Choice3", "Right Answer"
       ],
-      "correctAnswer" : ""
+      "correctAnswer" : "Right Answer"
     },
     "medium": {
-      "question": "",
+      "question": "Question?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "", "", "", ""
+        "Choice1", "Choice2", "Choice3", "Right Answer"
       ],
-      "correctAnswer" : ""
+      "correctAnswer" : "Right Answer"
     },
     "hard": {
-      "question": "",
+      "question": "Type in Answer",
       "questionType": "fill in",
-      "correctAnswers": ["", "", "", ""]
-    }
-  },
-  {
-    "exhibitName": "Art",
-    "activityName": "Time to Draw!",
-    "easy": {
-      "question": "",
-      "questionType": "multiple choice",
-      "possibleAnswers": [
-        "", "", "", ""
-      ],
-      "correctAnswer" : ""
-    },
-    "medium": {
-      "question": "",
-      "questionType": "multiple choice",
-      "possibleAnswers": [
-        "", "", "", ""
-      ],
-      "correctAnswer" : ""
-    },
-    "hard": {
-      "question": "",
-      "questionType": "fill in",
-      "correctAnswers": ["", "", "", ""]
+      "correctAnswers": ["Answer"]
     }
   },
   {
     "exhibitName": "Get Moving",
-    "activityName": "Surely You're Joking",
+    "activityName": "Making Comparisons",
     "easy": {
-      "question": "Complete the sentence: The _____ is a plane.",
+      "question": "Complete the sentence: The _____ flies a plane.",
       "questionType": "multiple choice",
       "possibleAnswers": [
         "Turtle", "Parrot", "Dog", "Mouse"
@@ -486,7 +461,7 @@
       "correctAnswer" : "Parrot"
     },
     "medium": {
-      "question": "Complete the sentence: The _____ is a tree.",
+      "question": "Complete the sentence: The _____ is as tall as a tree.",
       "questionType": "multiple choice",
       "possibleAnswers": [
         "Giraffe", "Fish", "Mouse", "Snail"
@@ -494,14 +469,14 @@
       "correctAnswer" : "Giraffe"
     },
     "hard": {
-      "question": "Complete the sentence: The ____ is a plane.",
+      "question": "Complete the sentence: The ____ flies like a plane.",
       "questionType": "fill in",
       "correctAnswers": ["Parrot"]
     }
   },
   {
     "exhibitName": "Get Moving",
-    "activityName": "Who is faster?",
+    "activityName": "Who is Faster?",
     "easy": {
       "question": "What animal below was the slowest at the races?",
       "questionType": "multiple choice",
@@ -551,82 +526,32 @@
   },
   {
     "exhibitName": "Get Moving",
-    "activityName": "How High?",
+    "activityName": "Climb to the Top",
     "easy": {
-      "question": "How many inches are in one foot?",
+      "question": "What color is the jungle gym?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "10", "12", "6", "1"
+        "Yellow", "Red", "Green", "Black"
       ],
-      "correctAnswer" : "12"
+      "correctAnswer" : "Yellow"
     },
     "medium": {
-      "question": "How tall is the average 4 to 6 year old child?",
+      "question": "How many different ways were you supposed to find to the top of the jungle gym?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "1 to 2 feet", "10 to 20 inches", "37 to 42 inches", "75 to 100 inches"
+        "1", "2", "3", "4"
       ],
-      "correctAnswer" : "37 to 42 inches"
+      "correctAnswer" : ""
     },
     "hard": {
-      "question": "How many inches are in one foot?",
+      "question": "How many different ways were you supposed to find to the top of the jungle gym?",
       "questionType": "fill in",
-      "correctAnswers": ["12", "twelve"]
+      "correctAnswers": ["2", "Two"]
     }
   },
   {
-    "exhibitName": "Get Moving",
-    "activityName": "How Strong?",
-    "easy": {
-      "question": "What color were the balls on the How High machine?",
-      "questionType": "multiple choice",
-      "possibleAnswers": [
-        "Yellow", "Green", "Blue", "Red"
-      ],
-      "correctAnswer" : "Red"
-    },
-    "medium": {
-      "question": "How many bars could a frog turn on with a really good jump?",
-      "questionType": "multiple choice",
-      "possibleAnswers": [
-        "5", "3", "1", "7"
-      ],
-      "correctAnswer" : "5"
-    },
-    "hard": {
-      "question": "How many red bars could a frog turn on with a really good jump?",
-      "questionType": "fill in",
-      "correctAnswers": ["5", "five"]
-    }
-  },
-  {
-    "exhibitName": "Get Moving",
-    "activityName": "Stop that Ball!",
-    "easy": {
-      "question": "What type of item were you trying to keep out of the net?",
-      "questionType": "multiple choice",
-      "possibleAnswers": [
-        "Hockey Puck", "Soccer Ball", "Baseball", "Volleyball"
-      ],
-      "correctAnswer" : "Soccer Ball"
-    },
-    "medium": {
-      "question": "The two sides of your body are sometimes referred to as these two directions.",
-      "questionType": "multiple choice",
-      "possibleAnswers": [
-        "Right and wrong", "Right and left", "East and west", "Up and down"
-      ],
-      "correctAnswer" : "Right and left"
-    },
-    "hard": {
-      "question": "What type of items were you trying to keep out of the net?",
-      "questionType": "fill in",
-      "correctAnswers": ["Soccer ball", "hockey puck"]
-    }
-  },
-  {
-    "exhibitName": "Invention Zone",
-    "activityName": "Lego Activity-egocentrism and motor skills",
+    "exhibitName": "Engineers' Workshop",
+    "activityName": "Lego Activity",
     "easy": {
       "question": "If you show Malcolm the Robot that there are three balls in a green bag and then make him close his eyes while you take the balls out, will he know that you took the balls out of the bag?",
       "questionType": "multiple choice",
@@ -650,8 +575,8 @@
     }
   },
   {
-    "exhibitName": "Invention Zone",
-    "activityName": "Where will it go?",
+    "exhibitName": "Engineers' Workshop",
+    "activityName": "Where Will It Go?",
     "easy": {
       "question": "What happens when the vacuum sucks up the ball?",
       "questionType": "multiple choice",
@@ -675,57 +600,57 @@
     }
   },
   {
-    "exhibitName": "Invention Zone",
-    "activityName": "Twinkle Star Theater",
+    "exhibitName": "Twinkle Stars",
+    "activityName": "Putting on a Show",
     "easy": {
-      "question": "",
+      "question": "Question?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "", "", "", ""
+        "Choice1", "Choice2", "Choice3", "Right Answer"
       ],
-      "correctAnswer" : ""
+      "correctAnswer" : "Right Answer"
     },
     "medium": {
-      "question": "",
+      "question": "Question?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "", "", "", ""
+        "Choice1", "Choice2", "Choice3", "Right Answer"
       ],
-      "correctAnswer" : ""
+      "correctAnswer" : "Right Answer"
     },
     "hard": {
-      "question": "",
+      "question": "Type in Answer",
       "questionType": "fill in",
-      "correctAnswers": ["", "", "", ""]
+      "correctAnswers": ["Answer"]
     }
   },
   {
-    "exhibitName": "Water Area",
-    "activityName": "Piloting a Boat",
+    "exhibitName": "Cruiseship",
+    "activityName": "Piloting the Ship",
     "easy": {
-      "question": "",
+      "question": "Question?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "", "", "", ""
+        "Choice1", "Choice2", "Choice3", "Right Answer"
       ],
-      "correctAnswer" : ""
+      "correctAnswer" : "Right Answer"
     },
     "medium": {
-      "question": "",
+      "question": "Question?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "", "", "", ""
+        "Choice1", "Choice2", "Choice3", "Right Answer"
       ],
-      "correctAnswer" : ""
+      "correctAnswer" : "Right Answer"
     },
     "hard": {
-      "question": "",
+      "question": "Type in Answer",
       "questionType": "fill in",
-      "correctAnswers": ["", "", "", ""]
+      "correctAnswers": ["Answer"]
     }
   },
   {
-    "exhibitName": "Water Area",
+    "exhibitName": "Cruiseship",
     "activityName": "Hidden Treasure",
     "easy": {
       "question": "Gasparilla Island is named after which famous pirate?",
@@ -750,7 +675,7 @@
     }
   },
   {
-    "exhibitName": "Water Area",
+    "exhibitName": "Cruiseship",
     "activityName": "Sailing, Sailing",
     "easy": {
       "question": "In what sea is Cozumel located?",
@@ -775,7 +700,7 @@
     }
   },
   {
-    "exhibitName": "Water Area",
+    "exhibitName": "Cruiseship",
     "activityName": "Ahoy, There!",
     "easy": {
       "question": "What part of the telescope do you look through to see objects far away?",
@@ -800,8 +725,8 @@
     }
   },
   {
-    "exhibitName": "Water Area",
-    "activityName": "What's Down There?",
+    "exhibitName": "Cruiseship",
+    "activityName": "Under the Sea",
     "easy": {
       "question": "What object might be best to take pictures underwater?",
       "questionType": "multiple choice",

@@ -10,49 +10,68 @@
     ]
   },
   {
-    "name": "Medical and Vet",
+    "name": "Hospital and Vet Clinic",
     "activities":   [
       {"name": "Bones"},
-      {"name": "Eating the Rainbow"}
+      {"name": "Eating the Rainbow"},
+      {"name": "Body Puzzle"}
     ]
   },
   {
-    "name": "Outback/Carraba's",
+    "name": "Pizza Place",
     "activities":   [
-      {"name": "Order up!"},
-      {"name": "I'm Here to Help"}
+      {"name": "Pizza Making"},
+      {"name": "Advanced Pizza Making"},
+      {"name": "Order Up!"},
+      {"name": "I'm Here to Help"},
+      {"name": "Planning a Party"}
     ]
   },
   {
-    "name": "Art",
+    "name": "Firehouse",
+    "activities":   [
+      {"name": "Fire Fighter!"}
+    ]
+  },
+  {
+    "name": "Art Smart",
     "activities":   [
       {"name": "Kaleidoscope"},
-      {"name": "The Case of the Missing Letter"}
+      {"name": "The Case of the Missing Letter"},
+      {"name": "Shall We Dance?"},
+      {"name": "Future... Sculpter"}
     ]
   },
   {
     "name": "Get Moving",
     "activities":   [
-      {"name": "Who is faster?"},
+      {"name": "Who is Faster?"},
       {"name": "At the Races"},
-      {"name": "How High?"},
-      {"name": "How Strong?"},
-      {"name": "Stop that Ball!"}
+      {"name": "Making Comparisons"},
+      {"name": "Climb to the Top"}
     ]
   },
   {
-    "name": "Invention Zone",
+    "name": "Engineers' Workshop",
     "activities":   [
-      {"name": "Lego Activity-egocentrism and motor skills"}
+      {"name": "Lego Activity"},
+      {"name": "Where Will It Go?"}
     ]
   },
   {
-    "name": "Water Area",
+    "name": "Twinkle Stars",
     "activities":   [
+      {"name": "Putting on a Show"}
+    ]
+  },
+  {
+    "name": "Cruiseship",
+    "activities":   [
+      {"name": "Piloting the Ship"},
       {"name": "Hidden Treasure"},
       {"name": "Sailing, Sailing"},
       {"name": "Ahoy, There!"},
-      {"name": "What's Down There?"}
+      {"name": "Under the Sea"}
     ]
   }
 ]

@@ -3,14 +3,14 @@
     "exhibitName": "Publix",
     "activityName": "Cultural Foods",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot's eyes light up, \"I love to travel and try new foods from all over the world! During my travels, I've learned a lot about other cultures and their languages. Can you help me prepare a Hispanic meal?\" Help the robot by finding three items from the store: rice, carrots, and soup. After you do so, the Robot will tell you how to say them in Spanish.",
-    "extendingTheActivity": "You can incorporate other cultures into this activity. Try making an Italian dish, like spaghetti and meatballs. You should ask the child to find the ingredients to make the recipe and talk about Italian culture, perhaps how they make pasta from scratch using flour, eggs, salt, and olive oil. You can also try French cuisine, like ratatouille. Ask the child to find a variety of vegetables (zucchini, eggplant, squash, and tomato sauce) to incorporate and talk about how the French culture uses a lot of fresh ingredients.",
-    "whatChildrenLearn": "In this activity the children are learning about other cultures traditions and about being bilingual. Learning a second language early on is much easier than trying to learn a language later in high school.",
+    "theActivity": "Malcolm the Robot's eyes light up, \"I love to travel and try new foods from all over the world! During my travels, I've learned a lot about other cultures and their languages. Can you help me prepare a Hispanic meal?\" Help the robot by finding three items from the store: beans, carrots, and coffee. After you do so, the Robot will tell you how to say them in Spanish.",
+    "extendingTheActivity": "You can incorporate other cultures into this activity. Try making an Italian dish, like spaghetti with meat sauce. You should ask the child to find the ingredients to make the recipe and talk about Italian culture, perhaps how they make pasta from scratch using flour, eggs, salt, and water. You can also try French cuisine, like ratatouille. Ask the child to find a variety of vegetables (zucchini, eggplant, squash, and tomato sauce) to incorporate in to the dish. Talk about how the French culture uses a lot of fresh ingredients.",
+    "whatChildrenLearn": "In this activity the children are learning about other cultures traditions and about being bilingual. Research has shown that learning a second language early on is much easier than trying to learn a language later in high school. As younger ages, prior to 4 or 5, the child’s brain is more prepared and receptive to learning languages. Research has also shown that knowing a few words in another language is not as effective as teaching a child to be completely bilingual.",
     "exploringLanguage":[
       {
-        "english": "Rice",
-        "spanish": "Arroz",
-        "french": "Riz"
+        "english": "Beans",
+        "spanish": "Friojoles",
+        "french": "Haricots"
       },
       {
         "english":"Carrots",
@@ -18,9 +18,9 @@
         "french": "Carottes"
       },
       {
-        "english":"Soup",
-        "spanish":"Sopa",
-        "french": "Soupe"
+        "english":"Coffee",
+        "spanish":"Café",
+        "french": "Café"
       }
     ]
   },
@@ -28,7 +28,7 @@
     "exhibitName": "Publix",
     "activityName": "Nutrition",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot looks in amazement at all the food. \"I do not eat food, so I want to learn more about the different types of food in the five major food groups: fruits, vegetables, grains, dairy, and proteins.\" Help the Robot by finding two foods from each of the major food groups and explain to him why the foods in each group belong together.",
+    "theActivity": "Malcolm the Robot looks in amazement at all the food. \"I do not eat food, so I want to learn more about the different types of food in the five major food groups: fruits, vegetables, grains, dairy, and proteins.\" Help the Robot by finding two foods from each of the major food groups and explain to him why the foods in each group belong together. Remember that eggs, beans, and soy are considered proteins!",
     "extendingTheActivity": "As your child selects different foods, discuss the various characteristics of the food, and encourage them to find another one like it. You may want to ask questions about where the food comes from, or what that food does for your growing body.",
     "whatChildrenLearn": "Putting objects into categories is an important developmental milestone. Categories allow people to make guesses about unfamiliar objects. For example, someone may not know what a mango is, but once they know it belongs in the fruit category, they can understand that it would share many of the attributes that other fruits have. Learning to build categories (such as food groups) engages children's innate ability to organize knowledge they learn from their world.",
     "exploringLanguage":[
@@ -53,7 +53,7 @@
     "exhibitName": "Publix",
     "activityName": "Money",
     "activityImage": "",
-    "theActivity": "Somehow Malcolm the Robot has some money.  \"I would like to learn how money works by buying something here at the store. Help me by selecting out items and seeing how much they cost using the scanner at the checkout. How many items can I buy?\"",
+    "theActivity": "Someone has given Malcolm the Robot some money, but he doesn't know what to do with it. \"I would like to learn how money works by buying something here at the store. Help me by selecting out items and seeing how much they cost using the price list next to the register at the checkout. How many items can I buy?\"",
     "extendingTheActivity": "As your child finds the prices of various items, discuss their relative costs. You can draw on their number ability by choosing two items and ask which price is bigger. Have them count out loud the number of dollars they will need to spend to purchase all they have chosen. Ask them why they think some items cost more than others.",
     "whatChildrenLearn": "Discussing money is an easy way to engage children's growing math and counting skills. It makes a real world connection for why math sense is important. Making purchases also require children to begin to understand greater than and less than comparisons about numbers.",
     "exploringLanguage":[
@@ -80,7 +80,7 @@
     "activityImage": "",
     "theActivity": "Malcolm the Robot looks at his body. \"Because I cannot grow, I am very concerned with the sizes of things. Pick five things from the grocery store and order them by size, from smallest to largest.\"",
     "extendingTheActivity": "At its core, this is a simple activity, but you can make it more challenging. Ask your child to next order the objects not by height but by weight. Then ask them to sort them by color or shape.",
-    "whatChildrenLearn": "Sorting allows children to more easily compare a number of objects across different dimensions. They work on greater than and less than skills. They also develop their growing sense of order that Piaget studied in young children. As they mature, they are better able to select dimensions to sort along and can order larger sets of objects.",
+    "whatChildrenLearn": "Sorting allows children to more easily compare a number of objects across different dimensions. They work on greater than and less than skills. They also develop their growing sense of categorization that Psychologist Jean Piaget studied in young children. As they mature, they are better able to identify orders and select dimensions to sort along and categorize.",
     "exploringLanguage":[
       {
         "english": "Body",
@@ -103,9 +103,9 @@
     "exhibitName": "Publix",
     "activityName": "Letters",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot exclaims, \"I noticed that robot starts with the same letter as rice. I would like to find three objects in the store that also start with an R.\" After you help the Robot do that, find three objects that start with the same letter as your name or a friend's name.",
-    "extendingTheActivity": "Ask your child to trace the letter on the object. Many logos use different fonts to write their name. Ask your child if they notice any differences across all the letter P's, for example.",
-    "whatChildrenLearn": "Letter sense and letter recognition is key to more complex activities such as reading. Children start with their knowledge of the alphabet but need to expand on their understanding of printed material by recognizing the similarities and differences in how letters may be printed.",
+    "theActivity": "Malcolm the Robot exclaims, \"I noticed that Malcolm starts with the same letter as muffin. I would like to find two objects in the store that also start with an M.\" After you help the Robot do that, find objects that start with the same letter as your name or a friend's name.",
+    "extendingTheActivity": "Ask your child to trace the letter on the objects. Many logos use different fonts to write their name. Ask your child if they notice any similarities and differences across how all the letter P's, for example, are printed on the various objects.",
+    "whatChildrenLearn": "Letter sense and letter recognition is key to more complex activities such as reading. Children start with their knowledge of the alphabet, which tends to be mastered around 3 years of age. After alphabet mastery, children can expand on their understanding of letters through exploring how letters can be presented in different forms and learning the various sounds of letters.",
     "exploringLanguage":[
       {
         "english": "Robot",
@@ -125,12 +125,12 @@
     ]
   },
   {
-    "exhibitName": "Medical and Vet",
+    "exhibitName": "Hospital and Vet Clinic",
     "activityName": "Bones",
     "activityImage": "",
     "theActivity": "Malcolm the Robot states \"Oh, bones! I do not have bones in my body, so I want to learn all about the skeleton of animals. However, the skeletons of different animals look quite different.\" Imagine you have a dog that has to go to the vet to get an X-Ray. Can you find the X-Ray that looks like a dog? Try to find the stuffed animal that matches each of the X-Rays, and then place the animals in order, from smallest to largest.",
     "extendingTheActivity": "If this seems too easy, you can make it more challenging by having the child grouping the X-Rays by how they look or by how they move (i.e. four legs vs. no legs). To make this more symbolic, you can have the child put on the veterinarian scrubs and stethoscope.",
-    "whatChildrenLearn": "Symbolic play is very important in helping children to understand, according to Piaget. This is also the time when children are learning to differentiate humans from other animals. Children are beginning to evaluate stimuli on several levels and understand the differences between animals.",
+    "whatChildrenLearn": "According to Psychology Jean Piaget, symbolic play is very important in helping children to understand to world. It allows children to represent mentality what once needed to be physically present. This is also the time when children are learning to differentiate humans from non-human perspective. Children are beginning to evaluate stimuli on several levels and understand the differences between animals and how to best categorize animals.",
     "exploringLanguage":[
       {
         "english": "Bones",
@@ -150,7 +150,7 @@
     ]
   },
   {
-    "exhibitName": "Medical and Vet",
+    "exhibitName": "Hospital and Vet Clinic",
     "activityName": "Eating the Rainbow",
     "activityImage": "",
     "theActivity": "Malcolm the Robot notes, \"For some people, there are certain foods that they cannot eat. There are people who can't eat dairy, like milk or cheese. Using the \"I can eat a Rainbow\" help me design a meal plan for you and also someone who cannot eat breads or grains. These people have what is called Celiac disease.\"",
@@ -175,12 +175,12 @@
     ]
   },
   {
-    "exhibitName": "Medical and Vet",
-    "activityName": "Going to the Doctor",
+    "exhibitName": "Hospital and Vet Clinic",
+    "activityName": "Body Puzzle",
     "activityImage": "",
     "theActivity": "Malcolm the Robot doesn't know about the human body. He needs to know about muscles, nerves, and organs. Malcolm says, \"I want to help people feel better. When I tell you the symptoms, help me identify the body part where the symptoms come from.\"<br/>Problem: It hurts you to swallow. <br/>Answer: Throat<br/>Problem: You have diarrhea and cramps.<br/>Answer: Intestines <br/>Problem: You are coughing and have trouble breathing.<br/>Answer: Lungs",
     "extendingTheActivity": "You may come up with more problems for the child to answer, if these seem too easy. To further their knowledge, you can explain medicines that help with these symptoms. It may help with understanding to point out an overarching illness that may explain the symptoms (i.e. strep throat). You should also point out and identify where these parts are on yourself and the child.",
-    "whatChildrenLearn": "This activity helps children understand their bodies more by identifying where the part is on the skeleton and then locating it on themselves. This is a mapping task, which is important in children's development. Problem solving is also an important skill for children to develop. By being able to determine which body part portrays the symptom, children are also identifying which body part it cannot be, which supports deductive reasoning.",
+    "whatChildrenLearn": "This activity helps children understand their bodies more by identifying where the part is on the skeleton and then locating it on themselves. This is a referential mapping task, which is important in children’s development as they come to understand the difference between an image or picture and its real-world correlate.",
     "exploringLanguage":[
       {
         "english": "Muscles",
@@ -200,12 +200,12 @@
     ]
   },
   {
-    "exhibitName": "Outback/Carraba's",
-    "activityName": "Make Me a Pizza",
+    "exhibitName": "Pizza Place",
+    "activityName": "Pizza Making",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot sees all the pizza toppings. \"I love preparing pizzas! Let us surprise your family with pizza for dinner. Help me create a pizza following this recipe and using the ingredients on the counter.\"<br/>Sauce<br/>Cheese<br/>1+2 pieces of pepperoni<br/>2-0 green peppers<br/>3-1 pieces of mushrooms",
+    "theActivity": "Malcolm the Robot sees all the pizza toppings. \"I love preparing pizzas! Let us surprise your family with pizza for dinner. Help me create a pizza following this recipe and using the ingredients on the counter.\"<br/>Sauce and Cheese<br/>1+2 pieces of meat<br/>2-0 Pieces of a vegetable<br/>3-1 pieces of your choice of topping",
     "extendingTheActivity": "You can have the child count each number of ingredients onto the pizza, then explain the – or + meaning add or take away. When this recipe is completed, you may ask the child to prepare a pizza to their liking or your liking. You may sit at the table and ask the child to take your order, providing arithmetic problems as numerals for ingredients.",
-    "whatChildrenLearn": "By doing this activity, children practice their math and spatial skills. The addition and subtraction problems in the recipe allow children to practice concepts of math, while having to spread the ingredients out on the pizza reinforces spatial and motor skills.",
+    "whatChildrenLearn": "By doing this activity, children practice their math and spatial skills. The addition and subtraction problems in the recipe allow children to practice concepts of math and understanding of consistency in numbers.",
     "exploringLanguage":[
       {
         "english": "Family",
@@ -225,11 +225,11 @@
     ]
   },
   {
-    "exhibitName": "Outback/Carraba's",
-    "activityName": "Advanced Pizza Making (8-11 year olds)",
+    "exhibitName": "Pizza Place",
+    "activityName": "Advanced Pizza Making",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot sees all the pizza toppings. \"I love preparing pizzas! Let us surprise your family with pizza for dinner. Help me create a pizza following this recipe and using the ingredients on the counter.\"<br/>Sauce<br/>Slices of cheese<br/>3 x 2 Pieces of pepperoni<br/>3 Pieces of peppers on 1/4 of the pizza<br/>2 x 2 Pieces of mushrooms on 1/3 of the pizza",
-    "extendingTheActivity": "You should ask the child whether the 1/3 or 1/4 is larger. It would help to have the child divide the pizza into parts and compare each section. If this seems too easy, you could provide your own order with increasing difficulty of the activity (e.g. 5 x 2 pieces of pepperoni on 3/4 of the pizza). Ask them which fraction is the most of the pizza and the least?",
+    "theActivity": "Malcolm the Robot sees all the pizza toppings. \"I love preparing pizzas! Let us surprise your family with pizza for dinner. Help me create a pizza following this recipe and using the ingredients on the counter.\"<br/>Sauce and cheese<br/>3 x 2 Pieces of meat<br/>3 Pieces of vegetable on 1/2 of the pizza<br/>2 x 2 Pieces of your choice on 1/3 of the pizza",
+    "extendingTheActivity": "You should ask the child whether the 1/3 or 1/2 is larger. It would help to have the child divide the pizza into parts and compare each section. If this seems too easy, you could provide your own order with increasing difficulty of the activity (e.g. 5 x 2 pieces of pepperoni on 3/4 of the pizza). Ask them which fraction is the most of the pizza and the least?",
     "whatChildrenLearn": "At this age, children are developing the ability to represent a problem mentally, which allows them to solve multi-step problems. They are also developing the skill to think abstractly, as in comparing the sections of the pizza in their mind. This is also a rehearsal task, because the children are practicing the math skills.",
     "exploringLanguage":[
       {
@@ -250,12 +250,12 @@
     ]
   },
   {
-    "exhibitName": "Outback/Carraba's",
-    "activityName": "Order up!",
+    "exhibitName": "Pizza Place",
+    "activityName": "Order Up!",
     "activityImage": "",
     "theActivity": "Robots are good at taking orders. Malcolm the Robot states, \"I really want to learn how to be a server at Outback, can you help me? We must take everyone's order and prepare it in the kitchen.\" A family orders a cheese sandwich and two ham sandwiches. Try to remember the order and prepare it in the kitchen, then deliver the food to the family.",
     "extendingTheActivity": "If you want to make this more challenging, you can ask the child to remember more items. However if this is too challenging, you can give the child less items to remember.",
-    "whatChildrenLearn": "This is a rudimentary memory skill, in which children practice strategies to remember things. Children at this age should be able to remember the orders, so giving them more to remember and memory strategies will reinforce this important skill.",
+    "whatChildrenLearn": "This is a rudimentary memory skill, in which children practice strategies to remember things. As their ability to follow multi-step sequences develops, children at this age should be able to remember the orders. The ability to do so requires children to hold multiple pieces of information in mind simultaneously, a skill that advances with age and the use of increasing complex memory strategies.",
     "exploringLanguage":[
       {
         "english": "Prepare",
@@ -275,7 +275,7 @@
     ]
   },
   {
-    "exhibitName": "Outback/Carraba's",
+    "exhibitName": "Pizza Place",
     "activityName": "I'm Here to Help",
     "activityImage": "",
     "theActivity": "After placing the order, the family realized that the bill is going to be $20, but they only have $15, which is all the money they have left for the week. The family leaves all of their $15 and goes home. Is this what the family should have done? What if you have $5 and the family asks you for help to pay? Should you give the family $5 so that they can pay for their meals or should they order less food? ",
@@ -300,12 +300,75 @@
     ]
   },
   {
-    "exhibitName": "Art",
+    "exhibitName": "Pizza Place",
+    "activityName": "Planning a Party",
+    "activityImage": "",
+    "theActivity": "Malcolm the Robot says, \"It is almost my birthday! I need your help to plan a party to celebrate with friends and family.\" Help Malcolm by picking what is most important to do first and get it all done before the day of the party! Order the following things on the to-do list in order of importance, and then follow the plan.
+<br/>Make a guest list  _____
+<br/>Set up decorations _____
+<br/>Order food and drinks _____
+<br/>Invite guests _____
+<br/>Buy a present _____
+<br/>Pick venue: Outback, Carraba's, House, or Fire Station",
+    "extendingTheActivity": "You may assist children in beginning to think about whom they want to invite first. For example, you may list family members and classmates, which may probe them to list more people. It may also be helpful to remind the child about the different variety of pizzas that can be made, because everyone may not like the same toppings.",
+    "whatChildrenLearn": "Children at this age are beginning to develop their planning abilities. This will help them to practice a sequence of events, like the order in which a party is planned. Prosocial behavior is also reinforced, because the child must plan something to benefit everyone.",
+    "exploringLanguage":[
+      {
+        "english": "Birthday",
+        "spanish": "Cumpleaños",
+        "french": "Anniversaire"
+      },
+      {
+        "english":"Party",
+        "spanish":"Fiesta",
+        "french": "Féte"
+      },
+      {
+        "english":"Celebrate",
+        "spanish":"Celebrar",
+        "french": "Féter"
+      }
+    ]
+  },
+  {
+    "exhibitName": "Firehouse",
+    "activityName": "Fire Fighter!",
+    "activityImage": "",
+    "theActivity": "Malcolm the Robot asks you, \"Imagine you are a firefighter. One day you are at the fire station and you have to participate in a fire drill. There are so many steps that firefighters have to follow in order to complete the mission. Show me what order the steps go in.\" 
+<br/>Put out the fire _____
+<br/>Get dressed _____
+<br/>Go down the pole _____
+<br/>Arrive at the fire _____
+<br/>Get in the fire truck _____
+<br/>Check that you have all the equipment _____
+<br/>Look for anyone in danger _____",
+    "extendingTheActivity": "You can tell them some of the complications firefighters are faced with when doing their job. Ask the child what they think the firefighter should do in other to solve the problem.",
+    "whatChildrenLearn": "This task involves a make-believe situation. By doing this, the child is using symbolic play, which allows children to represent mentality what once needed to be physically present. This task also involves planning and organization skills because they have to follow several steps and see which steps comes first and which one goes after. These skills are beginning to become more complex as the child develops the ability to hold more information in mind at one time.",
+    "exploringLanguage":[
+      {
+        "english": "Firefighter",
+        "spanish": "Bombero",
+        "french": "Pompier"
+      },
+      {
+        "english":"Steps",
+        "spanish":"Pasos",
+        "french": "Étape"
+      },
+      {
+        "english":"Mission",
+        "spanish":"Misión",
+        "french": "Mission"
+      }
+    ]
+  },
+  {
+    "exhibitName": "Art Smart",
     "activityName": "Shall We Dance?",
     "activityImage": "",
     "theActivity": "Malcolm the Robot's starts to move his legs as he gets closer to this exhibit. \"I can't wait for this party! There are so many dance styles to choose from, like country and Latin, each with their own moves. I need your help mastering the basic steps from some styles!\"",
     "extendingTheActivity": "After practicing each of the styles, ask if the child can come up with a routine incorporating the different moves that they learned. To carry this activity home, you can ask the child if he/she is interested in learning more moves from one or more of the different styles. You can find videos of different moves online.",
-    "whatChildrenLearn": "During this age, children are refining their motor skills and developing better balance and coordination skills. By practicing dancing these skills are more reinforced and may better develop.",
+    "whatChildrenLearn": "During this age, children are refining their motor skills and developing better balance and coordination. By practicing dancing these skills are more reinforced and may better develop.",
     "exploringLanguage":[
       {
         "english": "Legs",
@@ -325,7 +388,7 @@
     ]
   },
   {
-    "exhibitName": "Art",
+    "exhibitName": "Art Smart",
     "activityName": "Kaleidoscope",
     "activityImage": "",
     "activityImage": "",
@@ -351,12 +414,12 @@
     ]
   },
   {
-    "exhibitName": "Art",
+    "exhibitName": "Art Smart",
     "activityName": "The Case of the Missing Letter",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot goes over the whiteboard and puts up a few letters.  \"Can you figure out what letter is missing? By looking at the incomplete word, try to figure out what the word is supposed to be and complete it.\"",
+    "theActivity": "[Parent note: Go to the whiteboard about put up a 3-4 letter word that you think your child knows, but with one letter missing.]<br/>Malcolm the Robot goes over the whiteboard and puts up a few letters.  \"Can you figure out what letter is missing? By looking at the incomplete word, try to figure out what the word is supposed to be and complete it.\"",
     "extendingTheActivity": "You can make a word with any of the letters, like cat or fork, but leave out one letter. If the activity becomes too easy, try to leave out a few more letters and use a longer word.",
-    "whatChildrenLearn": "Word completion is one aspect of intelligence that can be evaluated. This task involves rehearsing the child's ability to mentally represent the word to fill in the blank. By doing this, the child is practicing the transfer of mental knowledge to the real world.",
+    "whatChildrenLearn": "Word completion is one aspect of intelligence that can be evaluated. This task involves rehearsing the child’s ability to mentally represent the word to fill in the blank. By doing this, the child is practicing the transfer of mental knowledge to the real world. The child is also using their ability to reason through analogies. This requires the child to use existing knowledge to fill in blanks to complete the word.",
     "exploringLanguage":[
       {
         "english": "Whiteboard",
@@ -376,12 +439,12 @@
     ]
   },
   {
-    "exhibitName": "Art",
-    "activityName": "How the Mind Wanders",
+    "exhibitName": "Art Smart",
+    "activityName": "Future... Sculpter",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot goes over to all the toys.  \"Pick a toy that you most like. Think about how you play with that toy. Explain to me what it is and four things or topics that are related to the toy you picked.\"",
+    "theActivity": "Malcolm the Robot goes over to all the building materials.  \"Pick a toy that you most like. Think about how you play with that toy. Explain to me what it is and four things or topics that are related to the toy you picked.\" Use the sculpting materials to make that toy.",
     "extendingTheActivity": "Tell the child to connect more words to the toy chosen. Also, when at home you can practice this task by asking your child to link topics related to a hobby or activity they enjoy doing.",
-    "whatChildrenLearn": "The children are using network model of memory. This means memory is viewed as an interconnected network, with information stored as a concept nodes connected by links.",
+    "whatChildrenLearn": "This activity helps build on your child’s memory of relationships and central conceptual structures. This means memory is viewed as an interconnected network, with information stored as a concept nodes connected by links. The more experiences we have, the more connections or links that can be made between structures allowing for a more efficient processing of experiences.",
     "exploringLanguage":[
       {
         "english": "Toy",
@@ -401,35 +464,10 @@
     ]
   },
   {
-    "exhibitName": "Art",
-    "activityName": "Time to Draw!",
-    "activityImage": "",
-    "theActivity": "Malcolm the Robot enters into the Art Classroom. \"What is your favorite animal at the zoo? Create a drawing of the animal you most like. When you are done, tell me about the animal's body parts and what it's doing in the picture.\"",
-    "extendingTheActivity": "Help the child create a more complex drawing by adding more animals to the artwork. You should draw the same animal as them so that you can compare the differences and explain them to the child.",
-    "whatChildrenLearn": "During this age, children are developing mental representation. Depending on the type of drawing the child did. It can be determined how accurate and complexity of mental representation.",
-    "exploringLanguage":[
-      {
-        "english": "Animal",
-        "spanish": "Animal",
-        "french": "Animal"
-      },
-      {
-        "english":"Zoo",
-        "spanish":"Zoológico",
-        "french": "Zoo"
-      },
-      {
-        "english":"Drawing",
-        "spanish":"Dibujo",
-        "french": "Dessin"
-      }
-    ]
-  },
-  {
     "exhibitName": "Get Moving",
-    "activityName": "Who is faster?",
+    "activityName": "Who is Faster?",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot asks you this question, \"Whoa! You just ran against all of the animals in the \"Animal Race.\" I think that the turtle was the slowest and the parrot was the fastest, but that the rabbit was not as fast as the parrot. Is the rabbit faster or slower than the turtle?\"",
+    "theActivity": "[Parent note: Have your child race against the animals in Get Moving. After the 3 races are complete read the following.]<br/>Malcolm the Robot asks you this question, \"Whoa! You just ran against all of the animals in the \"Animal Race.\" I think that the turtle was the slowest and the parrot was the fastest, but that the rabbit was not as fast as the parrot. Is the rabbit faster or slower than the turtle?\"",
     "extendingTheActivity": "It would make sense to ask similar questions for other animals. For example, you can insert another animal into the scenario, like a cheetah is faster than the rabbit, so is the cheetah faster than the turtle? You may want to use the \"Animal Race\" activity as a visual representation of the problem. This can help children visualize the scenario.",
     "whatChildrenLearn": "This is a practice of children's logic skills. They should be developing the ability to use reason to make sense of a situation, such that with the given information, they can figure out which animal is faster or slower.",
     "exploringLanguage":[
@@ -477,61 +515,39 @@
   },
   {
     "exhibitName": "Get Moving",
-    "activityName": "How High?",
+    "activityName": "Making Comparisons",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot notes, \"I know that 1 foot is equal to 12 inches. I measured my height, and found that I am 1 foot and 2 inches high. How many inches is that? The average robot is about 11 inches high. Am I taller or shorter than the average robot? By how much? I want to know how tall you are. The average height for a child 4- to 6-years-old is 37 to 42 inches. Are you taller or shorter than the average child around your age?\"",
-    "extendingTheActivity": "Using hand gestures, show your child about how long a foot is compared to an inch. Ask them to tell you which one is bigger. Explain that 12 inches make one foot, then ask them to count up to 12 to show how many more inches are needed to make one foot.",
-    "whatChildrenLearn": "Measurement is a skill set that takes time to develop in children. However, it is important to introduce them to the concepts of bigger and smaller as well as some of the names of the units. As they start to learn comparisons of length, they will eventually develop better concepts of what measuring entails.",
+    "theActivity": "Malcom the Robot says to you, \"Imagine you can read my mind. While we are walking through the Sports area, pay close attention to what you see. Try to finish my sentences by comparing what I think with what you see.\" 
+<br/>The _____________ flies like a plane. (parrot)
+<br/>The _____________ hops like a pogo stick. (rabbit)
+<br>/The _____________ is as slow as molasses. (turtle)",
+    "extendingTheActivity": "You can carry this activity over to any area by asking the child what something reminds them of. For example, if you were cooking dinner, you may ask the child what the hot stove reminds them of. Children may respond with the sun or a volcano.",
+    "whatChildrenLearn": "Children further develop their grammatical skills of metaphors with this activity. This is important to their development of language. The child is also using their ability to reason through analogies. This requires the child to use existing knowledge to fill in blanks to make comparisons.",
     "exploringLanguage":[
       {
-        "english": "Height",
-        "spanish": "Estatura",
-        "french": "Taille"
+        "english": "Read",
+        "spanish": "Leer",
+        "french": "Lire"
       },
       {
-        "english":"Inches",
-        "spanish":"Pulgadas",
-        "french": "Pounces"
+        "english":"Mind",
+        "spanish":"Mente",
+        "french": "Esprit"
       },
       {
-        "english":"Child",
-        "spanish":"Niño",
-        "french": "Enfant"
+        "english":"Finish",
+        "spanish":"Terminar",
+        "french": "Finir"
       }
     ]
   },
   {
     "exhibitName": "Get Moving",
-    "activityName": "How Strong?",
+    "activityName": "Climb to the Top",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot exclaims, \"Because I have arms of steel, I am fascinated by how strong people's hands are. I noticed the funny contraption that has a handle and chain, and that it makes a lever.  I tried to grab the handle and pull, but I can't quite manage. Can you show me how strong you are and grab the handle and pull it? What do you notice as you move the handle back and forth?\"",
-    "extendingTheActivity": "The position of the handle within the bar creates a lever. The farther the handle is moved, the longer the lever and the easier to pull up the weight. Ask your child to pull using a shorter lever and then with a longer lever. Ask them which one was easier to pull. Ask them if they've ever played on a see-saw, a type of lever. It's easier to go up and down when you are farther down the see-saw than closer.",
-    "whatChildrenLearn": "Piaget demonstrated that young children begin to think about scientific principles based on their real world experiences. When children interact with even simple science demonstrations, they build their knowledge base and begin to form concepts of how the world works. They may not know the formal names of things like \"levers\" but playing with such items allows them to start constructing scientific knowledge that they will use throughout development.",
-    "exploringLanguage":[
-      {
-        "english": "Arms",
-        "spanish": "Brazos",
-        "french": "Bras"
-      },
-      {
-        "english":"Handle",
-        "spanish":"Mango",
-        "french": "Manche"
-      },
-      {
-        "english":"Chain",
-        "spanish":"Cadena",
-        "french": "Chaîne"
-      }
-    ]
-  },
-  {
-    "exhibitName": "Get Moving",
-    "activityName": "Stop that Ball!",
-    "activityImage": "",
-    "theActivity": "Malcolm the Robot excitedly exclaims, \"My robot friends and I love sports. We often throw balls of steel into goals in a game a lot like soccer. I love to defend the goal from the steel-balls. See if you can be like me and stop the soccer balls from getting into the net. Don't let the soccer balls hit you!\"",
-    "extendingTheActivity": "Ask your child to guess how many soccer balls they'll stop. Ask them which is their left and right hands before they start. You can help them by telling them to move left or right to stop the oncoming soccer balls. See if they change what they are doing as more and more balls come at them on the screen.",
-    "whatChildrenLearn": "Gross motor movements like running and jumping are children's natural way of exploring the world. As they become more coordinated, they will begin to learn to time their movements so they can stop a soccer ball or hit the baseball. Activities that keep children moving are also a great way to stimulate their brain activity and help them practice balance and speed.",
+    "theActivity": "Malcolm loves to climb and get as high up as he can. He is very excited when he sees the yellow jungle gym in the middle of floor. Help him out by finding two different ways to get to the highest level of the jungle gym.",
+    "extendingTheActivity": "If your child likes this task, have them find other routes to the top.",
+    "whatChildrenLearn": "Gross motor movements like running and jumping are children's natural way of exploring the world. As they become more coordinated, they will be better abel to navigate the world. Activities that keep children moving are also a great way to stimulate their brain activity and help them practice balance and speed.",
     "exploringLanguage":[
       {
         "english": "Friends",
@@ -539,24 +555,24 @@
         "french": "Copains"
       },
       {
-        "english":"Ball",
-        "spanish":"Balón",
-        "french": "Ballon"
+        "english":"Yellow",
+        "spanish":"Amarillo",
+        "french": "Jaune"
       },
       {
-        "english":"Soccer",
-        "spanish":"Fútbol",
-        "french": "Football"
+        "english":"Climb",
+        "spanish":"Escalada",
+        "french": "Montée"
       }
     ]
   },
   {
-    "exhibitName": "Invention Zone",
-    "activityName": "Lego Activity-egocentrism and motor skills",
+    "exhibitName": "Engineers' Workshop",
+    "activityName": "Lego Activity",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot excitedly exclaims, \"I love to play with Legos. I need your help building three towers of Legos. Now you should stand at one side and I should be on the opposite side of you. What do you think I see?\"",
-    "extendingTheActivity": "You can ask the child to make more towers and add them to the ones already made. This way you make it more difficult for them to determine what their friend is seeing.",
-    "whatChildrenLearn": "Children here are being tested on egocentrism. Here, it can be seen if they have the ability to take another's perspective. Motor skills are also assessed.",
+    "theActivity": "[Parent note: Build three towers of different height with your child. Consider making towers that have different colors are all sides, or different shapes of Legos in front or back of the towers. See the picture for an idea!]<br/>Malcolm the Robot excitedly exclaims, \"I love to play with Legos. I need your help building three towers of Legos. Now you should stand at one side and I should be on the opposite side of you. What do you think I see?\"",
+    "extendingTheActivity": "You can ask the child to make more towers and add them to the ones already made. This way you make it more difficult for them to determine what someone else (e.g., you, a sibling, or a friend) is seeing.",
+    "whatChildrenLearn": "This activity explores a young child’s egocentrism, or the inability to understand that other people have different perspectives about the world than they do (note: this is different from how we use the term egocentric for adults). By having the child tell you what they think someone sees from their side of the towers, we can see if they have the ability to take another’s perspective or do they simple believe you see what they see on their side. Fine motor skills associated with fine grasping ability are also used with building the Lego towers.",
     "exploringLanguage":[
       {
         "english": "Love",
@@ -576,12 +592,12 @@
     ]
   },
   {
-    "exhibitName": "Invention Zone",
-    "activityName": "Where will it go?",
+    "exhibitName": "Engineers' Workshop",
+    "activityName": "Where Will It Go?",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot notes that inside the construction area are the air vacuum and balls. Malcolm begins to put the ball into the side vacuum. Malcolm the Robot asks, \"Where will the ball land? What happens next? Draw a diagram to show me what happens.\"",
+    "theActivity": "An air vacuum and balls inside the construction area intrigue Malcolm the Robot. Malcolm begins to put the ball into the side vacuum. Malcolm the Robot asks, \"Where will the ball land? What happens next? Show me with your hand what happens to the ball.\"",
     "extendingTheActivity": "Children can draw other paths that objects may take to extend the activity. For example, you may ask the children to draw the path of the paper airplane inside that exhibit.",
-    "whatChildrenLearn": "Children practice their drawing skills, which are important to their development. This can also help with mapping skills, because children are practicing their abilities to transfer the real life scenario onto paper (or the app).",
+    "whatChildrenLearn": "Children practice their drawing skills, which are important to their fine motor skill development. This can also help with mapping skills and ability to predict outcomes, because children are practicing their abilities to transfer the real life scenario onto paper (or the app) prior to actually see the path the ball will take.",
     "exploringLanguage":[
       {
         "english": "Inside",
@@ -601,12 +617,12 @@
     ]
   },
   {
-    "exhibitName": "Invention Zone",
-    "activityName": "Twinkle Star Theater",
+    "exhibitName": "Twinkle Stars",
+    "activityName": "Putting on a Show",
     "activityImage": "",
     "theActivity": "Malcolm the Robot asks, \"I want to know who your favorite movie or TV show character is, or what you want to be when you grow up. Dress yourself like it and then show me by acting in a play.\"",
     "extendingTheActivity": "You can create a second scene that connects with the first one that the child created and join them.",
-    "whatChildrenLearn": "By doing this activity, children are practicing sociodramatic play. Children are able to explore the roles people have in the real world. It also shows the symbolic skills they are developing.",
+    "whatChildrenLearn": "By doing this activity, children are practicing sociodramatic play. Children are able to explore the roles people have in the real world. This form of play develops as children’s ability to pretend as a form of symbolic representation matures.",
     "exploringLanguage":[
       {
         "english": "Movie",
@@ -626,12 +642,12 @@
     ]
   },
   {
-    "exhibitName": "Water Area",
-    "activityName": "Piloting a Boat",
+    "exhibitName": "Cruiseship",
+    "activityName": "Piloting the Ship",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot states, \"I've always wanted to drive a boat. Luckily, there is a boat that you can drive on the computer. Once you've completed the course, tell me about how you did and how you can improve.\"",
+    "theActivity": "Malcolm the Robot states, \"I've always wanted to pilot a ship. Luckily, there is a boat that you can drive on the computer in this area. Once you've completed the course, tell me about how you did and how you can improve.\"",
     "extendingTheActivity": "This activity can be carried into many activities in everyday life. When a child performs a task in a new and different way, you may ask them why they did that or how they came up with a new procedure.",
-    "whatChildrenLearn": "Metacognition is thinking about thinking. This skill is greatly developing in children at this age and this activity enables children to hone in on this developing skill.",
+    "whatChildrenLearn": "Metacognition is thinking about thinking. This skill is greatly developing in children at this age and this activity enables children to hone in on this developing skill by thinking about what they did to drive the boat and use that knowledge to think about how they can improve in the future.",
     "exploringLanguage":[
       {
         "english": "Boat",
@@ -651,10 +667,10 @@
     ]
   },
   {
-    "exhibitName": "Water Area",
+    "exhibitName": "Cruiseship",
     "activityName": "Hidden Treasure",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot excitedly exclaims, \"I love to explore and discover. Let's see if we can find the hidden treasure on the beach. Help me find pieces of gold and an antique pirate jar to bring to the history museum. The island is named after the legendary Spanish pirate Jose Gaspar\" the last of the Buccaneers.",
+    "theActivity": "Malcolm the Robot excitedly exclaims, \"I love to explore and discover. Let's see if we can find the hidden treasure on the beach. Help me find pieces of gold and an antique pirate jar to bring to the history museum. The island is named after the legendary Spanish pirate Jose Gaspar, the last of the Buccaneers.",
     "extendingTheActivity": "Here the child is pretending to uncover hidden treasure. Help your child identify all the items they find and use efficient searching strategies to uncover the two needed items. After the two needed items are uncovered, play with your child to see what else they can uncover and then cover the items again for future explorers to find.",
     "whatChildrenLearn": "This activity works with the child's development of both goal-oriented and imaginative play. Around this age, attention and memory abilities are starting to become more refined. The searching behavior may require the use of efficient planning, searching strategies, and attention control to find the items needed.",
     "exploringLanguage":[
@@ -676,12 +692,12 @@
     ]
   },
   {
-    "exhibitName": "Water Area",
+    "exhibitName": "Cruiseship",
     "activityName": "Sailing, Sailing",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot says, \"I am curious how to get to Cozumel, which is I the Caribbean Sea. Go to the 'helm' (the ship's steering mechanism) and use the ship's wheel and radar, which really stands for \"Radio Detecting And Ranging,\" to show me the 585 mile trip to travel from Tampa, Florida, to Cozumel, Mexico.",
-    "extendingTheActivity": "Using the black touchpad, help your child select Cozumel as the destination for the cruise. Work with your child to guide the boat from it's starting location in Tampa to the Cozumel. Have your child work out the best route to get to the end point in the most direct manner. Notice you can also take the ship to New Orleans and Cayman Islands, you can use this to ask your child to predict what location is closest to Tampa and what is farthest.",
-    "whatChildrenLearn": "Early in development, young children's spatial abilities sharpen. They begin to understand directions (left, right, up, down) as well as understand how maps can be representations of real places. Eventually they will do more complex representation skills such as creating detailed directions and drawing maps of places they have been.",
+    "theActivity": "Malcolm the Robot says, \"I am curious how to get to Cozumel, which is in the Caribbean Sea. Go to the 'helm' (the ship's steering mechanism) and use the ship's wheel and radar, which really stands for \"Radio Detecting And Ranging,\" to show me the 585 mile trip to travel from Tampa, Florida, to Cozumel, Mexico.\" <br/>[Parent note: Using the black touchpad, help your child select Cozumel as the destination for the cruise. Work with your child to guide the boat from it's starting location in Tampa to the Cozumel.]",
+    "extendingTheActivity": "Have your child work out the best route to get to the end point in the most direct manner. Notice you can also take the ship to New Orleans and Cayman Islands, you can use this to ask your child to predict what location is closest to Tampa and what is farthest.",
+    "whatChildrenLearn": "Early in development, young children's spatial abilities sharpen; they begin to understand directions (left, right, up, down). They also begin to understand how maps can be representations of real places, a form of representation understanding. Eventually they will do more complex representation skills such as creating detailed directions and drawing maps of places they have been.",
     "exploringLanguage":[
       {
         "english": "Sea",
@@ -701,7 +717,7 @@
     ]
   },
   {
-    "exhibitName": "Water Area",
+    "exhibitName": "Cruiseship",
     "activityName": "Ahoy, There!",
     "activityImage": "",
     "theActivity": "Malcolm the Robot notes that, \"I have noticed a telescope on the edge of the ship. I love exploring and am fascinated with how a telescope can see things so far away. Using the eyepiece to look through the optical tube of the telescope, can you find the image of the parrot on the far wall of museum?\"",
@@ -726,12 +742,12 @@
     ]
   },
   {
-    "exhibitName": "Water Area",
-    "activityName": "What's Down There?",
+    "exhibitName": "Cruiseship",
+    "activityName": "Under the Sea",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot says, \"Because I'm made out of steel, I cannot go into the ocean and do not know a lot about life under water. I really want to learn about different objects and sea life. Using the ultrasound and underwater cameras, help me discover three living things under the sea.\"",
-    "extendingTheActivity": "There is a loop in the underwater videos, every few minutes the video of underwater life changes. Please have your child view the underwater video, resume play in another area of the ship, then return to view a new image. The underwater ultrasound allows the child to see habitats and animals undersea. Ask your child to identify different underwater animals. Do they think these animals could live on land? Why or why not? Ask your child to think about whether they could live in the sea. What would they need?",
-    "whatChildrenLearn": "Exploring other ecosystems and their living creatures is familiar to children. Naming animals is a common early knowledge category they develop. They refine these categories as they learn more attributes of each animal and where they live. Such early identification and classification will develop into more complex understanding of scientific categories.",
+    "theActivity": "Malcolm the Robot says, \"Because I'm made out of steel, I cannot go into the ocean and do not know a lot about life under water. I really want to learn about different objects and sea life. Using the ultrasound and underwater cameras, help me discover three living things under the sea.\"<br/>[Parent note: There is a loop in the underwater videos, every few minutes the video of underwater life changes. Please have your child view the underwater video, resume play in another area of the ship, then return to view a new image.]",
+    "extendingTheActivity": "The underwater ultrasound allows the child to see habitats and animals undersea. Ask your child to identify different underwater animals. Do they think these animals could live on land? Why or why not? Ask your child to think about whether they could live in the sea. What would they need?",
+    "whatChildrenLearn": "Exploring other ecosystems and their living creatures is familiar to children. Naming animals is an early skill children develop as they learn language. They develop knowledge of categories and groups of animals based on commonalities and differences between animals. They refine these categories as they learn more attributes of each animal, where they live, what they eat, etc.. Such early identification and classification will develop into more complex understanding of scientific categories tied to the animal kingdom.",
     "exploringLanguage":[
       {
         "english": "Ocean",
