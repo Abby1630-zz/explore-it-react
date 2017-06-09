@@ -10,7 +10,7 @@ import Thumbnail from 'react-bootstrap/lib/Thumbnail';
 // css imports
 import './css/CustomizeRobot.css';
 
-var lastPart = "legs"
+var lastPart = "bow tie"
 class CustomizeRobot extends Component{
   constructor(props) {
     super(props);
@@ -54,16 +54,16 @@ class CustomizeRobot extends Component{
     }
     this.props.changeRobot(part, value);
     this.props.changePage('ViewRobot');
-    if (lastPart === "legs") {
-      lastPart = "bow tie";
-    } else if (lastPart === "bow tie") {
+    if (lastPart === "bow tie") {
       lastPart = "head";
     } else if (lastPart === "head") {
       lastPart = "body";
     } else if (lastPart === "body") {
       lastPart = "arms";
-    }else{
+    } else if (lastPart === "arms") {
       lastPart = "legs";
+    } else{
+      lastPart = "bow tie";
     }
   }
 
