@@ -178,7 +178,7 @@
     "exhibitName": "Hospital and Vet Clinic",
     "activityName": "Body Puzzle",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot doesn't know about the human body. He needs to know about muscles, nerves, and organs. Malcolm says, \"I want to help people feel better. When I tell you the symptoms, help me identify the body part where the symptoms come from.\"<br/>Problem: It hurts you to swallow. <br/>Answer: Throat<br/>Problem: You have diarrhea and cramps.<br/>Answer: Intestines <br/>Problem: You are coughing and have trouble breathing.<br/>Answer: Lungs",
+    "theActivity": "Malcolm the Robot doesn't know about the human body. He needs to know about muscles, nerves, and organs. Malcolm says, \"I want to help people feel better. When I tell you the symptoms, help me identify the body part where the symptoms come from.\"\nProblem: It hurts you to swallow. \nAnswer: Throat\nProblem: You have diarrhea and cramps.\nAnswer: Intestines \nProblem: You are coughing and have trouble breathing.\nAnswer: Lungs",
     "extendingTheActivity": "You may come up with more problems for the child to answer, if these seem too easy. To further their knowledge, you can explain medicines that help with these symptoms. It may help with understanding to point out an overarching illness that may explain the symptoms (i.e. strep throat). You should also point out and identify where these parts are on yourself and the child.",
     "whatChildrenLearn": "This activity helps children understand their bodies more by identifying where the part is on the skeleton and then locating it on themselves. This is a referential mapping task, which is important in children’s development as they come to understand the difference between an image or picture and its real-world correlate.",
     "exploringLanguage":[
@@ -203,7 +203,7 @@
     "exhibitName": "Pizza Place",
     "activityName": "Pizza Making",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot sees all the pizza toppings. \"I love preparing pizzas! Let us surprise your family with pizza for dinner. Help me create a pizza following this recipe and using the ingredients on the counter.\"<br/>Sauce and Cheese<br/>1+2 pieces of meat<br/>2-0 Pieces of a vegetable<br/>3-1 pieces of your choice of topping",
+    "theActivity": "Malcolm the Robot sees all the pizza toppings. \"I love preparing pizzas! Let us surprise your family with pizza for dinner. Help me create a pizza following this recipe and using the ingredients on the counter.\"\nSauce and Cheese\n1+2 pieces of meat\n2-0 Pieces of a vegetable\n3-1 pieces of your choice of topping",
     "extendingTheActivity": "You can have the child count each number of ingredients onto the pizza, then explain the – or + meaning add or take away. When this recipe is completed, you may ask the child to prepare a pizza to their liking or your liking. You may sit at the table and ask the child to take your order, providing arithmetic problems as numerals for ingredients.",
     "whatChildrenLearn": "By doing this activity, children practice their math and spatial skills. The addition and subtraction problems in the recipe allow children to practice concepts of math and understanding of consistency in numbers.",
     "exploringLanguage":[
@@ -228,7 +228,7 @@
     "exhibitName": "Pizza Place",
     "activityName": "Advanced Pizza Making",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot sees all the pizza toppings. \"I love preparing pizzas! Let us surprise your family with pizza for dinner. Help me create a pizza following this recipe and using the ingredients on the counter.\"<br/>Sauce and cheese<br/>3 x 2 Pieces of meat<br/>3 Pieces of vegetable on 1/2 of the pizza<br/>2 x 2 Pieces of your choice on 1/3 of the pizza",
+    "theActivity": "Malcolm the Robot sees all the pizza toppings. \"I love preparing pizzas! Let us surprise your family with pizza for dinner. Help me create a pizza following this recipe and using the ingredients on the counter.\"\nSauce and cheese\n3 x 2 Pieces of meat\n3 Pieces of vegetable on 1/2 of the pizza\n2 x 2 Pieces of your choice on 1/3 of the pizza",
     "extendingTheActivity": "You should ask the child whether the 1/3 or 1/2 is larger. It would help to have the child divide the pizza into parts and compare each section. If this seems too easy, you could provide your own order with increasing difficulty of the activity (e.g. 5 x 2 pieces of pepperoni on 3/4 of the pizza). Ask them which fraction is the most of the pizza and the least?",
     "whatChildrenLearn": "At this age, children are developing the ability to represent a problem mentally, which allows them to solve multi-step problems. They are also developing the skill to think abstractly, as in comparing the sections of the pizza in their mind. This is also a rehearsal task, because the children are practicing the math skills.",
     "exploringLanguage":[
@@ -303,13 +303,7 @@
     "exhibitName": "Pizza Place",
     "activityName": "Planning a Party",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot says, \"It is almost my birthday! I need your help to plan a party to celebrate with friends and family.\" Help Malcolm by picking what is most important to do first and get it all done before the day of the party! Order the following things on the to-do list in order of importance, and then follow the plan.
-<br/>Make a guest list  _____
-<br/>Set up decorations _____
-<br/>Order food and drinks _____
-<br/>Invite guests _____
-<br/>Buy a present _____
-<br/>Pick venue: Outback, Carraba's, House, or Fire Station",
+    "theActivity": "Malcolm the Robot says, \"It is almost my birthday! I need your help to plan a party to celebrate with friends and family.\" Help Malcolm by picking what is most important to do first and get it all done before the day of the party! Order the following things on the to-do list in order of importance, and then follow the plan.\nMake a guest list  _____\nSet up decorations _____\nOrder food and drinks _____\nInvite guests _____\nBuy a present _____\nPick venue: Outback, Carraba's, House, or Fire Station",
     "extendingTheActivity": "You may assist children in beginning to think about whom they want to invite first. For example, you may list family members and classmates, which may probe them to list more people. It may also be helpful to remind the child about the different variety of pizzas that can be made, because everyone may not like the same toppings.",
     "whatChildrenLearn": "Children at this age are beginning to develop their planning abilities. This will help them to practice a sequence of events, like the order in which a party is planned. Prosocial behavior is also reinforced, because the child must plan something to benefit everyone.",
     "exploringLanguage":[
@@ -334,14 +328,7 @@
     "exhibitName": "Firehouse",
     "activityName": "Fire Fighter!",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot asks you, \"Imagine you are a firefighter. One day you are at the fire station and you have to participate in a fire drill. There are so many steps that firefighters have to follow in order to complete the mission. Show me what order the steps go in.\" 
-<br/>Put out the fire _____
-<br/>Get dressed _____
-<br/>Go down the pole _____
-<br/>Arrive at the fire _____
-<br/>Get in the fire truck _____
-<br/>Check that you have all the equipment _____
-<br/>Look for anyone in danger _____",
+    "theActivity": "Malcolm the Robot asks you, \"Imagine you are a firefighter. One day you are at the fire station and you have to participate in a fire drill. There are so many steps that firefighters have to follow in order to complete the mission. Show me what order the steps go in.\"\nPut out the fire _____\nGet dressed _____\nGo down the pole _____\nArrive at the fire _____\nGet in the fire truck _____\nCheck that you have all the equipment _____\nLook for anyone in danger _____",
     "extendingTheActivity": "You can tell them some of the complications firefighters are faced with when doing their job. Ask the child what they think the firefighter should do in other to solve the problem.",
     "whatChildrenLearn": "This task involves a make-believe situation. By doing this, the child is using symbolic play, which allows children to represent mentality what once needed to be physically present. This task also involves planning and organization skills because they have to follow several steps and see which steps comes first and which one goes after. These skills are beginning to become more complex as the child develops the ability to hold more information in mind at one time.",
     "exploringLanguage":[
@@ -416,7 +403,7 @@
     "exhibitName": "Art Smart",
     "activityName": "The Case of the Missing Letter",
     "activityImage": "",
-    "theActivity": "[Parent note: Go to the whiteboard about put up a 3-4 letter word that you think your child knows, but with one letter missing.]<br/>Malcolm the Robot goes over the whiteboard and puts up a few letters.  \"Can you figure out what letter is missing? By looking at the incomplete word, try to figure out what the word is supposed to be and complete it.\"",
+    "theActivity": "[Parent note: Go to the whiteboard about put up a 3-4 letter word that you think your child knows, but with one letter missing.]\nMalcolm the Robot goes over the whiteboard and puts up a few letters.  \"Can you figure out what letter is missing? By looking at the incomplete word, try to figure out what the word is supposed to be and complete it.\"",
     "extendingTheActivity": "You can make a word with any of the letters, like cat or fork, but leave out one letter. If the activity becomes too easy, try to leave out a few more letters and use a longer word.",
     "whatChildrenLearn": "Word completion is one aspect of intelligence that can be evaluated. This task involves rehearsing the child’s ability to mentally represent the word to fill in the blank. By doing this, the child is practicing the transfer of mental knowledge to the real world. The child is also using their ability to reason through analogies. This requires the child to use existing knowledge to fill in blanks to complete the word.",
     "exploringLanguage":[
@@ -466,7 +453,7 @@
     "exhibitName": "Get Moving",
     "activityName": "Who is Faster?",
     "activityImage": "",
-    "theActivity": "[Parent note: Have your child race against the animals in Get Moving. After the 3 races are complete read the following.]<br/>Malcolm the Robot asks you this question, \"Whoa! You just ran against all of the animals in the \"Animal Race.\" I think that the turtle was the slowest and the parrot was the fastest, but that the rabbit was not as fast as the parrot. Is the rabbit faster or slower than the turtle?\"",
+    "theActivity": "[Parent note: Have your child race against the animals in Get Moving. After the 3 races are complete read the following.]\nMalcolm the Robot asks you this question, \"Whoa! You just ran against all of the animals in the \"Animal Race.\" I think that the turtle was the slowest and the parrot was the fastest, but that the rabbit was not as fast as the parrot. Is the rabbit faster or slower than the turtle?\"",
     "extendingTheActivity": "It would make sense to ask similar questions for other animals. For example, you can insert another animal into the scenario, like a cheetah is faster than the rabbit, so is the cheetah faster than the turtle? You may want to use the \"Animal Race\" activity as a visual representation of the problem. This can help children visualize the scenario.",
     "whatChildrenLearn": "This is a practice of children's logic skills. They should be developing the ability to use reason to make sense of a situation, such that with the given information, they can figure out which animal is faster or slower.",
     "exploringLanguage":[
@@ -516,10 +503,7 @@
     "exhibitName": "Get Moving",
     "activityName": "Making Comparisons",
     "activityImage": "",
-    "theActivity": "Malcom the Robot says to you, \"Imagine you can read my mind. While we are walking through the Sports area, pay close attention to what you see. Try to finish my sentences by comparing what I think with what you see.\" 
-<br/>The _____________ flies like a plane. (parrot)
-<br/>The _____________ hops like a pogo stick. (rabbit)
-<br>/The _____________ is as slow as molasses. (turtle)",
+    "theActivity": "Malcom the Robot says to you, \"Imagine you can read my mind. While we are walking through the Sports area, pay close attention to what you see. Try to finish my sentences by comparing what I think with what you see.\"\nThe _____________ flies like a plane. (parrot)\nThe _____________ hops like a pogo stick. (rabbit)\nThe _____________ is as slow as molasses. (turtle)",
     "extendingTheActivity": "You can carry this activity over to any area by asking the child what something reminds them of. For example, if you were cooking dinner, you may ask the child what the hot stove reminds them of. Children may respond with the sun or a volcano.",
     "whatChildrenLearn": "Children further develop their grammatical skills of metaphors with this activity. This is important to their development of language. The child is also using their ability to reason through analogies. This requires the child to use existing knowledge to fill in blanks to make comparisons.",
     "exploringLanguage":[
@@ -569,7 +553,7 @@
     "exhibitName": "Engineers' Workshop",
     "activityName": "Lego Activity",
     "activityImage": "",
-    "theActivity": "[Parent note: Build three towers of different height with your child. Consider making towers that have different colors are all sides, or different shapes of Legos in front or back of the towers. See the picture for an idea!]<br/>Malcolm the Robot excitedly exclaims, \"I love to play with Legos. I need your help building three towers of Legos. Now you should stand at one side and I should be on the opposite side of you. What do you think I see?\"",
+    "theActivity": "[Parent note: Build three towers of different height with your child. Consider making towers that have different colors are all sides, or different shapes of Legos in front or back of the towers. See the picture for an idea!]\nMalcolm the Robot excitedly exclaims, \"I love to play with Legos. I need your help building three towers of Legos. Now you should stand at one side and I should be on the opposite side of you. What do you think I see?\"",
     "extendingTheActivity": "You can ask the child to make more towers and add them to the ones already made. This way you make it more difficult for them to determine what someone else (e.g., you, a sibling, or a friend) is seeing.",
     "whatChildrenLearn": "This activity explores a young child’s egocentrism, or the inability to understand that other people have different perspectives about the world than they do (note: this is different from how we use the term egocentric for adults). By having the child tell you what they think someone sees from their side of the towers, we can see if they have the ability to take another’s perspective or do they simple believe you see what they see on their side. Fine motor skills associated with fine grasping ability are also used with building the Lego towers.",
     "exploringLanguage":[
@@ -694,7 +678,7 @@
     "exhibitName": "Cruiseship",
     "activityName": "Sailing, Sailing",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot says, \"I am curious how to get to Cozumel, which is in the Caribbean Sea. Go to the 'helm' (the ship's steering mechanism) and use the ship's wheel and radar, which really stands for \"Radio Detecting And Ranging,\" to show me the 585 mile trip to travel from Tampa, Florida, to Cozumel, Mexico.\" <br/>[Parent note: Using the black touchpad, help your child select Cozumel as the destination for the cruise. Work with your child to guide the boat from it's starting location in Tampa to the Cozumel.]",
+    "theActivity": "Malcolm the Robot says, \"I am curious how to get to Cozumel, which is in the Caribbean Sea. Go to the 'helm' (the ship's steering mechanism) and use the ship's wheel and radar, which really stands for \"Radio Detecting And Ranging,\" to show me the 585 mile trip to travel from Tampa, Florida, to Cozumel, Mexico.\" \n[Parent note: Using the black touchpad, help your child select Cozumel as the destination for the cruise. Work with your child to guide the boat from it's starting location in Tampa to the Cozumel.]",
     "extendingTheActivity": "Have your child work out the best route to get to the end point in the most direct manner. Notice you can also take the ship to New Orleans and Cayman Islands, you can use this to ask your child to predict what location is closest to Tampa and what is farthest.",
     "whatChildrenLearn": "Early in development, young children's spatial abilities sharpen; they begin to understand directions (left, right, up, down). They also begin to understand how maps can be representations of real places, a form of representation understanding. Eventually they will do more complex representation skills such as creating detailed directions and drawing maps of places they have been.",
     "exploringLanguage":[
@@ -744,7 +728,7 @@
     "exhibitName": "Cruiseship",
     "activityName": "Under the Sea",
     "activityImage": "",
-    "theActivity": "Malcolm the Robot says, \"Because I'm made out of steel, I cannot go into the ocean and do not know a lot about life under water. I really want to learn about different objects and sea life. Using the ultrasound and underwater cameras, help me discover three living things under the sea.\"<br/>[Parent note: There is a loop in the underwater videos, every few minutes the video of underwater life changes. Please have your child view the underwater video, resume play in another area of the ship, then return to view a new image.]",
+    "theActivity": "Malcolm the Robot says, \"Because I'm made out of steel, I cannot go into the ocean and do not know a lot about life under water. I really want to learn about different objects and sea life. Using the ultrasound and underwater cameras, help me discover three living things under the sea.\"\n[Parent note: There is a loop in the underwater videos, every few minutes the video of underwater life changes. Please have your child view the underwater video, resume play in another area of the ship, then return to view a new image.]",
     "extendingTheActivity": "The underwater ultrasound allows the child to see habitats and animals undersea. Ask your child to identify different underwater animals. Do they think these animals could live on land? Why or why not? Ask your child to think about whether they could live in the sea. What would they need?",
     "whatChildrenLearn": "Exploring other ecosystems and their living creatures is familiar to children. Naming animals is an early skill children develop as they learn language. They develop knowledge of categories and groups of animals based on commonalities and differences between animals. They refine these categories as they learn more attributes of each animal, where they live, what they eat, etc.. Such early identification and classification will develop into more complex understanding of scientific categories tied to the animal kingdom.",
     "exploringLanguage":[

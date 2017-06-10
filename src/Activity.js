@@ -98,6 +98,7 @@ class Activity extends Component{
   render(){
     var activity = getActivity(this.props.activity, this.props.activitiesInDetail);
     var image = this.getImage(activity);
+
     return(
       <div>
         <Instructions page="Activity"/>
@@ -174,6 +175,7 @@ class Collapsible extends Component {
     }
 
     this.getIcon= this.getIcon.bind(this);
+    this.handleLineBreaks= this.handleLineBreaks.bind(this);
   }
 
   componentDidMount(){
@@ -204,14 +206,18 @@ class Collapsible extends Component {
       return (<Glyphicon className="pull-right" glyph="chevron-up" />);
     }
     return (<Glyphicon className="pull-right" glyph="chevron-down" />);
-
-
   }
 
-
+  handleLineBreaks() {
+    var lines = this.props.body.split("\n").map(function(line, n){
+      return (n === 0) ? [line] : [<br />, <br />, line];
+    });
+    return <div>{lines}</div>;
+  }
 
   render() {
     var alertClasses = this.props.alertClass + " lang-container";
+    var body = this.handleLineBreaks();
     return (
       <div>
         <Button bsStyle={this.props.bsStyle} className={this.props.buttonClass} block onClick={ ()=> this.setState({ open: !this.state.open })}>
@@ -221,7 +227,7 @@ class Collapsible extends Component {
         <Collapse in={this.state.open}>
           <div>
             <Alert bsStyle={this.props.bsStyle} className={alertClasses}>
-              {this.props.body}
+              {body}
             </Alert>
           </div>
         </Collapse>
@@ -243,7 +249,8 @@ class ExploringLanguage extends Component {
     });
 
     return (
-      <Collapsible header={this.props.heading} bsStyle={this.props.bsStyle} buttonClass={this.props.buttonClass} alertClass={this.props.alertClass} open={this.props.open} body={langList} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
+      <p>enter this back in</p>
+      //<Collapsible header={this.props.heading} bsStyle={this.props.bsStyle} buttonClass={this.props.buttonClass} alertClass={this.props.alertClass} open={this.props.open} body={langList} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
     );
   }
 }
