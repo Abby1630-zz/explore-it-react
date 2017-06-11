@@ -209,10 +209,14 @@ class Collapsible extends Component {
   }
 
   handleLineBreaks() {
-    var lines = this.props.body.split("\n").map(function(line, n){
-      return (n === 0) ? [line] : [<br />, <br />, line];
-    });
-    return <div>{lines}</div>;
+    if (this.props.header !== 'Exploring Language') {
+      var lines = this.props.body.split("\n").map(function(line, n){
+        return (n === 0) ? [line] : [<br />, <br />, line];
+      });
+      return <div>{lines}</div>;
+    } else {
+      return this.props.body;
+    }
   }
 
   render() {
@@ -249,8 +253,7 @@ class ExploringLanguage extends Component {
     });
 
     return (
-      <p>enter this back in</p>
-      //<Collapsible header={this.props.heading} bsStyle={this.props.bsStyle} buttonClass={this.props.buttonClass} alertClass={this.props.alertClass} open={this.props.open} body={langList} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
+      <Collapsible header={this.props.heading} bsStyle={this.props.bsStyle} buttonClass={this.props.buttonClass} alertClass={this.props.alertClass} open={this.props.open} body={langList} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
     );
   }
 }
