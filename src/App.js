@@ -310,6 +310,9 @@ function getTitle (currentPage, activity) {
   } else if (currentPage === 'Quiz'){
     return (<h1 id="explore-page-title">Quiz</h1>);
   } else if (currentPage === 'CustomizeRobot') {
+    if (activity === 'none'){
+      return (<h1 id="explore-page-title">Let's Get Started</h1>);
+    }
     return (<h1 id="explore-page-title">Congratulations!</h1>);
   } else if (currentPage === 'Intro') {
     return (<h1 id="explore-page-title">Welcome</h1>);
@@ -399,7 +402,7 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction,
   } else if (renderPage === 'CustomizeRobot') {
     return (
       <div>
-        <Instructions page={renderPage}/>
+        <Instructions page={renderPage} selectedActivity={selectedActivity}/>
         <CustomizeRobot
           addtoFirebase={addtoFirebaseFunction}
           userID={userID}

@@ -31,6 +31,12 @@ const customizeRobotInstructions = (
   </Alert>
 );
 
+const firstCustomizeRobotInstructions = (
+  <Alert className="explore-instructions">
+    <strong>To start you off, </strong> we would like to introduce you to Malcom in the upper left corner of the page.<br/><br/>Each time you see this screen you will be allowed to select new body parts for Malcom. Select what you would like your robot to wear.
+  </Alert>
+);
+
 class Instructions extends Component {
   constructor(props) {
     super(props);
@@ -49,6 +55,9 @@ class Instructions extends Component {
     } else if (page ==="Quiz") {
       return quizInstructions;
     } else if (page ==="CustomizeRobot") {
+      if (this.props.selectedActivity === 'none') {
+        return firstCustomizeRobotInstructions;
+      }
       return customizeRobotInstructions;
     } else {
       return null;
