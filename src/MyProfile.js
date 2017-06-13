@@ -36,12 +36,15 @@ class MyProfile extends Component {
   nextPage() {
     var tableData;
     if (this.props.page === "MyProfile" || this.state.iAgree === true) {
+      var now = new Date();
+      now = now.toString()
       tableData = {
         user_id: this.props.userID,
         child_age: this.state.childAge,
         child_name: this.state.childName,
         parent_email: this.state.email,
-        parent_name: this.state.parentName
+        parent_name: this.state.parentName,
+        timestamp: now,
       };
       this.props.addtoFirebase('my_profile', tableData);
       if (this.props.page) {
