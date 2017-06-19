@@ -356,22 +356,22 @@
       "question": "What music style is not available?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "Country", "Latin", "Choice", "Right Answer"
+        "Country", "Latin", "Bollywood", "Waltz"
       ],
-      "correctAnswer" : "Right Answer"
+      "correctAnswer" : "Waltz"
     },
     "medium": {
       "question": "What music style is not available?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "Country", "Latin", "Choice", "Right Answer"
+        "Country", "Latin", "Bollywood", "Waltz"
       ],
-      "correctAnswer" : "Right Answer"
+      "correctAnswer" : "Waltz"
     },
     "hard": {
       "question": "Name one of the music styles.",
       "questionType": "fill in",
-      "correctAnswers": ["Latin", "Country", "Choice1", "Choice2"]
+      "correctAnswers": ["Latin", "Country", "Bollywood", "Ballet", "Pop", "Hip-hop", "Party", "Wild Card"]
     }
   },
   {
@@ -428,25 +428,25 @@
     "exhibitName": "Art Smart",
     "activityName": "Future... Sculpter",
     "easy": {
-      "question": "Question?",
+      "question": "What do you call a person that creates objects out of clay or other material?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "Choice1", "Choice2", "Choice3", "Right Answer"
+        "Sculpter", "Painter", "Doctor", "Musician"
       ],
-      "correctAnswer" : "Right Answer"
+      "correctAnswer" : "Sculpter"
     },
     "medium": {
-      "question": "Question?",
+      "question": "What do you call a person that creates objects out of clay or other material?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "Choice1", "Choice2", "Choice3", "Right Answer"
+        "Sculpter", "Painter", "Doctor", "Musician"
       ],
-      "correctAnswer" : "Right Answer"
+      "correctAnswer" : "Sculpter"
     },
     "hard": {
-      "question": "Type in Answer",
+      "question": "What do you call a person that creates objects out of clay or other material",
       "questionType": "fill in",
-      "correctAnswers": ["Answer"]
+      "correctAnswers": ["Sculpter"]
     }
   },
   {
@@ -603,50 +603,50 @@
     "exhibitName": "Twinkle Stars",
     "activityName": "Putting on a Show",
     "easy": {
-      "question": "Question?",
+      "question": "What is the building called where you put on a show?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "Choice1", "Choice2", "Choice3", "Right Answer"
+        "Theater", "Zoo", "Museum", "Aquarium"
       ],
-      "correctAnswer" : "Right Answer"
+      "correctAnswer" : "Theater"
     },
     "medium": {
-      "question": "Question?",
+      "question": "What is the building called where you put on a show?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "Choice1", "Choice2", "Choice3", "Right Answer"
+        "Theater", "Zoo", "Museum", "Aquarium"
       ],
-      "correctAnswer" : "Right Answer"
+      "correctAnswer" : "Theater"
     },
     "hard": {
-      "question": "Type in Answer",
+      "question": "What is the building called where you put on a show?",
       "questionType": "fill in",
-      "correctAnswers": ["Answer"]
+      "correctAnswers": ["Theater", "Theatre"]
     }
   },
   {
     "exhibitName": "Cruiseship",
     "activityName": "Piloting the Ship",
     "easy": {
-      "question": "Question?",
+      "question": "What do you call the person that pilots a ship?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "Choice1", "Choice2", "Choice3", "Right Answer"
+        "Captain", "Pilot", "Teacher", "Driver"
       ],
-      "correctAnswer" : "Right Answer"
+      "correctAnswer" : "Captain"
     },
     "medium": {
-      "question": "Question?",
+      "question": "What do you call the person that pilots a ship?",
       "questionType": "multiple choice",
       "possibleAnswers": [
-        "Choice1", "Choice2", "Choice3", "Right Answer"
+        "Captain", "Pilot", "Teacher", "Driver"
       ],
-      "correctAnswer" : "Right Answer"
+      "correctAnswer" : "Captain"
     },
     "hard": {
-      "question": "Type in Answer",
+      "question": "What do you call the person that pilots a ship",
       "questionType": "fill in",
-      "correctAnswers": ["Answer"]
+      "correctAnswers": ["Captain"]
     }
   },
   {
