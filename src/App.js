@@ -83,6 +83,7 @@ class App extends Component {
 
 
   addtoFirebase(tableName, tableData){
+    console.log(tableData);
     var immediatelyAvailableReference = base.push(tableName, {
       data: tableData
     }).then(newLocation => {
@@ -93,6 +94,11 @@ class App extends Component {
     });
     //available immediately, you don't have to wait for the Promise to resolve
     var generatedKey = immediatelyAvailableReference.key;
+
+    if (tableData.pageCount) {
+      console.log("true");
+      this.setState({pageCount: this.state.pageCount + 1});
+    }
   }
 
   changePage(pageName){
@@ -114,10 +120,16 @@ class App extends Component {
       user_id: this.state.userID,
       seconds_on_page: timeInSeconds,
       page: this.state.renderedPage,
+      activity: this.state.selectedActivity,
+      pageCount: this.state.pageCount
     };
     this.addtoFirebase('UserTimeOnPage', tableData);
 
     scroll.scrollToTop();
+    var statesToSet = {
+      renderedPage: pageName
+    };
+
     if (this.state.renderedPage=== 'CustomizeRobot'){
       statesToSet = {
         renderedPage: pageName,
@@ -348,6 +360,7 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction,
   var quizQuestionsCorrectInARow = state.quizQuestionsCorrectInARow;
   var quizQuestionsWrongInARow = state.quizQuestionsWrongInARow;
   var userID = state.userID;
+  var pageCount = state.pageCount;
 
   TimeMe.initialize({});
   TimeMe.setCurrentPageName(renderPage);
@@ -370,6 +383,7 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction,
           changePage={changePageFunction}
           changeActivity={changeActivityFunction}
           exhibitsAndActivities={exhibitsAndActivities}
+          pageCount={pageCount}
         />
       </div>
     );
@@ -391,6 +405,7 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction,
           showRobot={showRobot}
           questions={questions}
           countUntilNextReward={countUntilNextReward}
+          pageCount={pageCount}
         />
       </div>
     );
@@ -447,6 +462,7 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction,
           activitiesInDetail={activitiesInDetail}
           countUntilNextQuiz={countUntilNextQuiz}
           countUntilNextReward={countUntilNextReward}
+          pageCount={pageCount}
         />
       </div>
     );
