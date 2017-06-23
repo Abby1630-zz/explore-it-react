@@ -51,7 +51,8 @@ class Activity extends Component{
       tableData = {
         user_id: this.props.userID,
         activity: this.props.activity,
-        rating: parseInt(this.state.rating, 10)
+        rating: parseInt(this.state.rating, 10),
+        pageCount: this.props.pageCount
       };
       this.props.addtoFirebase('ActivityRating', tableData);
 
@@ -105,13 +106,13 @@ class Activity extends Component{
         <Grid>
           <Row>
             {image}
-            <Collapsible header="The Activity" bsStyle="success" buttonClass="explore-blue-collapse-button" alertClass="explore-blue-collapse-body" open={true} body={activity.theActivity} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
+            <Collapsible header="The Activity" activityName={this.props.activity} bsStyle="success" buttonClass="explore-blue-collapse-button" alertClass="explore-blue-collapse-body" open={true} body={activity.theActivity} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
             <hr className="explore-small-hr"/>
-            <Collapsible header="What Children Learn" bsStyle="success" buttonClass="explore-purple-collapse-button" alertClass="explore-purple-collapse-body" open={true} body={activity.whatChildrenLearn} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
+            <Collapsible header="What Children Learn" activityName={this.props.activity} bsStyle="success" buttonClass="explore-purple-collapse-button" alertClass="explore-purple-collapse-body" open={true} body={activity.whatChildrenLearn} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
             <hr className="explore-small-hr"/>
-            <Collapsible header="Extending The Activity" bsStyle="success" buttonClass="explore-orange-collapse-button" alertClass="explore-orange-collapse-body" open={false} body={activity.extendingTheActivity} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
+            <Collapsible header="Extending The Activity" activityName={this.props.activity} bsStyle="success" buttonClass="explore-orange-collapse-button" alertClass="explore-orange-collapse-body" open={false} body={activity.extendingTheActivity} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
             <hr className="explore-small-hr"/>
-            <ExploringLanguage heading="Exploring Language" bsStyle="success" buttonClass="explore-green-collapse-button" alertClass="explore-green-collapse-body" open={false} languageContent={activity.exploringLanguage} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
+            <ExploringLanguage heading="Exploring Language" activityName={this.props.activity} bsStyle="success" buttonClass="explore-green-collapse-button" alertClass="explore-green-collapse-body" open={false} languageContent={activity.exploringLanguage} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
             <hr className="explore-small-hr"/>
             <h3>How would you rate this activity?</h3>
             <Col>
@@ -196,6 +197,7 @@ class Collapsible extends Component {
 
       var tableData = {
         user_id: this.props.userID,
+        activityName: this.props.activityName,
         category: this.props.header + ' - Activity Collapse Click',
         action: stateOfCollapse
       };
@@ -253,7 +255,7 @@ class ExploringLanguage extends Component {
     });
 
     return (
-      <Collapsible header={this.props.heading} bsStyle={this.props.bsStyle} buttonClass={this.props.buttonClass} alertClass={this.props.alertClass} open={this.props.open} body={langList} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
+      <Collapsible header={this.props.heading} activityName={this.props.activityName} bsStyle={this.props.bsStyle} buttonClass={this.props.buttonClass} alertClass={this.props.alertClass} open={this.props.open} body={langList} ReactGA={this.props.ReactGA} addtoFirebase={this.props.addtoFirebase} userID={this.props.userID}/>
     );
   }
 }

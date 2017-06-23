@@ -66,7 +66,7 @@ class App extends Component {
       robotBody: "#",
       robotArms: "#",
       robotLegs: "#",
-      activityCount: 0,
+      pageCount: 1,
       //User Information
       userID: uid
 
@@ -114,12 +114,10 @@ class App extends Component {
       user_id: this.state.userID,
       seconds_on_page: timeInSeconds,
       page: this.state.renderedPage,
-      activity: this.state.selectedActivity
     };
     this.addtoFirebase('UserTimeOnPage', tableData);
 
     scroll.scrollToTop();
-    var statesToSet = {renderedPage: pageName};
     if (this.state.renderedPage=== 'CustomizeRobot'){
       statesToSet = {
         renderedPage: pageName,
@@ -147,7 +145,6 @@ class App extends Component {
       priorActivitiesForQuiz: activityArray,
       countUntilNextQuiz: this.state.countUntilNextQuiz - 1,
       countUntilNextReward: this.state.countUntilNextReward - 1,
-      activityCount: this.state.activityCount + 1
     });
   }
 
@@ -351,7 +348,6 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction,
   var quizQuestionsCorrectInARow = state.quizQuestionsCorrectInARow;
   var quizQuestionsWrongInARow = state.quizQuestionsWrongInARow;
   var userID = state.userID;
-  var activityCount = state.activityCount;
 
   TimeMe.initialize({});
   TimeMe.setCurrentPageName(renderPage);
@@ -371,7 +367,6 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction,
           addtoFirebase={addtoFirebaseFunction}
           userID={userID}
           ReactGA={ReactGA}
-          activityCount={activityCount}
           changePage={changePageFunction}
           changeActivity={changeActivityFunction}
           exhibitsAndActivities={exhibitsAndActivities}

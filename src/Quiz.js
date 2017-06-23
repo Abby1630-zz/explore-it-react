@@ -80,7 +80,8 @@ class Quiz extends Component{
           user_id: this.props.userID,
           activity: this.props.activity[this.state.currentQuestionNumber],
           difficulty: this.state.difficulty,
-          answered_correctly: 'Yes'
+          answered_correctly: 'Yes',
+          pageCount: this.props.pageCount
         };
         this.props.addtoFirebase('Quiz', tableData);
 
