@@ -251,7 +251,7 @@
   },
   {
     "exhibitName": "Pizza Place",
-    "activityName": "Order up!",
+    "activityName": "Order Up!",
     "easy": {
       "question": "What does a server at a restaurant not do?",
       "questionType": "multiple choice",
