@@ -83,7 +83,6 @@ class App extends Component {
 
 
   addtoFirebase(tableName, tableData){
-    console.log(tableData);
     var immediatelyAvailableReference = base.push(tableName, {
       data: tableData
     }).then(newLocation => {
@@ -96,7 +95,6 @@ class App extends Component {
     var generatedKey = immediatelyAvailableReference.key;
 
     if (tableData.pageCount) {
-      console.log("true");
       this.setState({pageCount: this.state.pageCount + 1});
     }
   }
