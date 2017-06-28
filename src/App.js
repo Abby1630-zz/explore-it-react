@@ -129,7 +129,7 @@ class App extends Component {
       renderedPage: pageName
     };
 
-    if (this.state.renderedPage === 'Intro') {
+    if (this.state.renderedPage === 'Welcome') {
       this.loadResources();
     }
 
@@ -194,45 +194,46 @@ class App extends Component {
     }
   }
 
-  loadResources() {
-    var exhibitsAndActivities;
-    var activitiesInDetail;
-    var questions;
-    var disclaimer;
-    var robotArmsImages;
-    var robotLegsImages;
-    var robotBodyImages;
-    var robotHeadImages;
-    var robotBowTieImages
-
+  componentDidMount() {
     var me = this;
-    fetch(process.env.PUBLIC_URL +'/content/exhibitsAndActivities.json')
-    .then(function (rawResponse) {
-      return rawResponse.json();
-    }).then(function (responseData) {
-      exhibitsAndActivities = responseData;
-    })
-
-    fetch(process.env.PUBLIC_URL +'/content/activitiesInDetail.json')
-    .then(function (rawResponse) {
-      return rawResponse.json();
-    }).then(function (responseData) {
-      activitiesInDetail = responseData;
-    })
-
-    fetch(process.env.PUBLIC_URL +'/content/questions.json')
-    .then(function (rawResponse) {
-      return rawResponse.json();
-    }).then(function (responseData) {
-      questions = responseData;
-    })
 
     fetch(process.env.PUBLIC_URL +'/content/disclaimer.json')
     .then(function (rawResponse) {
       return rawResponse.json();
 
     }).then(function (responseData) {
-      disclaimer = responseData.disclaimer;
+      me.setState({disclaimer: responseData.disclaimer});
+    })
+  }
+
+  loadResources() {
+    var me = this;
+
+    fetch(process.env.PUBLIC_URL +'/content/exhibitsAndActivities.json')
+    .then(function (rawResponse) {
+      return rawResponse.json();
+    }).then(function (responseData) {
+      me.setState({
+        exhibitsAndActivities: responseData
+      });
+    })
+
+    fetch(process.env.PUBLIC_URL +'/content/activitiesInDetail.json')
+    .then(function (rawResponse) {
+      return rawResponse.json();
+    }).then(function (responseData) {
+      me.setState({
+        activitiesInDetail: responseData
+      });
+    })
+
+    fetch(process.env.PUBLIC_URL +'/content/questions.json')
+    .then(function (rawResponse) {
+      return rawResponse.json();
+    }).then(function (responseData) {
+      me.setState({
+        questions: responseData
+      });
     })
 
     fetch(process.env.PUBLIC_URL +'/content/robotArmsImages.json')
@@ -240,23 +241,27 @@ class App extends Component {
       return rawResponse.json();
 
     }).then(function (responseData) {
-      robotArmsImages = responseData;
+      me.setState({
+        robotArmsImages: responseData
+      });
     })
 
     fetch(process.env.PUBLIC_URL +'/content/robotBodyImages.json')
     .then(function (rawResponse) {
       return rawResponse.json();
-
     }).then(function (responseData) {
-      robotBodyImages = responseData;
+      me.setState({
+        robotBodyImages: responseData
+      });
     })
 
     fetch(process.env.PUBLIC_URL +'/content/robotHeadImages.json')
     .then(function (rawResponse) {
       return rawResponse.json();
-
     }).then(function (responseData) {
-      robotHeadImages = responseData;
+      me.setState({
+        robotHeadImages: responseData
+      });
     })
 
     fetch(process.env.PUBLIC_URL +'/content/robotLegsImages.json')
@@ -264,7 +269,9 @@ class App extends Component {
       return rawResponse.json();
 
     }).then(function (responseData) {
-      robotLegsImages = responseData;
+      me.setState({
+        robotLegsImages: responseData
+      });
     })
 
     fetch(process.env.PUBLIC_URL +'/content/robotBowTieImages.json')
@@ -272,20 +279,11 @@ class App extends Component {
       return rawResponse.json();
 
     }).then(function (responseData) {
-      robotBowTieImages = responseData;
+      me.setState({
+        robotBowTieImages: responseData
+      });
     })
 
-    this.setState({
-      exhibitsAndActivities: exhibitsAndActivities,
-      activitiesInDetail: activitiesInDetail,
-      questions: questions,
-      disclaimer: disclaimer,
-      robotArmsImages: robotArmsImages,
-      robotLegsImages: robotLegsImages,
-      robotBodyImages: robotBodyImages,
-      robotHeadImages: robotHeadImages,
-      robotBowTieImages: robotBowTieImages
-    });
   }
 
   render() {
