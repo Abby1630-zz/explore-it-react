@@ -76,6 +76,7 @@ class App extends Component {
     this.changeRobot = this.changeRobot.bind(this)
     this.changeQuizValues = this.changeQuizValues.bind(this)
     this.addtoFirebase = this.addtoFirebase.bind(this)
+    this.loadResources = this.loadResources.bind(this)
     ReactGA.initialize('UA-96822574-1'); //Unique Google Analytics tracking number
 
     ReactGA.set({ userId: uid });
@@ -127,6 +128,10 @@ class App extends Component {
     var statesToSet = {
       renderedPage: pageName
     };
+
+    if (this.state.renderedPage === 'Intro') {
+      this.loadResources();
+    }
 
     if (this.state.renderedPage=== 'CustomizeRobot'){
       statesToSet = {
@@ -189,33 +194,37 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
+  loadResources() {
+    var exhibitsAndActivities;
+    var activitiesInDetail;
+    var questions;
+    var disclaimer;
+    var robotArmsImages;
+    var robotLegsImages;
+    var robotBodyImages;
+    var robotHeadImages;
+    var robotBowTieImages
+
     var me = this;
     fetch(process.env.PUBLIC_URL +'/content/exhibitsAndActivities.json')
     .then(function (rawResponse) {
       return rawResponse.json();
     }).then(function (responseData) {
-      me.setState({
-        exhibitsAndActivities: responseData
-      });
+      exhibitsAndActivities = responseData;
     })
 
     fetch(process.env.PUBLIC_URL +'/content/activitiesInDetail.json')
     .then(function (rawResponse) {
       return rawResponse.json();
     }).then(function (responseData) {
-      me.setState({
-        activitiesInDetail: responseData
-      });
+      activitiesInDetail = responseData;
     })
 
     fetch(process.env.PUBLIC_URL +'/content/questions.json')
     .then(function (rawResponse) {
       return rawResponse.json();
     }).then(function (responseData) {
-      me.setState({
-        questions: responseData
-      });
+      questions = responseData;
     })
 
     fetch(process.env.PUBLIC_URL +'/content/disclaimer.json')
@@ -223,9 +232,7 @@ class App extends Component {
       return rawResponse.json();
 
     }).then(function (responseData) {
-      me.setState({
-        disclaimer: responseData.disclaimer
-      });
+      disclaimer = responseData.disclaimer;
     })
 
     fetch(process.env.PUBLIC_URL +'/content/robotArmsImages.json')
@@ -233,9 +240,7 @@ class App extends Component {
       return rawResponse.json();
 
     }).then(function (responseData) {
-      me.setState({
-        robotArmsImages: responseData
-      });
+      robotArmsImages = responseData;
     })
 
     fetch(process.env.PUBLIC_URL +'/content/robotBodyImages.json')
@@ -243,9 +248,7 @@ class App extends Component {
       return rawResponse.json();
 
     }).then(function (responseData) {
-      me.setState({
-        robotBodyImages: responseData
-      });
+      robotBodyImages = responseData;
     })
 
     fetch(process.env.PUBLIC_URL +'/content/robotHeadImages.json')
@@ -253,9 +256,7 @@ class App extends Component {
       return rawResponse.json();
 
     }).then(function (responseData) {
-      me.setState({
-        robotHeadImages: responseData
-      });
+      robotHeadImages = responseData;
     })
 
     fetch(process.env.PUBLIC_URL +'/content/robotLegsImages.json')
@@ -263,9 +264,7 @@ class App extends Component {
       return rawResponse.json();
 
     }).then(function (responseData) {
-      me.setState({
-        robotLegsImages: responseData
-      });
+      robotLegsImages = responseData;
     })
 
     fetch(process.env.PUBLIC_URL +'/content/robotBowTieImages.json')
@@ -273,10 +272,20 @@ class App extends Component {
       return rawResponse.json();
 
     }).then(function (responseData) {
-      me.setState({
-        robotBowTieImages: responseData
-      });
+      robotBowTieImages = responseData;
     })
+
+    this.setState({
+      exhibitsAndActivities: exhibitsAndActivities,
+      activitiesInDetail: activitiesInDetail,
+      questions: questions,
+      disclaimer: disclaimer,
+      robotArmsImages: robotArmsImages,
+      robotLegsImages: robotLegsImages,
+      robotBodyImages: robotBodyImages,
+      robotHeadImages: robotHeadImages,
+      robotBowTieImages: robotBowTieImages
+    });
   }
 
   render() {
