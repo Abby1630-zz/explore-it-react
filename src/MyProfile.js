@@ -29,7 +29,7 @@ class MyProfile extends Component {
 
     this.nextPage = this.nextPage.bind(this);
     this.enableSubmit = this.enableSubmit.bind(this);
-    this.returnTermsAndConditions = this.returnTermsAndConditions.bind(this);
+    // this.returnTermsAndConditions = this.returnTermsAndConditions.bind(this);
     this.onChange = this.onChange.bind(this);
   }
 
@@ -47,7 +47,7 @@ class MyProfile extends Component {
         timestamp: now,
       };
       this.props.addtoFirebase('my_profile', tableData);
-      if (this.props.page) {
+      if (this.props.showRobot === true) {
         this.props.changePage('CustomizeRobot');
       } else {
         this.props.changePage('SelectActivity');
@@ -69,20 +69,20 @@ class MyProfile extends Component {
     this.setState({iAgree: e.target.checked});
   }
 
-  returnTermsAndConditions(currentPage, enableSubmit) {
-    if (currentPage === "Intro") {
-      return (
-        <div>
-          <Disclaimer header="Terms & Conditions" open={false} body={this.props.disclaimer}/>
-          <Checkbox onChange={e => this.enableSubmit(e)} ref="check_me" id="iAgree">
-            By selecting, you agree to the terms and conditions.
-          </Checkbox>
-        </div>
-      );
-    }
-
-    return null;
-  }
+  // returnTermsAndConditions(currentPage, enableSubmit) {
+  //   if (currentPage === "Intro") {
+  //     return (
+  //       <div>
+  //         <Disclaimer header="Terms & Conditions" open={false} body={this.props.disclaimer}/>
+  //         <Checkbox onChange={e => this.enableSubmit(e)} ref="check_me" id="iAgree">
+  //           By selecting, you agree to the terms and conditions.
+  //         </Checkbox>
+  //       </div>
+  //     );
+  //   }
+  //
+  //   return null;
+  // }
 
   onChange(event, name, data, change) {
     // ...
@@ -103,7 +103,13 @@ class MyProfile extends Component {
             <ChildInfo bsStyle="success" className="explore-purple-panel"/>
             <hr className="explore-small-hr"/>
             <ParentInfo bsStyle="success" className="explore-blue-panel"/>
-            <hr className="explore-small-hr"/> {this.returnTermsAndConditions(this.props.page, this.enableSubmit)}
+            <hr className="explore-small-hr"/>
+            <div>
+              <Disclaimer header="Terms & Conditions" open={false} body={this.props.disclaimer}/>
+              <Checkbox onChange={e => this.enableSubmit(e)} ref="check_me" id="iAgree">
+                By selecting, you agree to the terms and conditions.
+              </Checkbox>
+            </div>
             <Button className="explore-light-blue-button" bsStyle="info" bsSize="large" onClick={this.nextPage}>Done!</Button>
           </AutoForm>
         </Grid>

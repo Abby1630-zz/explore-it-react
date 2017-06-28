@@ -6,13 +6,17 @@ import './css/RewardCountdown.css'
 
 class RewardCountdown extends Component {
   render() {
-    return(
-      <p>
-        Complete
-        <Badge bsClass="badge" className="explore-blue">{this.props.countUntilNextReward}</Badge>
+    if (this.props.showRobot === true){
+      return(
+        <p>
+          Complete
+          <Badge bsClass="badge" className="explore-blue">{this.props.countUntilNextReward}</Badge>
           more activities for your next reward!
-      </p>
-    );
+        </p>
+      );
+    } else {
+      return null;
+    }
   }
 }
 

@@ -379,7 +379,7 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction,
   if (renderPage === 'SelectActivity') {
     return (
       <div>
-        <RewardCountdown countUntilNextReward={countUntilNextReward}/>
+        <RewardCountdown countUntilNextReward={countUntilNextReward} showRobot={showRobot}/>
         <Instructions page={renderPage}/>
         <SelectActivity
           addtoFirebase={addtoFirebaseFunction}
@@ -481,6 +481,7 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction,
           changePage={changePageFunction}
           page={renderPage}
           disclaimer={disclaimer}
+          showRobot={showRobot}
         />
       </div>
     );
