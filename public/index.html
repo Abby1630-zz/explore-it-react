@@ -1,8 +1,49 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style type="text/css">
+      .start-nav{
+        height: 50px;
+        background-color: #3AB54A;
+        width: 110%;
+        margin-left: -8px;
+        margin-top: -8px;
+      }
+      .start-navbar-brand{
+        color: white;
+        float: left;
+        height: 50px;
+        padding: 15px;
+        font-size: 18px;
+        line-height: 20px;
+      }
+      *{
+        font-size: 15px;
+        font-family: sans-serif;
+        text-align: center;
+      }
+      .start-image-container {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 10px;
+        height: 125px;
+      }
+      .start-hr{
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border: 0;
+        border-top: 1px solid #eee;
+      }
+      .start-heading{
+        font-size: 36px;
+        font-weight: 500;
+        line-height: 1.1;
+      }
+    </style>
 
     <!-- Optional theme -->
 
@@ -17,10 +58,50 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Glazer Children's Museum ExploreIT</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="navbar"></div>
-    <div id="body"></div>
+    <div id="body">
+        <div>
+            <nav class="start-nav">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div>
+                            <a class="start-navbar-brand">
+                              ExploreIT
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="App-Body">
+                <div>
+                    <div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="start-image-container"><img src=""></div>
+                            </div>
+                            <hr class="start-hr">
+                            <div class="start-image-container">
+                              <h1 class="start-heading">Welcome!</h1>
+                            </div>
+                            <hr class="start-hr">
+                            <div class="start-image-container">
+                            </div>
+                            <hr class="start-hr">
+                            <div class="start-image-container">
+                            </div>
+                            <hr class="start-hr">
+                            <div class="start-image-container">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="start-hr">
+            </div>
+        </div>
+    </div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -31,10 +112,10 @@
       To begin the development, run `npm start`.
       To create a production bundle, use `npm run build`.
     -->
-  </body>
-  <script src="https://use.fontawesome.com/b80f9ee6b1.js" defer="true"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+</body>
+<script src="https://use.fontawesome.com/b80f9ee6b1.js" defer="true"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
 </html>

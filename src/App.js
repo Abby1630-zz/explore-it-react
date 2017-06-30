@@ -9,6 +9,7 @@ import CustomizeRobot from './CustomizeRobot';
 import Instructions from './Instructions';
 import MyProfile from './MyProfile';
 import NavBar from './NavBar';
+import Fade from 'react-bootstrap/lib/Fade';
 import Quiz from './Quiz';
 import RewardCountdown from './RewardCountdown';
 import SelectActivity from './SelectActivity';
@@ -488,13 +489,15 @@ function getPage (state, showRobot, changePageFunction, changeActivityFunction,
   } else if (renderPage === 'Welcome' ) {
     return (
       <div>
-        <Welcome
-          addtoFirebase={addtoFirebaseFunction}
-          userID={userID}
-          ReactGA={ReactGA}
-          changePage={changePageFunction}
-          page={renderPage}
-        />
+        <Fade in={true}>
+          <Welcome
+            addtoFirebase={addtoFirebaseFunction}
+            userID={userID}
+            ReactGA={ReactGA}
+            changePage={changePageFunction}
+            page={renderPage}
+          />
+        </Fade>
       </div>
     );
   }
